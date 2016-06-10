@@ -1,0 +1,36 @@
+<tool id="tophat_stats" name="Tophat results statistics">
+<requirements>
+</requirements>
+
+  <description>Compare many mappings from Tophat</description>
+  <command interpreter="python"> TopHat_stat.py -o $output -f 
+#for $r in $results
+  ${r.file.file_name} 
+#end for
+-n 
+#for $r in $results
+  "${r.file.hid}: ${r.file.name}" 
+#end for
+
+</command>
+  <inputs>
+    <repeat name="results" title="Tophat results align summaries" default="1" min="1">
+      <param name="file" label="Add Tophat align summary" format="txt" type="data" />
+    </repeat>
+
+  </inputs>
+  <outputs>
+        <data format="tabular" name="output" label="${tool.name} on ${on_string}"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+Prepare summary of multiple Tophat2 mappings. Presents results in csv file.
+
+Author: Irina
+  </help>
+
+</tool>
+

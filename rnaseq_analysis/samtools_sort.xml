@@ -1,0 +1,31 @@
+<tool id="samtools_sort" name="Sort BAM file with samtools">
+<requirements>
+</requirements>
+
+  <description>Sort BAM file with samtools</description>
+  <command> /usr/bin/samtools sort $input $output 
+2&gt;&amp;1 || echo "Error running samtools sort. " &gt;&amp;2 
+; mv ${output}.bam ${output} 
+
+</command>
+  <inputs>
+    <param format="bam" name="input" type="data" optional="false" label="Unsorted BAM file"/>
+  </inputs>
+  <outputs>
+        <data format="bam" name="output" metadata_source="input"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+    Sort BAM file using samtools. Runs command
+
+samtools sort -f $input $output
+
+Author: Julia
+
+  </help>
+
+</tool>
+

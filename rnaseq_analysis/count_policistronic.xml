@@ -1,0 +1,98 @@
+<tool id="count_policistronic" name="Count policistronic cuts" version="1.1">
+<requirements>
+    <requirement type="python-module">pysam</requirement>
+</requirements>
+
+  <description>Counts policistronic cuts (before DESeq)</description>
+  <command interpreter="bash"> 
+#if $bams.strand=="."
+  count_policystr2.sh $annotation $output 
+  \${GALAXY_SLOTS:-2} $overlap
+
+  -f
+  #for $b in $bams.treated_bams
+    "${b.tbam_filep.file_name}"
+    "${b.tbam_filep.metadata.bam_index}"
+    "${b.tbam_filem.file_name}"
+    "${b.tbam_filem.metadata.bam_index}"
+    #if str($b['fname']) == ""
+      'data ${b.tbam_filep.hid} and ${b.tbam_filem.hid}'
+    #else
+      "${b.fname}"
+    #end if
+  #end for
+#end if
+
+#if $bams.strand=="+" or $bams.strand=="-"
+  count_policystr.sh $annotation $output 
+  \${GALAXY_SLOTS:-4} $overlap $bams.strand
+  
+  -f 
+  #for $b in $bams.treated_bams
+    "${b.tbam_file.file_name}"
+    "${b.tbam_file.metadata.bam_index}"
+    #if str($b['fname']) == ""
+      'data ${b.tbam_file.hid}'
+    #else
+      "${b.fname}"
+    #end if
+  #end for
+#end if
+
+
+
+
+</command>
+  <inputs>
+    <conditional name="bams">
+      <param name="strand" type="select" label="Choose strand">
+        <option value="." selected="true">both</option>
+        <option value="+">plus (Watson)</option>
+        <option value="-">minus (Crick)</option>
+      </param>
+
+      <when value="."> 
+          <repeat name="treated_bams" title="Input bam files" min="0" default="0">
+              <param name="tbam_filep" label="Input bam file - plus reads" format="bam" type="data" data_ref="bam_file"  />
+              <param name="tbam_filem" label="Input bam file - minus reads" format="bam" type="data" data_ref="bam_file" />
+              <param name="fname" label="Track name" type="text"/>
+          </repeat>
+     </when>
+
+     <when value="+">
+         <repeat name="treated_bams" title="Input bam files" min="0" default="0">
+             <param name="tbam_file" label="Input bam file" format="bam" type="data" data_ref="bam_file"  />
+             <param name="fname" label="Track name" type="text"/>
+         </repeat>
+    </when> 
+    <when value="-">
+         <repeat name="treated_bams" title="Input bam files" min="0" default="0">
+             <param name="tbam_file" label="Input bam file" format="bam" type="data" data_ref="bam_file"  />
+             <param name="fname" label="Track name" type="text"/>
+         </repeat>
+    </when> 
+    </conditional>
+    <param format="tabular" name="annotation" type="data" optional="false" label="Genome or region annotation"/>
+    <param name="overlap" type="integer" min="1" value="5" label="Reads nucleotides that should overlap the gene border"/>
+    
+  </inputs>
+  <outputs>
+        <data format="tabular" name="output" label="${tool.name} on ${on_string}"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+
+Count policistronic reads in mitochondrial genome.
+
+Requires annotation in format: 
+
+seq_id chromosome strand start end exon_starts exon_ends human_readable_gene_name
+
+Author: Irina
+  </help>
+
+</tool>
+

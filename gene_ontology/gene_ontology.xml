@@ -1,0 +1,60 @@
+<tool id="gene_ontology" name="Gene ontology enrichment">
+<requirements>
+</requirements>
+
+  <description>TODO</description>
+  <command interpreter="python"> 
+	#if $params.method == "gsea"
+		run_ranked_enrichment.py -t GSEA -p $params.perms -n $params.minset -c $params.corrpower 
+	#end if
+	-i ${input.file_name} -a ${assoc.file_name} -g ${go_graph.file_name}
+	-f html -o ${output.file_name}
+</command>
+  <inputs>
+      <param name="input" label="DESeq results" format="txt" type="data" />
+      <param name="assoc" label="Association" format="gaf" type="data" />
+      <param name="go_graph" label="GO annotation" format="obo" type="data" />
+
+      <conditional name="params">
+	<param name="method" type="select" label="Enrichment analysis method">
+	  <option value="tt">Term for term</option>
+	  <option value="pc">Parent-child</option>
+	  <option value="gsea">GSEA (use ranking)</option>
+	  <option value="rpc">Ranked Parent-child</option>
+	</param>
+
+
+	
+	<when value="gsea">
+	  <!-- <param name="perms" label="Number of permitations (for computing p-value)" type="integer" value="1000" min="10" max="10000" />-->
+	  <param name="perms" label="Number of permitations (for computing p-value)" type="select" multiple="false" >
+		<option value="10">10</option>
+		<option value="100">100</option>
+		<option value="1000">1000</option>
+		<option value="10000">10000</option>
+	  </param>
+	  <param name="minset" label="Minimal intersection between set of genes in rank and in studied set" type="integer" value="1" min="1" max="100" />
+	  <param name="corrpower" label="How strong correlation will affect enrichment" type="float" value="1" min="0" max="1" />
+	</when>
+
+
+
+      </conditional>
+
+  </inputs>
+  <outputs>
+        <data format="html" name="output" label="${tool.name} on ${on_string}"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+
+Method and implementation: Kamil Koziara
+
+Wrapper: Julia
+  </help>
+
+</tool>
+

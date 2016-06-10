@@ -1,0 +1,39 @@
+<tool id="pair_fastq_files_after_filtering" name="Re-pair fastq" version="2.0">
+  <description>Restore pairing in paired-end sequencing data after filtering of reads</description>
+  <command interpreter="python">pair_fastq.py -u $unfiltered_input1 -i $filtered_1 $filtered_2 -o "$output_1" "$output_2" 
+#if $unpaired
+-s "$output_3"
+#end if 
+</command>
+  <inputs>
+    <param format="fastq" name="unfiltered_input1" type="data" label="Unfiltered source file (lefts)"/>
+    <param format="fastq" name="unfiltered_input2" type="data" label="Unfiltered source file (rights)"/>
+    <param format="fastq" name="filtered_1" type="data" label="Filtered left-end reads"/>
+    <param format="fastq" name="filtered_2" type="data" label="Filtered right-end reads"/>
+    <param name="unpaired" type="boolean" checked="false" label="Output unpaired reads?"/>
+
+    
+  </inputs>
+  <outputs>
+    <data format="input" name="output_1" format_source="unfiltered_input1"
+          label="${tool.name}: paired left reads from ${filtered_1.hid} (${unfiltered_input1.hid})"/>
+    <data format="input" name="output_2" format_source="unfiltered_input1" 
+          label="${tool.name}: paired right reads from ${filtered_2.hid} (${unfiltered_input2.hid})"/>
+    <data format="input" name="output_3" format_source="unfiltered_input1"
+          label="${tool.name}: Unpaired reads from ${filtered_1.hid} and ${filtered_2.hid} (${unfiltered_input1.hid}, ${unfiltered_input2.hid})">
+       <filter> unpaired is True </filter>
+    </data>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+This tool extracts pairs from paired-end sequencing results which pairing of reads was damaged by filtering (i.e. quality trimming). Useful for further TopHat analysis. Requires primary (unfiltered) fastq file.
+  
+  Author: Julia
+  </help>
+
+</tool>
+
+

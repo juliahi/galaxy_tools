@@ -1,0 +1,41 @@
+<tool id="my_deseq" name="Run DESeq">
+<requirements>
+    <!-- <requirement type="set_environment">R_SCRIPT_PATH</requirement>-->
+    <requirement type="package" >R</requirement>
+    <requirement type="package" >DESeq2</requirement>
+</requirements>
+
+  <description>Run differential gene/exon usage analysis</description>
+  <command interpreter="Rscript"> run_deseq.R $counts $output $output2 $fittype
+#for $N in $samples
+  ${N.istreated} 
+#end for
+
+</command>
+  <inputs>
+    <param format="tabular" name="counts" type="data" optional="false" label="Input counted gene/exon hits"/>
+    <repeat name="samples" title="Determine sample types" min="1" default="1">
+      <param name="istreated" label="Is treated?" type="boolean" truevalue="1" falsevalue="0" />
+    </repeat>
+    <param name="fittype" type="select" label="Estimate dispersion parameter fitType">
+      <option value="parametric">Parametric (default)</option>
+      <option value="local">Local (mandatory for only one condition or lack of repeats)</option>
+    </param>
+  </inputs>
+  <outputs>
+        <data format="tabular" name="output"/>
+        <data format="pdf" name="output2"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+    Run differential expression analysis with DESeq.
+
+
+Author: Julia
+  </help>
+
+</tool>
+

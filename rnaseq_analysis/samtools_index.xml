@@ -1,0 +1,28 @@
+<tool id="samtools_index" name="Index BAM file with samtools">
+<requirements>
+</requirements>
+
+  <description>Index BAM file with samtools</description>
+  <command> samtools index $input $output 
+
+</command>
+  <inputs>
+    <param format="bam" name="input" type="data" optional="false" label="Sorted BAM file"/>
+  </inputs>
+  <outputs>
+        <data format="bam" name="output"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+    Index BAM file using samtools. Runs command:
+
+samtools index $input $output
+
+Author: Julia
+  </help>
+
+</tool>
+
