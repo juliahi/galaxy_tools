@@ -8,6 +8,7 @@ import argparse
 import Bio.Ontology
 import Bio.Ontology.IO as OntoIO
 
+filename = sys.argv[1]
 
 
 def read_deseq_output(filename):
@@ -32,15 +33,13 @@ def read_deseq_output(filename):
                 minval = min(minval, float(content[column]))
             
     if remove_inf:
-            return [(x[0], float(x[1])) for x in out if "Inf" not in x[1] ]
+            return [x for x in out if "Inf" not in x[1] ]
     else:
             for i, x in enumerate(out):
                 if x[1] == "Inf":
                     out[i][1] = maxval
                 elif x[1] == "-Inf":
                     out[i][1] = minvalue
-                else:
-                    out[i][1] = float(x[1])
     return out
 
 
@@ -56,9 +55,12 @@ def run_gsea(assocs, go_graph, gene_rank, perms, minset, corr):
 
     return result
 
+def run_parent_child(assocs, go_graph, gene_rank, side, corrections, rank_as_population, method):
+    from Bio.Ontology import RankedParentChildEnrichmentFinder
 
-
-
+    ef = RankedParentChildEnrichmentFinder(assocs, go_graph)
+    result = ef.find_enrichment(gene_rank, side, corrections, rank_as_population, method)
+    return result
 
 
 
@@ -80,6 +82,11 @@ def check_file(parser, arg, openparam):
 def main():
     parser = argparse.ArgumentParser(description='run Ranked Gene Ontology on DESeq output')
     
+    subparsers = parser.add_subparsers(help='type of enrichment analysis')
+   
+    parser1 = subparsers.add_parser("GSEA")
+    parser2 = subparsers.add_parser("parent-child")
+    
     
     parser.add_argument('-o', '--out', type=str, required=True,
                    help='output file')
@@ -91,23 +98,38 @@ def main():
     parser.add_argument('-g', '--gograph', type=str, required=True,
                    help='input GO graph file (.obo)')
     
-    
-    parser.add_argument('-t', '--type', choices=["GSEA", "parent-child"],
-                   help='type of enrichment analysis', required=True)
-    
     parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png"],  
                    help='output file format', default = "html")
     
     
+    
+    
+    
     #GSEA params
-    parser.add_argument('-p', '--perms', type=int, default=1000, 
+    parser1.add_argument('-p', '--perms', type=int, default=1000, 
                    help='number of permutations to compute p-values')
-    parser.add_argument('-n', '--minset', type=int, default=1, 
+    parser1.add_argument('-n', '--minset', type=int, default=1, 
                    help='minimal intersection between set of genes in rank and in studied set')
-    parser.add_argument('-c', '--corrpower', type=float, default=1, 
+    parser1.add_argument('-c', '--corrpower', type=float, default=1, 
                    help='how strong correlation will affect enrichment')
 
+    parser1.set_defaults(which='GSEA')
 
+    #Ranked Parent-child
+    parser2.add_argument('-s', '--side', choices=["+","-", "+/-"],  
+                   help='from which side (highest or lowest) to start computation', default = "+")
+    
+    parser2.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr"],  
+                   help='multiple hypothesis testing corrections', nargs='+', default=[])
+    
+    parser2.add_argument('-r', '--rank-as-population', action='store_true',
+                   help='only the rank should be used as population')
+    
+    
+    parser2.add_argument('-m', '--method', choices=["union", "intersection", "term"],  
+                   help='method used to compute probabilities', default = "union")
+    
+    parser2.set_defaults(which='parent-child')
     
     #validate args
     args = parser.parse_args()
@@ -118,31 +140,35 @@ def main():
     
     
     
-    if args.type == "GSEA":
+    if args.which == "GSEA":
         #check parameters
-        #TODO
-        pass;
+        
+        if args.perms < 1:
+            parser.error('wrong number of permutations: %d' % args.p)
+        
+    #elif args.which == "parent-child":
+        
     
-    gene_rank = read_deseq_output(args.inp)
+    #gene_rank = read_deseq_output(args.inp)
     
-    #gene_rank = [('FBgn0043467', 0.1), ('FBgn0010339', 0.7), ('FBgn0070057', 0.4), ('FBgn0070052', 0.9)]
+    gene_rank = [('FBgn0043467', 0.1), ('FBgn0010339', 0.7), ('FBgn0070057', 0.4), ('FBgn0070052', 0.9)]
+    
+    
     #go_graph = OntoIO.read("Ontology/go_test.obo", "obo")
     #assocs = OntoIO.read("Ontology/ga_test.fb", "gaf")
-    
-    print gene_rank
     
     go_graph = OntoIO.read(args.gograph, "obo")
     assocs = OntoIO.read(args.assoc, "gaf")
     result=None
     
-    if args.type == "GSEA":
+    if args.which == "GSEA":
         result = run_gsea(assocs, go_graph, gene_rank, args.perms, args.minset, args.corrpower)
     else:
-        parser.error("Method unimplemented!")
-        #result = run_parent_child(assocs, go_graph, gene_rank, )
-    print result
-    
+        #parser.error("Method unimplemented!")
+        result = run_parent_child(assocs, go_graph, gene_rank, args.side, args.corrections, args.rank_as_population, args.method)
 
+
+    print result
     with open(args.out, 'w+') as outfile:
         assert result!= None,  "An error occured while computing result"
         OntoIO.pretty_print(result, go_graph, outfile, args.outputformat)

@@ -4,11 +4,16 @@
 
   <description>TODO</description>
   <command interpreter="python"> 
-	#if $params.method == "gsea"
-		run_ranked_enrichment.py -t GSEA -p $params.perms -n $params.minset -c $params.corrpower 
-	#end if
+	run_ranked_enrichment.py
 	-i ${input.file_name} -a ${assoc.file_name} -g ${go_graph.file_name}
 	-f html -o ${output.file_name}
+
+	#if $params.method == "gsea"
+		GSEA -p $params.perms -n $params.minset -c $params.corrpower 
+	#elif $params.method == "rpc"
+		parent-child -s $params.side -c $params.corrections 
+	#end if
+	
 </command>
   <inputs>
       <param name="input" label="DESeq results" format="txt" type="data" />
@@ -37,6 +42,24 @@
 	  <param name="corrpower" label="How strong correlation will affect enrichment" type="float" value="1" min="0" max="1" />
 	</when>
 
+	<when value="rpc">
+	  <!-- <param name="perms" label="Number of permitations (for computing p-value)" type="integer" value="1000" min="10" max="10000" />-->
+	  <param name="side" label="from which side (highest or lowest) to start computation" type="select" multiple="false" >
+		<option value="+">highest</option>
+		<option value="-">lowest</option>
+		<option value="+/-">both</option>
+	  </param>
+	  <param name="corrections" label="multiple hypothesis testing corrections" type="select" multiple="true" >
+		<option value="bonferroni">Bonferroni</option>
+		<option value="bh_fdr">Benjamini-Hochberg FDR</option>
+	  </param>
+	  <param name="rank-as-population" label="only the rank should be used as population" type="boolean" value="false" />
+	  <param name="method" label="method used to compute probabilities" type="select" multiple="false" required="true" >
+		<option value="union">parent_child_union</option>
+		<option value="intersection">parent_child_intersection</option>
+		<option value="term">Term for term</option>
+	  </param>
+	</when>
 
 
       </conditional>
@@ -57,4 +80,5 @@ Wrapper: Julia
   </help>
 
 </tool>
+
 
