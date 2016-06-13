@@ -9,6 +9,7 @@ import Bio.Ontology
 import Bio.Ontology.IO as OntoIO
 
 
+
 def read_deseq_output(filename, column):
     ##column=5 #value from which column to take -> 5=log2FoldChange
     remove_inf = True   #remove entries with infinity? (otherwise change to max)
@@ -49,19 +50,18 @@ def read_deseq_output(filename, column):
 
 
 
-def run_gsea(assocs, go_graph, gene_rank, perms, minset, corr):
-    from Bio.Ontology import GseaEnrichmentFinder
+def run_term(assocs, go_graph, gene_list, corrections):
+    from Bio.Ontology import TermForTermEnrichmentFinder
 
-    ef = GseaEnrichmentFinder(assocs, go_graph)
-    result = ef.find_enrichment(gene_rank, perms_no = perms, min_set_rank_intersection=minset, corr_power=corr)
-
+    ef = TermForTermEnrichmentFinder(assocs, go_graph)
+    result = ef.find_enrichment(gene_list, corrections)
     return result
 
-def run_parent_child(assocs, go_graph, gene_rank, side, corrections, rank_as_population, method):
-    from Bio.Ontology import RankedParentChildEnrichmentFinder
+def run_parent_child(assocs, go_graph, gene_list, corrections, method):
+    from Bio.Ontology import ParentChildEnrichmentFinder
 
-    ef = RankedParentChildEnrichmentFinder(assocs, go_graph)
-    result = ef.find_enrichment(gene_rank, side, corrections, rank_as_population, method)
+    ef = ParentChildEnrichmentFinder(assocs, go_graph)
+    result = ef.find_enrichment(gene_list, corrections, method)
     return result
 
 
@@ -82,13 +82,11 @@ def check_file(parser, arg, openparam):
 
 
 def main():
-    main_parser = argparse.ArgumentParser(description='run Ranked Gene Ontology on DESeq output')
+    main_parser = argparse.ArgumentParser(description='run Gene Ontology on DESeq output')
     subparsers = main_parser.add_subparsers(dest='which', help='type of enrichment analysis')
     subparsers.required = True
    
     parser = argparse.ArgumentParser(add_help=False)
-    
-    
     
     required = parser.add_argument_group('required named arguments')
     required.add_argument('-o', '--out', type=str, required=True,
@@ -105,33 +103,29 @@ def main():
     parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png"],  
                    help='output file format', default = "html")
     
+    parser.add_argument('-l', '--level', type=float, default=0.05,
+                   help='Cutoff level for selecting genes')    
     parser.add_argument('-x', '--field', type=int, default=6,
-                   help='Field from file for ranking genes (starting from 1)')
+                   help='Field from file for selecting genes (starting from 1)')
+    
+    parser.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr"],  
+                   help='multiple hypothesis testing corrections', nargs='+', default=[])
     
     
-    parser1 = subparsers.add_parser("GSEA", parents=[parser])
+    parser1 = subparsers.add_parser("term-for-term", parents=[parser])
     parser2 = subparsers.add_parser("parent-child", parents=[parser])
     
-    #GSEA params
-    parser1.add_argument('-p', '--perms', type=int, default=1000, 
-                   help='number of permutations to compute p-values')
-    parser1.add_argument('-n', '--minset', type=int, default=1, 
-                   help='minimal intersection between set of genes in rank and in studied set')
-    parser1.add_argument('-c', '--corrpower', type=float, default=1, 
-                   help='how strong correlation will affect enrichment')
+    
 
-    #parser1.set_defaults(which='GSEA')
+    
+    #Term-for-term params
+    #parser1.set_defaults(which='term')
 
-    #Ranked Parent-child
-    parser2.add_argument('-s', '--side', choices=["+","-", "+/-"],  
-                   help='from which side (highest or lowest) to start computation', default = "+")
-    parser2.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr"],  
-                   help='multiple hypothesis testing corrections', nargs='+', default=[])
-    parser2.add_argument('-r', '--rank-as-population', action='store_true',
-                   help='only the rank should be used as population')
-    parser2.add_argument('-m', '--method', choices=["union", "intersection", "term"],  
+    #Parent-child
+    parser2.add_argument('-m', '--method', choices=["union", "intersection"],  
                    help='method used to compute probabilities', default = "union")
     #parser2.set_defaults(which='parent-child')
+    
     
     #validate args
     args = main_parser.parse_args()
@@ -140,15 +134,6 @@ def main():
     check_file(main_parser, args.gograph, 'r')
     check_file(main_parser, args.out, 'w+')
     
-    
-    
-    if args.which == "GSEA":
-        #check parameters
-        
-        if args.perms < 1:
-            parser.error('wrong number of permutations: %d' % args.p)
-        
-    #elif args.which == "parent-child":
     if not 2 <= args.field <= 8 :
         parser.error("Field must be a number from 2 to 8")
     
@@ -165,11 +150,20 @@ def main():
     assocs = OntoIO.read(args.assoc, "gaf")
     result=None
     
-    if args.which == "GSEA":
-        result = run_gsea(assocs, go_graph, gene_rank, args.perms, args.minset, args.corrpower)
-    else:
+    if args.field == 6: #log2FoldChange
+        gene_list = [name for name, val in gene_rank if abs(val) >= args.level ]
+    elif args.field == 7: #pval
+        gene_list = [name for name, val in gene_rank if val <= args.level ]
+    elif args.field == 8: #padj
+        gene_list = [name for name, val in gene_rank if val <= args.level ]
+    else: #baseMean or FoldChange
+        gene_list = [name for name, val in gene_rank if val >= args.level ]
+        
+    if args.which == "term-for-term":
+        result = run_term(assocs, go_graph, gene_list, args.corrections)
+    elif args.which == "parent-child":
         #parser.error("Method unimplemented!")
-        result = run_parent_child(assocs, go_graph, gene_rank, args.side, args.corrections, args.rank_as_population, args.method)
+        result = run_parent_child(assocs, go_graph, gene_list, args.corrections, args.method)
 
 
     print result
