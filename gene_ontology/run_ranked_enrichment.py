@@ -133,7 +133,11 @@ def main():
                    help='method used to compute probabilities', default = "union")
     #parser2.set_defaults(which='parent-child')
     
-    #validate args
+    #validate args    
+    if len(sys.argv) < 2:
+        main_parser.print_usage()
+        sys.exit(1)
+        
     args = main_parser.parse_args()
     check_file(main_parser, args.inp, 'r')
     check_file(main_parser, args.assoc, 'r')
