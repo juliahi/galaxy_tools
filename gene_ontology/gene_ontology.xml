@@ -4,29 +4,71 @@
 
   <description>Find enriched GO terms from DESeq results</description>
   <command interpreter="python"> 
-        #if ${params.method} == "gsea"
-            run_ranked_enrichment.py    GSEA            -p ${params.perms} -n ${params.minset} -c ${params.corrpower} -x 6  
-	#elif ${params.method} == "rpc"
-            run_ranked_enrichment.py    parent-child    -s ${params.side} -c ${params.corrections} -m ${params.method} -x 6 
-        #elif ${params.method} == "pc"
-            run_enrichment.py           parent-child    -c ${params.corrections}  -m ${params.method} -x ${params.field} -l ${params.cutoff}
-        #elif ${params.method} == "tt"
-            run_enrichment.py           term-for-term   -c ${params.corrections} -x ${params.field} -l ${params.cutoff}
+        #if $params.method == "gsea"
+            run_ranked_enrichment.py    GSEA            -p $params.perms -n $params.minset -c $params.corrpower -x 6  
+	#elif $params.method == "rpc"
+            run_ranked_enrichment.py    parent-child    -s "$params.side" -m $params.method -x 6 
+            #if $params.rank
+                -r
+            #end if
+            #if $params.corrections
+                -c $params.corrections  
+            #end if
+        #elif $params.method == "pc"
+            run_enrichment.py           parent-child    -m "$params.method" -x $params.cutoff.field -l $params.cutoff.level
+            #if $params.corrections
+                -c $params.corrections  
+            #end if
+        #elif $params.method == "tt"
+            run_enrichment.py           term-for-term   -x $params.cutoff.field -l $params.cutoff.level
+            #if $params.corrections
+                -c $params.corrections  
+            #end if
 	#end if
-            -i ${input.file_name} -a ${assoc.file_name} -g ${go_graph.file_name}
+        
+
+            -i ${input.file_name} -a ${assoc.file_name} 
+            <!--#if $go_graph.source == "user"
+                -g ${go_graph.go_file.file_name}
+            #else
+                -g $go_graph.go_cashed
+            #end if-->
+            -g ${go_graph.file_name}
             -f html -o ${output.file_name} 
 </command>
   <inputs>
       <param name="input" label="DESeq results" format="txt" type="data" />
-      <param name="assoc" label="Association" format="gaf" type="data" />
-      <param name="go_graph" label="GO annotation" format="obo" type="data" />
+      <param name="assoc" label="Association (GAF file)" format="gaf" type="data" />
+      
+      
+      
+      <param name="go_graph" label="GO annotation (OBO file)" format="obo" type="data" />
+      <!-- <conditional name="go_graph">
+        <param name="source" type="select" label="Gene Ontology Source">
+             <option value="cached" selected="true">Locally Cached Alignments</option>
+             <option value="user">Gene Ontology in Your History (in obo format)</option>
+           </param>
+          <when value="user">
+              <param name="go_file" type="data" format="obo" label="GO annotation" />
+          </when>
+        <when value="cached">
+            <param name="go_cashed" type="select" label="GO annotation" >
+                <options from_file="go_index.loc">
+                    <column name="name" index="0"/>
+                    <column name="value" index="1"/>
+                </options>
+            </param>
+        </when>
+      </conditional>
+      -->
+      
 
       <conditional name="params">
 	<param name="method" type="select" label="Enrichment analysis method">
+          <option value="gsea">GSEA (uses ranking on log2FoldChange)</option>
+          <option value="rpc">Ranked Parent-child (uses ranking on log2FoldChange)</option>
+          <option value="pc">Parent-child</option>
 	  <option value="tt">Term for term</option>
-	  <option value="pc">Parent-child</option>
-	  <option value="gsea">GSEA (uses ranking on log2FoldChange)</option>
-	  <option value="rpc">Ranked Parent-child (uses ranking on log2FoldChange)</option>
 	</param>
 	
 	<when value="gsea">
@@ -44,7 +86,7 @@
 	<when value="rpc">
 	  <!-- <param name="perms" label="Number of permitations (for computing p-value)" type="integer" value="1000" min="10" max="10000" />-->
 	  <param name="side" label="from which side (highest or lowest) to start computation" type="select" multiple="false" >
-		<option value="+" selected="True" >highest (default)</option>
+		<option value="+" selected="true" >highest (default)</option>
 		<option value="-">lowest</option>
 		<option value="+/-">both</option>
 	  </param>
@@ -52,7 +94,7 @@
 		<option value="bonferroni">Bonferroni</option>
 		<option value="bh_fdr">Benjamini-Hochberg FDR</option>
 	  </param>
-	  <param name="rank-as-population" label="only the rank should be used as population" type="boolean" value="false" />
+	  <param name="rank" label="only the rank should be used as population" type="boolean" value="false" />
 	  <param name="method" label="method used to compute probabilities" type="select" multiple="false" required="true" >
 		<option value="union" selected="True">parent_child_union (default)</option>
 		<option value="intersection">parent_child_intersection</option>
@@ -61,16 +103,31 @@
 	</when>
 
         <when value="pc">   
-          <param name="field" type="select" label="Which column to use">
-            <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-            <option value="5">foldChange</option>
-            <option value="6">log2FoldChange</option>
-            <option value="7">p-value</option>
-            <option value="8">p-value (adjusted)</option>
-          </param>
-
-          <param name="cutoff" label="Cut genes at this value in selected field (less or equal for p-values, more for FoldChange)" 
-                 type="float" value="0.05"/>
+            <conditional name="cutoff">
+                <param name="field" type="select" label="Which column to use">
+                    <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
+                    <option value="5">foldChange</option>
+                    <option value="6">log2FoldChange</option>
+                    <option value="7" selected="true">p-value</option>
+                    <option value="8">p-value (adjusted)</option>
+                </param>
+                <when value="5">
+                    <param name="level" label="Cut genes at this value in selected field (FoldChange >= value)" 
+                    type="float" value="4"/>
+                </when>
+                <when value="6">
+                    <param name="level" label="Cut genes at this value in selected field (log2FoldChange >= value)" 
+                    type="float" value="2"/>
+                </when>
+                <when value="7">
+                    <param name="level" label="Cut genes at this value in selected field (p-value &lt;= value)" 
+                    type="float" value="0.05"/>
+                </when>
+                <when value="8">
+                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt;= value)" 
+                    type="float" value="0.05"/>
+                </when>
+          </conditional>
           <param name="corrections" label="multiple hypothesis testing corrections" type="select" multiple="true" display="checkboxes">
                 <option value="bonferroni">Bonferroni</option>
                 <option value="bh_fdr">Benjamini-Hochberg FDR</option>
@@ -83,18 +140,32 @@
           
           
         </when>
-        <when value="tt">          
-          <param name="field" type="select" label="Which column to use">
-            <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-            <option value="5">foldChange</option>
-            <option value="6">log2FoldChange</option>
-            <option value="7">p-value</option>
-            <option value="8">p-value (adjusted)</option>
-          </param>
-          
-          <param name="cutoff" label="Cut genes at this value in selected field (less or equal for p-values, more for FoldChange)" 
-                 type="float" value="0.05"/>
-          
+        <when value="tt"> 
+            <conditional name="cutoff">
+                <param name="field" type="select" label="Which column to use">
+                    <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
+                    <option value="5">foldChange</option>
+                    <option value="6">log2FoldChange</option>
+                    <option value="7" selected="true">p-value</option>
+                    <option value="8">p-value (adjusted)</option>
+                </param>
+                <when value="5">
+                    <param name="level" label="Cut genes at this value in selected field (FoldChange >= value)" 
+                    type="float" value="4"/>
+                </when>
+                <when value="6">
+                    <param name="level" label="Cut genes at this value in selected field (log2FoldChange >= value)" 
+                    type="float" value="2"/>
+                </when>
+                <when value="7">
+                    <param name="level" label="Cut genes at this value in selected field (p-value &lt;= value)" 
+                    type="float" value="0.05"/>
+                </when>
+                <when value="8">
+                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt;= value)" 
+                    type="float" value="0.05"/>
+                </when>
+          </conditional>
           <param name="corrections" label="multiple hypothesis testing corrections" type="select" multiple="true" >
                 <option value="bonferroni">Bonferroni</option>
                 <option value="bh_fdr">Benjamini-Hochberg FDR</option>
