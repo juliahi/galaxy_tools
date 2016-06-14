@@ -125,7 +125,7 @@ def main():
     #Ranked Parent-child
     parser2.add_argument('-s', '--side', choices=["+","-", "+/-"],  
                    help='from which side (highest or lowest) to start computation', default = "+")
-    parser2.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr"],  
+    parser2.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr", "bonferroni,bh_fdr", "bh_fdr,bonferroni"],  
                    help='multiple hypothesis testing corrections', nargs='+', default=[])
     parser2.add_argument('-r', '--rank-as-population', action='store_true',
                    help='only the rank should be used as population')
@@ -144,7 +144,14 @@ def main():
     check_file(main_parser, args.gograph, 'r')
     check_file(main_parser, args.out, 'w+')
     
-    
+    if args.which == "parent-child":
+        cors = []
+        for cor in args.corrections:
+            if "," in cor:
+                cors += cor.split(",")
+            else:
+                cors.append(cor)
+        args.corrections = list(set(cors))
     
     if args.which == "GSEA":
         #check parameters

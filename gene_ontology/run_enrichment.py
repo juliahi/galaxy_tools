@@ -108,7 +108,7 @@ def main():
     parser.add_argument('-x', '--field', type=int, default=6,
                    help='Field from file for selecting genes (starting from 1)')
     
-    parser.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr"],  
+    parser.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr", "bonferroni,bh_fdr", "bh_fdr,bonferroni"],  
                    help='multiple hypothesis testing corrections', nargs='+', default=[])
     
     
@@ -138,8 +138,16 @@ def main():
     check_file(main_parser, args.gograph, 'r')
     check_file(main_parser, args.out, 'w+')
     
+    cors = []
+    for cor in args.corrections:
+        if "," in cor:
+            cors += cor.split(",")
+        else:
+            cors.append(cor)
+    args.corrections = list(set(cors))
+    
     if not 2 <= args.field <= 8 :
-        parser.error("Field must be a number from 2 to 8")
+        main_parser.error("Field must be a number from 2 to 8")
     
 
     gene_rank = read_deseq_output(args.inp, args.field-1)

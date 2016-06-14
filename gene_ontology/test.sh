@@ -17,7 +17,7 @@ python run_ranked_enrichment.py parent-child -o test2.out -i test/deseq.txt -g t
 
 
 python run_enrichment.py parent-child -o test3.out -i test/deseq.txt -g test/go_test.obo -a test/ga_test.fb  -f html -c bonferroni bh_fdr  -m union 
-python run_enrichment.py parent-child -m union -o test4.out -i test/deseq.txt -g test/go_test.obo -a test/ga_test.fb  -f html -c bonferroni bh_fdr 
+python run_enrichment.py parent-child -m union -o test4.out -i test/deseq.txt -g test/go_test.obo -a test/ga_test.fb  -f html -c bonferroni,bh_fdr 
 
 
 

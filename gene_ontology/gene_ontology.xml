@@ -15,7 +15,7 @@
                 -c $params.corrections  
             #end if
         #elif $params.method == "pc"
-            run_enrichment.py           parent-child    -m "$params.method" -x $params.cutoff.field -l $params.cutoff.level
+            run_enrichment.py           parent-child    -m "$params.pcmethod" -x $params.cutoff.field -l $params.cutoff.level
             #if $params.corrections
                 -c $params.corrections  
             #end if
@@ -132,7 +132,7 @@
                 <option value="bonferroni">Bonferroni</option>
                 <option value="bh_fdr">Benjamini-Hochberg FDR</option>
           </param>
-          <param name="method" label="method used to compute probabilities" type="select" multiple="false" required="true" >
+          <param name="pcmethod" label="method used to compute probabilities" type="select" multiple="false" required="true" >
                 <option value="union" selected="True">parent_child_union (default)</option>
                 <option value="intersection">parent_child_intersection</option>
           </param>
