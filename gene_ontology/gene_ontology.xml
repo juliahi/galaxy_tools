@@ -7,7 +7,7 @@
         #if $params.method == "gsea"
             run_ranked_enrichment.py    GSEA            -p $params.perms -n $params.minset -c $params.corrpower -x 6  
 	#elif $params.method == "rpc"
-            run_ranked_enrichment.py    parent-child    -s "$params.side" -m $params.method -x 6 
+            run_ranked_enrichment.py    parent-child    -s "$params.side" -m $params.rmethod -x 6 
             #if $params.rank
                 -r
             #end if
@@ -95,7 +95,7 @@
 		<option value="bh_fdr">Benjamini-Hochberg FDR</option>
 	  </param>
 	  <param name="rank" label="only the rank should be used as population" type="boolean" value="false" />
-	  <param name="method" label="method used to compute probabilities" type="select" multiple="false" required="true" >
+	  <param name="rmethod" label="method used to compute probabilities" type="select" multiple="false" required="true" >
 		<option value="union" selected="True">parent_child_union (default)</option>
 		<option value="intersection">parent_child_intersection</option>
 		<option value="term">Term for term</option>
@@ -166,7 +166,7 @@
                     type="float" value="0.05"/>
                 </when>
           </conditional>
-          <param name="corrections" label="multiple hypothesis testing corrections" type="select" multiple="true" >
+          <param name="corrections" label="multiple hypothesis testing corrections" type="select" multiple="true"  display="checkboxes" >
                 <option value="bonferroni">Bonferroni</option>
                 <option value="bh_fdr">Benjamini-Hochberg FDR</option>
           </param>
