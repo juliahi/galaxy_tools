@@ -15,12 +15,12 @@
                 -c $params.corrections  
             #end if
         #elif $params.method == "pc"
-            run_enrichment.py           parent-child    -m "$params.pcmethod" -x $params.cutoff.field -l $params.cutoff.level
+            run_enrichment.py           parent-child    -m "$params.pcmethod" -x $params.cutoff.field -l $params.cutoff.level -y $params.cutoff.leveltype
             #if $params.corrections
                 -c $params.corrections  
             #end if
         #elif $params.method == "tt"
-            run_enrichment.py           term-for-term   -x $params.cutoff.field -l $params.cutoff.level
+            run_enrichment.py           term-for-term   -x $params.cutoff.field -l $params.cutoff.level -y $params.cutoff.leveltype
             #if $params.corrections
                 -c $params.corrections  
             #end if
@@ -112,19 +112,33 @@
                     <option value="8">p-value (adjusted)</option>
                 </param>
                 <when value="5">
-                    <param name="level" label="Cut genes at this value in selected field (FoldChange >= value)" 
+                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
+                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
+                        <option value="lt">foldChange &lt; y </option>
+                        <option value="ge">foldChange  &gt;= y</option>
+                        <option value="alt">1/y &lt; foldChange &lt; y</option>
+                        <option value="age" selected="true">foldChange &gt;= y  or &lt;= 1/y   </option>
+                    </param>
+                    <param name="level" label="where y = " 
                     type="float" value="4"/>
                 </when>
-                <when value="6">
-                    <param name="level" label="Cut genes at this value in selected field (log2FoldChange >= value)" 
+                <when value="6">                    
+                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
+                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
+                        <option value="lt">log2FoldChange &lt; y </option>
+                        <option value="ge">log2FoldChange  &gt;= y</option>
+                        <option value="alt">abs(log2FoldChange)  &lt; y  </option>
+                        <option value="age" selected="true">abs(log2FoldChange)  &gt;= y  </option>
+                    </param>
+                    <param name="level" label="where y = " 
                     type="float" value="2"/>
                 </when>
                 <when value="7">
-                    <param name="level" label="Cut genes at this value in selected field (p-value &lt;= value)" 
+                    <param name="level" label="Cut genes at this value in selected field (p-value &lt; value)" 
                     type="float" value="0.05"/>
                 </when>
                 <when value="8">
-                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt;= value)" 
+                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt; value)" 
                     type="float" value="0.05"/>
                 </when>
           </conditional>
@@ -150,19 +164,33 @@
                     <option value="8">p-value (adjusted)</option>
                 </param>
                 <when value="5">
-                    <param name="level" label="Cut genes at this value in selected field (FoldChange >= value)" 
+                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
+                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
+                        <option value="lt">foldChange &lt; y </option>
+                        <option value="ge">foldChange  &gt;= y</option>
+                        <option value="alt">1/y &lt; foldChange &lt; y</option>
+                        <option value="age" selected="true">foldChange &gt;= y  or &lt;= 1/y   </option>
+                    </param>
+                    <param name="level" label="where y = " 
                     type="float" value="4"/>
                 </when>
                 <when value="6">
-                    <param name="level" label="Cut genes at this value in selected field (log2FoldChange >= value)" 
+                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
+                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
+                        <option value="lt">log2FoldChange &lt; y </option>
+                        <option value="ge">log2FoldChange  &gt;= y</option>
+                        <option value="alt">abs(log2FoldChange)  &lt; y  </option>
+                        <option value="age" selected="true">abs(log2FoldChange)  &gt;= y  </option>
+                    </param>
+                    <param name="level" label="where y = " 
                     type="float" value="2"/>
                 </when>
                 <when value="7">
-                    <param name="level" label="Cut genes at this value in selected field (p-value &lt;= value)" 
+                    <param name="level" label="Cut genes at this value in selected field (p-value &lt; value)" 
                     type="float" value="0.05"/>
                 </when>
                 <when value="8">
-                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt;= value)" 
+                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt; value)" 
                     type="float" value="0.05"/>
                 </when>
           </conditional>

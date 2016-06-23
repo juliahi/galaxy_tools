@@ -107,6 +107,8 @@ def main():
                    help='Cutoff level for selecting genes')    
     parser.add_argument('-x', '--field', type=int, default=6,
                    help='Field from file for selecting genes (starting from 1)')
+    parser.add_argument('-y', '--leveltype', choices=['lt', 'ge', 'alt', 'age'], default='lt',
+                   help='Type of function used to select genes')
     
     parser.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr", "bonferroni,bh_fdr", "bh_fdr,bonferroni"],  
                    help='multiple hypothesis testing corrections', nargs='+', default=[])
@@ -162,14 +164,18 @@ def main():
     assocs = OntoIO.read(args.assoc, "gaf")
     result=None
     
-    if args.field == 6: #log2FoldChange
-        gene_list = [name for name, val in gene_rank if abs(val) >= args.level ]
-    elif args.field == 7: #pval
-        gene_list = [name for name, val in gene_rank if val <= args.level ]
-    elif args.field == 8: #padj
-        gene_list = [name for name, val in gene_rank if val <= args.level ]
-    else: #baseMean or FoldChange
+    if args.leveltype == 'lt': 
+        gene_list = [name for name, val in gene_rank if val < args.level ]
+    elif args.leveltype == 'ge': 
         gene_list = [name for name, val in gene_rank if val >= args.level ]
+    elif args.leveltype == 'alt' and args.field == 5: #foldChange 
+        gene_list = [name for name, val in gene_rank if 1.0/args.level < val < args.level ]
+    elif args.leveltype == 'alt' and args.field == 6: #log2foldChange 
+        gene_list = [name for name, val in gene_rank if abs(args.level) < val ]
+    elif args.leveltype == 'age' and args.field == 5: #foldChange 
+        gene_list = [name for name, val in gene_rank if val <= 1.0/args.level or val >= args.level ]
+    elif args.leveltype == 'age' and args.field == 6: #log2foldChange 
+        gene_list = [name for name, val in gene_rank if abs(args.level) >= val ]
         
     if args.which == "term-for-term":
         result = run_term(assocs, go_graph, gene_list, args.corrections)
