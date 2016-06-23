@@ -2,12 +2,12 @@
 <requirements>
 </requirements>
 
-  <description>Find enriched GO terms from DESeq results</description>
+  <description>Find enriched GO terms from gene list</description>
   <command interpreter="python"> 
         #if $params.method == "gsea"
-            run_ranked_enrichment.py    GSEA            -p $params.perms -n $params.minset -c $params.corrpower -x 6  
+            run_ranked_enrichment.py    GSEA            -p $params.perms -n $params.minset -c $params.corrpower 
 	#elif $params.method == "rpc"
-            run_ranked_enrichment.py    parent-child    -s "$params.side" -m $params.rmethod -x 6 
+            run_ranked_enrichment.py    parent-child    -s "$params.side" -m $params.rmethod 
             #if $params.rank
                 -r
             #end if
@@ -15,12 +15,12 @@
                 -c $params.corrections  
             #end if
         #elif $params.method == "pc"
-            run_enrichment.py           parent-child    -m "$params.pcmethod" -x $params.cutoff.field -l $params.cutoff.level -y $params.cutoff.leveltype
+            run_enrichment.py           parent-child    -m "$params.pcmethod" 
             #if $params.corrections
                 -c $params.corrections  
             #end if
         #elif $params.method == "tt"
-            run_enrichment.py           term-for-term   -x $params.cutoff.field -l $params.cutoff.level -y $params.cutoff.leveltype
+            run_enrichment.py           term-for-term  
             #if $params.corrections
                 -c $params.corrections  
             #end if
@@ -37,8 +37,9 @@
             -f html -o ${output.file_name} 
 </command>
   <inputs>
-      <param name="input" label="DESeq results" format="txt" type="data" />
-      <param name="assoc" label="Association (GAF file)" format="gaf" type="data" />
+      <param name="input" label="DESeq results" format="tabular" type="data" />
+      <!-- change to format="gaf" after adding GAF type --> 
+      <param name="assoc" label="Association (GAF file)" format="tabular" type="data" />
       
       
       
@@ -65,8 +66,8 @@
 
       <conditional name="params">
 	<param name="method" type="select" label="Enrichment analysis method">
-          <option value="gsea">GSEA (uses ranking on log2FoldChange)</option>
-          <option value="rpc">Ranked Parent-child (uses ranking on log2FoldChange)</option>
+          <option value="gsea">GSEA (uses ranking)</option>
+          <option value="rpc">Ranked Parent-child (uses ranking)</option>
           <option value="pc">Parent-child</option>
 	  <option value="tt">Term for term</option>
 	</param>
@@ -103,45 +104,6 @@
 	</when>
 
         <when value="pc">   
-            <conditional name="cutoff">
-                <param name="field" type="select" label="Which column to use">
-                    <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-                    <option value="5">foldChange</option>
-                    <option value="6">log2FoldChange</option>
-                    <option value="7" selected="true">p-value</option>
-                    <option value="8">p-value (adjusted)</option>
-                </param>
-                <when value="5">
-                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
-                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-                        <option value="lt">foldChange &lt; y </option>
-                        <option value="ge">foldChange  &gt;= y</option>
-                        <option value="alt">1/y &lt; foldChange &lt; y</option>
-                        <option value="age" selected="true">foldChange &gt;= y  or &lt;= 1/y   </option>
-                    </param>
-                    <param name="level" label="where y = " 
-                    type="float" value="4"/>
-                </when>
-                <when value="6">                    
-                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
-                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-                        <option value="lt">log2FoldChange &lt; y </option>
-                        <option value="ge">log2FoldChange  &gt;= y</option>
-                        <option value="alt">abs(log2FoldChange)  &lt; y  </option>
-                        <option value="age" selected="true">abs(log2FoldChange)  &gt;= y  </option>
-                    </param>
-                    <param name="level" label="where y = " 
-                    type="float" value="2"/>
-                </when>
-                <when value="7">
-                    <param name="level" label="Cut genes at this value in selected field (p-value &lt; value)" 
-                    type="float" value="0.05"/>
-                </when>
-                <when value="8">
-                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt; value)" 
-                    type="float" value="0.05"/>
-                </when>
-          </conditional>
           <param name="corrections" label="multiple hypothesis testing corrections" type="select" multiple="true" display="checkboxes">
                 <option value="bonferroni">Bonferroni</option>
                 <option value="bh_fdr">Benjamini-Hochberg FDR</option>
@@ -155,45 +117,6 @@
           
         </when>
         <when value="tt"> 
-            <conditional name="cutoff">
-                <param name="field" type="select" label="Which column to use">
-                    <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-                    <option value="5">foldChange</option>
-                    <option value="6">log2FoldChange</option>
-                    <option value="7" selected="true">p-value</option>
-                    <option value="8">p-value (adjusted)</option>
-                </param>
-                <when value="5">
-                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
-                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-                        <option value="lt">foldChange &lt; y </option>
-                        <option value="ge">foldChange  &gt;= y</option>
-                        <option value="alt">1/y &lt; foldChange &lt; y</option>
-                        <option value="age" selected="true">foldChange &gt;= y  or &lt;= 1/y   </option>
-                    </param>
-                    <param name="level" label="where y = " 
-                    type="float" value="4"/>
-                </when>
-                <when value="6">
-                    <param name="leveltype" type="select" label="Filter genes satisfying function(y)">
-                        <!--id      baseMean    baseMeanA       baseMeanB       foldChange      log2FoldChange  pval    padj-->
-                        <option value="lt">log2FoldChange &lt; y </option>
-                        <option value="ge">log2FoldChange  &gt;= y</option>
-                        <option value="alt">abs(log2FoldChange)  &lt; y  </option>
-                        <option value="age" selected="true">abs(log2FoldChange)  &gt;= y  </option>
-                    </param>
-                    <param name="level" label="where y = " 
-                    type="float" value="2"/>
-                </when>
-                <when value="7">
-                    <param name="level" label="Cut genes at this value in selected field (p-value &lt; value)" 
-                    type="float" value="0.05"/>
-                </when>
-                <when value="8">
-                    <param name="level" label="Cut genes at this value in selected field (adjusted p-value &lt; value)" 
-                    type="float" value="0.05"/>
-                </when>
-          </conditional>
           <param name="corrections" label="multiple hypothesis testing corrections" type="select" multiple="true"  display="checkboxes" >
                 <option value="bonferroni">Bonferroni</option>
                 <option value="bh_fdr">Benjamini-Hochberg FDR</option>

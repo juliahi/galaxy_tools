@@ -15,17 +15,16 @@ def read_deseq_output(filename, column):
     
     out = []
     with open(filename, 'r') as file_in:
-        line = file_in.readline()  #header
-        if not line[0] == '!' or '#': file_in.seek(0)
-        
+        file_in.readline()  #header
+
         maxval = 0
         minval = 0
 
         for line in file_in:
-            content = line.split('\t') 
+            content = line.strip().split('\t') 
             if len(content) <= column:
                 continue
-            if len(content[0].strip().split('_')) < 2:
+            if len(content[0].split('_')) < 2:
                 out.append( (content[0], content[column]))
             else:
                 out.append( ("_".join(content[0].split('_')[1:-1]), content[column]))
@@ -96,7 +95,7 @@ def main():
                    help='output file')
     
     required.add_argument('-i', '--inp', type=str, required=True,
-                   help='input gene list file')
+                   help='input DESeq result file')
     required.add_argument('-a', '--assoc', type=str, required=True,
                    help='input associations file (.gaf)')
     required.add_argument('-g', '--gograph', type=str, required=True,
@@ -105,6 +104,10 @@ def main():
     
     parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png"],  
                    help='output file format', default = "html")
+    
+    parser.add_argument('-x', '--field', type=int, default=6,
+                   help='Field from file for ranking genes (starting from 1)')
+    
     
     parser1 = subparsers.add_parser("GSEA", parents=[parser])
     parser2 = subparsers.add_parser("parent-child", parents=[parser])
@@ -152,11 +155,16 @@ def main():
     
     if args.which == "GSEA":
         #check parameters
+        
         if args.perms < 1:
             parser.error('wrong number of permutations: %d' % args.p)
+        
+    #elif args.which == "parent-child":
+    if not 2 <= args.field <= 8 :
+        parser.error("Field must be a number from 2 to 8")
+    
 
-
-    gene_rank = read_deseq_output(args.inp, 1)
+    gene_rank = read_deseq_output(args.inp, args.field-1)
     
     #gene_rank = [('FBgn0043467', 0.1), ('FBgn0010339', 0.7), ('FBgn0070057', 0.4), ('FBgn0070052', 0.9)]
     

@@ -10,42 +10,28 @@ import Bio.Ontology.IO as OntoIO
 
 
 
-def read_deseq_output(filename, column):
-    ##column=5 #value from which column to take -> 5=log2FoldChange
-    remove_inf = True   #remove entries with infinity? (otherwise change to max)
+def read_list(filename):
     
     out = []
     with open(filename, 'r') as file_in:
-        file_in.readline()  #header
-
-        maxval = 0
-        minval = 0
+        line = file_in.readline()  #header
+        if not (line[0] == '!' or line[0] == '#'): file_in.seek(0)
 
         for line in file_in:
-            content = line.split('\t') 
-            if len(content) <= column:
-                continue
-            if len(content[0].split('_')) < 2:
-                out.append( (content[0], content[column]))
-            else:
-                out.append( ("_".join(content[0].split('_')[1:-1]), content[column]))
-            if not remove_inf and not "Inf" in content[column]:
-                maxval = max(maxval, float(content[column]))
-                minval = min(minval, float(content[column]))
-            
-    if remove_inf:
-            return [(x[0], float(x[1])) for x in out if "Inf" not in x[1] ]
-    else:
-            for i, x in enumerate(out):
-                if x[1] == "Inf":
-                    out[i][1] = maxval
-                elif x[1] == "-Inf":
-                    out[i][1] = minvalue
+            content = line.strip().split('\t') 
+            if len(content) <= 1:
+                print content
+                if content[0] != "":
+                    out.append(content[0])
+            elif content[1] == '1':
+                if len(content[0].split('_')) < 2:
+                    out.append( content[0])
                 else:
-                    out[i][1] = float(x[1])
+                    out.append( "_".join(content[0].split('_')[1:-1]))
+            elif content[1] != '0':
+                raise Exception("Invalid values in list of genes")
+        print out
     return out
-
-
 
 
 
@@ -82,7 +68,7 @@ def check_file(parser, arg, openparam):
 
 
 def main():
-    main_parser = argparse.ArgumentParser(description='run Gene Ontology on DESeq output')
+    main_parser = argparse.ArgumentParser(description='run Gene Ontology')
     subparsers = main_parser.add_subparsers(dest='which', help='type of enrichment analysis')
     subparsers.required = True
    
@@ -93,7 +79,7 @@ def main():
                    help='output file')
     
     required.add_argument('-i', '--inp', type=str, required=True,
-                   help='input DESeq result file')
+                   help='input gene list file')
     required.add_argument('-a', '--assoc', type=str, required=True,
                    help='input associations file (.gaf)')
     required.add_argument('-g', '--gograph', type=str, required=True,
@@ -102,13 +88,6 @@ def main():
     
     parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png"],  
                    help='output file format', default = "html")
-    
-    parser.add_argument('-l', '--level', type=float, default=0.05,
-                   help='Cutoff level for selecting genes')    
-    parser.add_argument('-x', '--field', type=int, default=6,
-                   help='Field from file for selecting genes (starting from 1)')
-    parser.add_argument('-y', '--leveltype', choices=['lt', 'ge', 'alt', 'age'], default='lt',
-                   help='Type of function used to select genes')
     
     parser.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr", "bonferroni,bh_fdr", "bh_fdr,bonferroni"],  
                    help='multiple hypothesis testing corrections', nargs='+', default=[])
@@ -148,11 +127,8 @@ def main():
             cors.append(cor)
     args.corrections = list(set(cors))
     
-    if not 2 <= args.field <= 8 :
-        main_parser.error("Field must be a number from 2 to 8")
     
-
-    gene_rank = read_deseq_output(args.inp, args.field-1)
+    gene_list = read_list(args.inp)
     
     #gene_rank = [('FBgn0043467', 0.1), ('FBgn0010339', 0.7), ('FBgn0070057', 0.4), ('FBgn0070052', 0.9)]
     
@@ -164,18 +140,6 @@ def main():
     assocs = OntoIO.read(args.assoc, "gaf")
     result=None
     
-    if args.leveltype == 'lt': 
-        gene_list = [name for name, val in gene_rank if val < args.level ]
-    elif args.leveltype == 'ge': 
-        gene_list = [name for name, val in gene_rank if val >= args.level ]
-    elif args.leveltype == 'alt' and args.field == 5: #foldChange 
-        gene_list = [name for name, val in gene_rank if 1.0/args.level < val < args.level ]
-    elif args.leveltype == 'alt' and args.field == 6: #log2foldChange 
-        gene_list = [name for name, val in gene_rank if abs(args.level) < val ]
-    elif args.leveltype == 'age' and args.field == 5: #foldChange 
-        gene_list = [name for name, val in gene_rank if val <= 1.0/args.level or val >= args.level ]
-    elif args.leveltype == 'age' and args.field == 6: #log2foldChange 
-        gene_list = [name for name, val in gene_rank if abs(args.level) >= val ]
         
     if args.which == "term-for-term":
         result = run_term(assocs, go_graph, gene_list, args.corrections)
