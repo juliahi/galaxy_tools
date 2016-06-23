@@ -20,9 +20,11 @@ def read_list(filename):
         for line in file_in:
             content = line.strip().split('\t') 
             if len(content) <= 1:
-                print content
                 if content[0] != "":
-                    out.append(content[0])
+                    if len(content[0].split('_')) < 2:
+                        out.append( content[0])
+                    else:
+                        out.append( "_".join(content[0].split('_')[1:-1]))
             elif content[1] == '1':
                 if len(content[0].split('_')) < 2:
                     out.append( content[0])
@@ -30,7 +32,6 @@ def read_list(filename):
                     out.append( "_".join(content[0].split('_')[1:-1]))
             elif content[1] != '0':
                 raise Exception("Invalid values in list of genes")
-        print out
     return out
 
 
