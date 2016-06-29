@@ -25,10 +25,7 @@ def read_deseq_output(filename, column):
             content = line.split('\t') 
             if len(content) <= column:
                 continue
-            if len(content[0].strip().split('_')) < 2:
-                out.append( (content[0], content[column]))
-            else:
-                out.append( ("_".join(content[0].split('_')[1:-1]), content[column]))
+            out.append( ("_".join(content[0].split('_')[1:-1]), content[column]))
             if not remove_inf and not "Inf" in content[column]:
                 maxval = max(maxval, float(content[column]))
                 minval = min(minval, float(content[column]))
