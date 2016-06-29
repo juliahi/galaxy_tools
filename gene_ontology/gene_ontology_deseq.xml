@@ -15,12 +15,19 @@
                 -c $params.corrections  
             #end if
         #elif $params.method == "pc"
-            run_enrichment_deseq.py           parent-child    -m "$params.pcmethod" -x $params.cutoff.field -l $params.cutoff.level -y $params.cutoff.leveltype
+            run_enrichment_deseq.py           parent-child    -m "$params.pcmethod" -x $params.cutoff.field -l $params.cutoff.level 
+            #if $params.cutoff.field == "6" or $params.cutoff.field == "7"
+		-y $params.cutoff.leveltype
+	    #end if
             #if $params.corrections
                 -c $params.corrections  
             #end if
+            
         #elif $params.method == "tt"
-            run_enrichment_deseq.py           term-for-term   -x $params.cutoff.field -l $params.cutoff.level -y $params.cutoff.leveltype
+            run_enrichment_deseq.py           term-for-term   -x $params.cutoff.field -l $params.cutoff.level
+            #if $params.cutoff.field == "6" or $params.cutoff.field == "7"
+		-y $params.cutoff.leveltype
+	    #end if
             #if $params.corrections
                 -c $params.corrections  
             #end if

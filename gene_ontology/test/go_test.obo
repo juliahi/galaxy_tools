@@ -1,0 +1,4056 @@
+format-version:1.2
+
+[Term]
+id: GO:0009628
+name: response to abiotic stimulus
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: goslim_plant
+subset: gosubset_prok
+synonym: "response to abiotic stress" NARROW []
+namespace: biological_process
+is_a: GO:0050896
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an abiotic (non-living) stimulus." [GOC:hb]
+
+[Term]
+id: GO:0008103
+name: oocyte microtubule cytoskeleton polarization
+relationship: part_of GO:0007309
+relationship: part_of GO:0016325
+namespace: biological_process
+is_a: GO:0007017
+is_a: GO:0022412
+alt_id: GO:0048129
+def: "Establishment and maintenance of a specific axis of polarity of the oocyte microtubule network. The axis is set so that the minus and plus ends of the microtubules of the mid stage oocyte are positioned along the anterior cortex and at the posterior pole, respectively. An example of this is found in Drosophila melanogaster." [GOC:mtg_sensu, PMID:11807042]
+
+[Term]
+id: GO:0022627
+name: cytosolic small ribosomal subunit
+synonym: "30S ribosomal subunit" NARROW []
+synonym: "40S ribosomal subunit" NARROW []
+synonym: "eukaryotic ribosomal SSU" NARROW []
+synonym: "prokaryotic small ribosomal subunit" NARROW []
+relationship: part_of GO:0022626
+namespace: cellular_component
+is_a: GO:0015935
+is_a: GO:0044445
+alt_id: GO:0005843
+alt_id: GO:0009283
+alt_id: GO:0030499
+alt_id: GO:0030873
+def: "The small subunit of a ribosome located in the cytosol." [GOC:mtg_sensu]
+
+[Term]
+id: GO:0019730
+name: antimicrobial humoral response
+namespace: biological_process
+is_a: GO:0006959
+is_a: GO:0051707
+alt_id: GO:0006960
+alt_id: GO:0019735
+def: "An immune response against microbes mediated through a body fluid. Examples of this process are seen in the antimicrobial humoral response of Drosophila melanogaster and Mus musculus." [GOC:go_curators, GOC:mtg_sensu]
+
+[Term]
+id: GO:0019731
+name: antibacterial humoral response
+namespace: biological_process
+is_a: GO:0019730
+is_a: GO:0042742
+alt_id: GO:0006961
+alt_id: GO:0019733
+def: "An immune response against bacteria mediated through a body fluid. Examples of this process are the antibacterial humoral responses in Mus musculus and Drosophila melanogaster." [GOC:go_curators, GOC:mtg_sensu]
+
+[Term]
+id: GO:0007612
+name: learning
+xref: Wikipedia:Learning
+namespace: biological_process
+is_a: GO:0007611
+def: "Any process in an organism in which a relatively long-lasting adaptive behavioral change occurs as the result of experience." [ISBN:0582227089, ISBN:0721662544]
+
+[Term]
+id: GO:0048469
+name: cell maturation
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "functional differentiation" RELATED [GOC:dph]
+relationship: part_of GO:0048468
+namespace: biological_process
+is_a: GO:0021700
+is_a: GO:0048869
+def: "A developmental process, independent of morphogenetic (shape) change, that is required for a cell to attain its fully functional state." [GOC:go_curators]
+
+[Term]
+id: GO:0007610
+name: behavior
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Behavior
+synonym: "behavioral response to stimulus" EXACT []
+synonym: "behaviour" EXACT []
+synonym: "behavioural response to stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0050896
+def: "The specific actions or reactions of an organism in response to external or internal stimuli. Patterned activity of a whole organism in a manner dependent upon some combination of that organism's internal state and external conditions." [GOC:ems, ISBN:0395448956]
+
+[Term]
+id: GO:0007611
+name: learning or memory
+is_a: GO:0044708
+is_a: GO:0050890
+namespace: biological_process
+def: "The acquisition and processing of information and/or the storage and retrieval of this information over time." [GOC:jid, PMID:8938125]
+
+[Term]
+id: GO:0007292
+name: female gamete generation
+is_a: GO:0007276
+namespace: biological_process
+def: "Generation of the female gamete; specialised haploid cells produced by meiosis and along with a male gamete takes part in sexual reproduction." [GOC:dph, ISBN:0198506732]
+
+[Term]
+id: GO:0060089
+name: molecular transducer activity
+subset: goslim_pir
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0003674
+def: "The molecular function that accepts an input of one form and creates an output of a different form." [GOC:mtg_MIT_16mar07]
+
+[Term]
+id: GO:0007163
+name: establishment or maintenance of cell polarity
+subset: goslim_pombe
+synonym: "cell polarity" RELATED [GOC:mah, GOC:vw]
+synonym: "establishment and/or maintenance of cell polarity" RELATED []
+synonym: "establishment and/or maintenance of cell polarization" RELATED []
+namespace: biological_process
+is_a: GO:0044763
+alt_id: GO:0030012
+alt_id: GO:0030467
+def: "Any cellular process that results in the specification, formation or maintenance of anisotropic intracellular organization or cell growth patterns." [GOC:mah]
+
+[Term]
+id: GO:0007165
+name: signal transduction
+comment: Note that signal transduction is defined broadly to include a ligand interacting with a receptor, downstream signaling steps and a response being triggered. A change in form of the signal in every step is not necessary. Note that in many cases the end of this process is regulation of the initiation of transcription. Note that specific transcription factors may be annotated to this term, but core/general transcription machinery such as RNA polymerase should not.
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_plant
+subset: gosubset_prok
+xref: Reactome:REACT_100624 "EGFR interacts with phospholipase C-gamma, Gallus gallus"
+xref: Reactome:REACT_102354 "EGFR interacts with phospholipase C-gamma, Canis familiaris"
+xref: Reactome:REACT_112130 "EGFR interacts with phospholipase C-gamma, Oryza sativa"
+xref: Reactome:REACT_112549 "EGFR interacts with phospholipase C-gamma, Arabidopsis thaliana"
+xref: Reactome:REACT_113151 "EGFR interacts with phospholipase C-gamma, Mycobacterium tuberculosis"
+xref: Reactome:REACT_113601 "EGFR interacts with phospholipase C-gamma, Drosophila melanogaster"
+xref: Reactome:REACT_113964 "EGFR interacts with phospholipase C-gamma, Bos taurus"
+xref: Reactome:REACT_114657 "EGFR interacts with phospholipase C-gamma, Dictyostelium discoideum"
+xref: Reactome:REACT_114690 "EGFR interacts with phospholipase C-gamma, Saccharomyces cerevisiae"
+xref: Reactome:REACT_114820 "EGFR interacts with phospholipase C-gamma, Sus scrofa"
+xref: Reactome:REACT_114910 "EGFR interacts with phospholipase C-gamma, Caenorhabditis elegans"
+xref: Reactome:REACT_115037 "EGFR interacts with phospholipase C-gamma, Plasmodium falciparum"
+xref: Reactome:REACT_115147 "EGFR interacts with phospholipase C-gamma, Schizosaccharomyces pombe"
+xref: Reactome:REACT_12478 "EGFR interacts with phospholipase C-gamma, Homo sapiens"
+xref: Reactome:REACT_31232 "EGFR interacts with phospholipase C-gamma, Rattus norvegicus"
+xref: Reactome:REACT_78535 "EGFR interacts with phospholipase C-gamma, Xenopus tropicalis"
+xref: Reactome:REACT_89740 "EGFR interacts with phospholipase C-gamma, Taeniopygia guttata"
+xref: Reactome:REACT_93680 "EGFR interacts with phospholipase C-gamma, Danio rerio"
+xref: Reactome:REACT_98872 "EGFR interacts with phospholipase C-gamma, Mus musculus"
+xref: Wikipedia:Signal_transduction
+synonym: "signaling cascade" NARROW []
+synonym: "signaling pathway" RELATED []
+synonym: "signalling cascade" NARROW []
+synonym: "signalling pathway" RELATED [GOC:mah]
+relationship: part_of GO:0007154
+relationship: part_of GO:0044700
+namespace: biological_process
+is_a: GO:0050794
+is_a: GO:0051716
+alt_id: GO:0023033
+def: "The cellular process in which a signal is conveyed to trigger a change in the activity or state of a cell. Signal transduction begins with reception of a signal (e.g. a ligand binding to a receptor or receptor activation by a stimulus such as light), or for signal transduction in the absence of ligand, signal-withdrawal or the activity of a constitutively active receptor. Signal transduction ends with regulation of a downstream cellular process, e.g. regulation of transcription or regulation of a metabolic process. Signal transduction covers signaling from receptors located on the surface of the cell and signaling via molecules located within the cell. For signaling between cells, signal transduction is restricted to events at and within the receiving cell." [GOC:go_curators, GOC:mtg_signaling_feb11]
+
+[Term]
+id: GO:0007294
+name: germarium-derived oocyte fate determination
+synonym: "maintenance of oocyte identity" RELATED []
+synonym: "oocyte cell fate determination" RELATED []
+relationship: part_of GO:0030706
+namespace: biological_process
+is_a: GO:0003006
+is_a: GO:0022412
+is_a: GO:0030716
+is_a: GO:0044767
+alt_id: GO:0016350
+def: "The cell fate determination process in which a germarium-derived cell becomes capable of differentiating autonomously into an oocyte cell regardless of its environment; upon determination, the cell fate cannot be reversed. An example of this is found in Drosophila melanogaster." [GOC:mtg_sensu, ISBN:0879694238]
+
+[Term]
+id: GO:0030291
+name: protein serine/threonine kinase inhibitor activity
+is_a: GO:0004860
+namespace: molecular_function
+def: "Stops, prevents or reduces the activity of a protein serine/threonine kinase." [GOC:mah]
+
+[Term]
+id: GO:0022626
+name: cytosolic ribosome
+synonym: "70S ribosome" NARROW []
+synonym: "80S ribosome" NARROW []
+namespace: cellular_component
+is_a: GO:0005840
+is_a: GO:0044445
+alt_id: GO:0005830
+alt_id: GO:0009281
+alt_id: GO:0030871
+def: "A ribosome located in the cytosol." [GOC:mtg_sensu]
+
+[Term]
+id: GO:0001745
+name: compound eye morphogenesis
+synonym: "insect-type retina morphogenesis" EXACT [PMID:11735386]
+relationship: part_of GO:0048749
+namespace: biological_process
+is_a: GO:0048592
+def: "The morphogenetic process in which the anatomical structures of the compound eye are generated and organized. The adult compound eye is a precise assembly of 700-800 ommatidia. Each ommatidium is composed of 20 cells, identified by cell type and position. An example of compound eye morphogenesis is found in Drosophila melanogaster." [GOC:dph, GOC:mtg_sensu]
+
+[Term]
+id: GO:1901362
+name: organic cyclic compound biosynthetic process
+synonym: "organic cyclic compound anabolism" EXACT [GOC:TermGenie]
+synonym: "organic cyclic compound biosynthesis" EXACT [GOC:TermGenie]
+synonym: "organic cyclic compound formation" EXACT [GOC:TermGenie]
+synonym: "organic cyclic compound synthesis" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:1901360
+is_a: GO:1901576
+def: "The chemical reactions and pathways resulting in the formation of organic cyclic compound." [GOC:TermGenie]
+
+[Term]
+id: GO:0010972
+name: negative regulation of G2/M transition of mitotic cell cycle
+synonym: "negative regulation of mitotic entry" EXACT [GOC:vw]
+namespace: biological_process
+is_a: GO:0010389
+is_a: GO:0045930
+is_a: GO:1901991
+def: "Any cell cycle regulatory process that decreases the rate or extent of progression of a cell from G2 to M phase of the mitotic cell cycle." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:1901360
+name: organic cyclic compound metabolic process
+synonym: "organic cyclic compound metabolism" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:0071704
+def: "The chemical reactions and pathways involving organic cyclic compound." [GOC:TermGenie]
+
+[Term]
+id: GO:0051716
+name: cellular response to stimulus
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0044763
+is_a: GO:0050896
+def: "Any process that results in a change in state or activity of a cell (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus. The process begins with detection of the stimulus by a cell and ends with a change in state or activity or the cell." [GOC:bf, GOC:jl]
+
+[Term]
+id: GO:0010259
+name: multicellular organismal aging
+relationship: part_of GO:0007275
+namespace: biological_process
+is_a: GO:0007568
+def: "An aging process that has as participant a whole multicellular organism. Multicellular organism aging includes loss of functions such as resistance to disease, homeostasis, and fertility, as well as wear and tear. Multicellular organisms aging includes processes like cellular senescence and organ senescence, but is more inclusive. May precede death (GO:0016265) of an organism and may succeed developmental maturation (GO:0021700)." [GOC:PO_curators]
+
+[Term]
+id: GO:0045786
+name: negative regulation of cell cycle
+xref: Reactome:REACT_102454 "p75NTR negatively regulates cell cycle via SC1, Taeniopygia guttata"
+xref: Reactome:REACT_102880 "p75NTR negatively regulates cell cycle via SC1, Xenopus tropicalis"
+xref: Reactome:REACT_112803 "p75NTR negatively regulates cell cycle via SC1, Drosophila melanogaster"
+xref: Reactome:REACT_13695 "p75NTR negatively regulates cell cycle via SC1, Homo sapiens"
+xref: Reactome:REACT_31060 "p75NTR negatively regulates cell cycle via SC1, Rattus norvegicus"
+xref: Reactome:REACT_32970 "p75NTR negatively regulates cell cycle via SC1, Sus scrofa"
+xref: Reactome:REACT_78219 "p75NTR negatively regulates cell cycle via SC1, Gallus gallus"
+xref: Reactome:REACT_83256 "p75NTR negatively regulates cell cycle via SC1, Bos taurus"
+xref: Reactome:REACT_88108 "p75NTR negatively regulates cell cycle via SC1, Canis familiaris"
+xref: Reactome:REACT_93253 "p75NTR negatively regulates cell cycle via SC1, Danio rerio"
+xref: Reactome:REACT_99982 "p75NTR negatively regulates cell cycle via SC1, Mus musculus"
+synonym: "down regulation of progression through cell cycle" EXACT []
+synonym: "down-regulation of progression through cell cycle" EXACT []
+synonym: "downregulation of progression through cell cycle" EXACT []
+synonym: "inhibition of progression through cell cycle" NARROW []
+synonym: "negative regulation of cell cycle progression" EXACT []
+synonym: "negative regulation of progression through cell cycle" EXACT []
+relationship: negatively_regulates GO:0007049
+namespace: biological_process
+is_a: GO:0048523
+is_a: GO:0051726
+def: "Any process that stops, prevents or reduces the rate or extent of progression through the cell cycle." [GOC:dph, GOC:go_curators, GOC:tb]
+
+[Term]
+id: GO:0019222
+name: regulation of metabolic process
+subset: gosubset_prok
+synonym: "regulation of metabolism" EXACT []
+relationship: regulates GO:0008152
+namespace: biological_process
+is_a: GO:0050789
+def: "Any process that modulates the frequency, rate or extent of the chemical reactions and pathways within a cell or an organism." [GOC:go_curators]
+
+[Term]
+id: GO:0042330
+name: taxis
+subset: gosubset_prok
+xref: Wikipedia:Taxis
+synonym: "directed movement in response to stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0009605
+is_a: GO:0040011
+def: "The directed movement of a motile cell or organism in response to an external stimulus." [GOC:jl, ISBN:0192801023]
+
+[Term]
+id: GO:0048869
+name: cellular developmental process
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0032502
+is_a: GO:0044763
+def: "A biological process whose specific outcome is the progression of a cell over time from an initial condition to a later condition." [GOC:isa_complete]
+
+[Term]
+id: GO:0071840
+name: cellular component organization or biogenesis
+synonym: "cellular component organisation or biogenesis" EXACT [GOC:mah]
+synonym: "cellular component organisation or biogenesis at cellular level" EXACT [GOC:mah]
+synonym: "cellular component organization or biogenesis at cellular level" EXACT []
+namespace: biological_process
+is_a: GO:0008150
+alt_id: GO:0071841
+def: "A process that results in the biosynthesis of constituent macromolecules, assembly, arrangement of constituent parts, or disassembly of a cellular component." [GOC:mah]
+
+[Term]
+id: GO:0016020
+name: membrane
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Wikipedia:Biological_membrane
+namespace: cellular_component
+is_a: GO:0005575
+def: "Double layer of lipid molecules that encloses all cells, and, in eukaryotes, many organelles; may be a single or double lipid bilayer; also includes associated proteins." [GOC:mah, ISBN:0815316194]
+
+[Term]
+id: GO:0007450
+name: dorsal/ventral pattern formation, imaginal disc
+synonym: "dorsal-ventral pattern formation, imaginal disc" EXACT [GOC:mah]
+synonym: "dorsoventral pattern formation, imaginal disc" EXACT [GOC:mah]
+namespace: biological_process
+is_a: GO:0007447
+is_a: GO:0009953
+def: "The establishment, maintenance and elaboration of the dorsal/ventral axis of the imaginal disc. Imaginal disks are masses of hypodermic cells, carried by the larvae of some insects after leaving the egg, from which masses the wings and legs of the adult are subsequently formed." [GOC:jid, ISBN:0879694238]
+
+[Term]
+id: GO:0000166
+name: nucleotide binding
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0036094
+is_a: GO:1901265
+def: "Interacting selectively and non-covalently with a nucleotide, any compound consisting of a nucleoside that is esterified with (ortho)phosphate or an oligophosphate at any hydroxyl group on the ribose or deoxyribose." [GOC:mah, ISBN:0198547684]
+
+[Term]
+id: GO:0048513
+name: organ development
+xref: Wikipedia:Organogenesis
+synonym: "development of an organ" EXACT []
+synonym: "organogenesis" EXACT []
+relationship: part_of GO:0048731
+namespace: biological_process
+is_a: GO:0048856
+def: "Development of a tissue or tissues that work together to perform a specific function or functions. Development pertains to the process whose specific outcome is the progression of a structure over time, from its formation to the mature structure. Organs are commonly observed as visibly distinct structures, but may also exist as loosely associated clusters of cells that work together to perform a specific function or functions." [GOC:dph, GOC:jid]
+
+[Term]
+id: GO:0009072
+name: aromatic amino acid family metabolic process
+subset: gosubset_prok
+synonym: "aromatic amino acid family metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0006520
+is_a: GO:0006725
+is_a: GO:1901360
+def: "The chemical reactions and pathways involving aromatic amino acid family, amino acids with aromatic ring (phenylalanine, tyrosine, tryptophan)." [GOC:go_curators]
+
+[Term]
+id: GO:0044093
+name: positive regulation of molecular function
+is_a: GO:0065009
+namespace: biological_process
+def: "Any process that activates or increases the rate or extent of a molecular function, an elemental biological activity occurring at the molecular level, such as catalysis or binding." [GO:jl]
+
+[Term]
+id: GO:0009314
+name: response to radiation
+comment: Note that 'radiation' refers to electromagnetic radiation of any wavelength.
+subset: gosubset_prok
+synonym: "response to electromagnetic radiation stimulus" EXACT []
+synonym: "response to radiation stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0009628
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an electromagnetic radiation stimulus. Electromagnetic radiation is a propagating wave in space with electric and magnetic components. These components oscillate at right angles to each other and to the direction of propagation." [GOC:jl, Wikipedia:Electromagnetic_radiation]
+
+[Term]
+id: GO:0048518
+name: positive regulation of biological process
+subset: gosubset_prok
+synonym: "activation of biological process" NARROW []
+synonym: "positive regulation of physiological process" EXACT []
+synonym: "stimulation of biological process" NARROW []
+synonym: "up regulation of biological process" EXACT []
+synonym: "up-regulation of biological process" EXACT []
+synonym: "upregulation of biological process" EXACT []
+relationship: positively_regulates GO:0008150
+namespace: biological_process
+is_a: GO:0050789
+alt_id: GO:0043119
+def: "Any process that activates or increases the frequency, rate or extent of a biological process. Biological processes are regulated by many means; examples include the control of gene expression, protein modification or interaction with a protein or substrate molecule." [GOC:jid]
+
+[Term]
+id: GO:0048519
+name: negative regulation of biological process
+subset: gosubset_prok
+synonym: "down regulation of biological process" EXACT []
+synonym: "down-regulation of biological process" EXACT []
+synonym: "downregulation of biological process" EXACT []
+synonym: "inhibition of biological process" NARROW []
+synonym: "negative regulation of physiological process" EXACT []
+relationship: negatively_regulates GO:0008150
+namespace: biological_process
+is_a: GO:0050789
+alt_id: GO:0043118
+def: "Any process that stops, prevents, or reduces the frequency, rate or extent of a biological process. Biological processes are regulated by many means; examples include the control of gene expression, protein modification or interaction with a protein or substrate molecule." [GOC:jid]
+
+[Term]
+id: GO:0046483
+name: heterocycle metabolic process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "heterocycle metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0044237
+def: "The chemical reactions and pathways involving heterocyclic compounds, those with a cyclic molecular structure and at least two different atoms in the ring (or rings)." [CHEBI:5686, ISBN:0198506732]
+
+[Term]
+id: GO:1901160
+name: primary amino compound metabolic process
+synonym: "primary amino compound metabolism" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:1901564
+def: "The chemical reactions and pathways involving primary amino compound." [GOC:TermGenie]
+
+[Term]
+id: GO:1901162
+name: primary amino compound biosynthetic process
+synonym: "primary amino compound anabolism" EXACT [GOC:TermGenie]
+synonym: "primary amino compound biosynthesis" EXACT [GOC:TermGenie]
+synonym: "primary amino compound formation" EXACT [GOC:TermGenie]
+synonym: "primary amino compound synthesis" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:1901160
+is_a: GO:1901566
+def: "The chemical reactions and pathways resulting in the formation of primary amino compound." [GOC:TermGenie]
+
+[Term]
+id: GO:0032561
+name: guanyl ribonucleotide binding
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0019001
+is_a: GO:0032555
+def: "Interacting selectively and non-covalently with a guanyl ribonucleotide, any compound consisting of guanosine esterified with (ortho)phosphate or an oligophosphate at any hydroxyl group on the ribose moiety." [GOC:mah]
+
+[Term]
+id: GO:0006935
+name: chemotaxis
+subset: goslim_metagenomics
+subset: gosubset_prok
+xref: Wikipedia:Chemotaxis
+synonym: "taxis in response to chemical stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0042221
+is_a: GO:0042330
+def: "The directed movement of a motile cell or organism, or the directed growth of a cell guided by a specific chemical concentration gradient. Movement may be towards a higher concentration (positive chemotaxis) or towards a lower concentration (negative chemotaxis)." [ISBN:0198506732]
+
+[Term]
+id: GO:0007280
+name: pole cell migration
+comment: See also the Cell Ontology term 'pole cell ; CL:0000301'.
+namespace: biological_process
+is_a: GO:0008354
+def: "The directed movement of a pole cell (germline progenitors in insects) from its site of production at the posterior pole of the embryo through to the site where the gonads will form." [GOC:bf, PMID:9988212]
+
+[Term]
+id: GO:0060255
+name: regulation of macromolecule metabolic process
+subset: gosubset_prok
+relationship: regulates GO:0043170
+namespace: biological_process
+is_a: GO:0019222
+def: "Any process that modulates the frequency, rate or extent of the chemical reactions and pathways involving macromolecules, any molecule of high relative molecular mass, the structure of which essentially comprises the multiple repetition of units derived, actually or conceptually, from molecules of low relative molecular mass." [GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0048468
+name: cell development
+subset: goslim_candida
+subset: gosubset_prok
+synonym: "terminal differentiation" RELATED [GOC:dph, GOC:tb]
+relationship: part_of GO:0030154
+namespace: biological_process
+is_a: GO:0044767
+is_a: GO:0048856
+is_a: GO:0048869
+def: "The process whose specific outcome is the progression of the cell over time, from its formation to the mature structure. Cell development does not include the steps involved in committing a cell to a specific fate." [GOC:go_curators]
+
+[Term]
+id: GO:0001883
+name: purine nucleoside binding
+is_a: GO:0001882
+namespace: molecular_function
+def: "Interacting selectively and non-covalently with a purine nucleoside, a compound consisting of a purine base linked either to ribose or deoxyribose." [GOC:hjd]
+
+[Term]
+id: GO:0007281
+name: germ cell development
+synonym: "germ-cell development" EXACT []
+synonym: "primordial germ cell development" NARROW []
+relationship: part_of GO:0007276
+namespace: biological_process
+is_a: GO:0003006
+is_a: GO:0022412
+is_a: GO:0048468
+def: "The process whose specific outcome is the progression of an immature germ cell over time, from its formation to the mature structure (gamete). A germ cell is any reproductive cell in a multicellular organism." [GOC:go_curators]
+
+[Term]
+id: GO:0003006
+name: developmental process involved in reproduction
+synonym: "reproductive developmental process" RELATED [GOC:dph, GOC:tb]
+namespace: biological_process
+is_a: GO:0022414
+is_a: GO:0032502
+def: "A developmental process in which a progressive change in the state of some part of an organism specifically contributes to its ability to form offspring." [GOC:dph, GOC:isa_complete]
+
+[Term]
+id: GO:0019904
+name: protein domain specific binding
+subset: gosubset_prok
+synonym: "protein domain-specific binding" EXACT []
+namespace: molecular_function
+is_a: GO:0005515
+def: "Interacting selectively and non-covalently with a specific domain of a protein." [GOC:go_curators]
+
+[Term]
+id: GO:0022412
+name: cellular process involved in reproduction in multicellular organism
+synonym: "reproductive cellular process in multicellular organism" EXACT [GOC:curators]
+relationship: part_of GO:0032504
+namespace: biological_process
+is_a: GO:0048610
+def: "A process, occurring at the cellular level, that is involved in the reproductive function of a multicellular organism." [GOC:isa_complete]
+
+[Term]
+id: GO:0017076
+name: purine nucleotide binding
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0000166
+def: "Interacting selectively and non-covalently with purine nucleotides, any compound consisting of a purine nucleoside esterified with (ortho)phosphate." [GOC:ai]
+
+[Term]
+id: GO:0043436
+name: oxoacid metabolic process
+subset: gosubset_prok
+synonym: "keto acid metabolic process" EXACT []
+synonym: "keto acid metabolism" EXACT []
+synonym: "ketoacid metabolic process" EXACT []
+synonym: "ketoacid metabolism" EXACT []
+synonym: "oxo acid metabolic process" EXACT []
+synonym: "oxo acid metabolism" EXACT []
+synonym: "oxoacid metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0006082
+def: "The chemical reactions and pathways involving any oxoacid; an oxoacid is a compound which contains oxygen, at least one other element, and at least one hydrogen bound to oxygen, and which produces a conjugate base by loss of positive hydrogen ion(s) (hydrons)." [CHEBI:24833]
+
+[Term]
+id: GO:0001754
+name: eye photoreceptor cell differentiation
+relationship: part_of GO:0048592
+namespace: biological_process
+is_a: GO:0044767
+is_a: GO:0046530
+def: "The process in which a relatively unspecialized cell acquires the specialized features of a photoreceptor cell, as found in the eye, the primary visual organ of most organisms." [GOC:go_curators]
+
+[Term]
+id: GO:0009605
+name: response to external stimulus
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: goslim_plant
+subset: gosubset_prok
+synonym: "response to environmental stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0050896
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an external stimulus." [GOC:hb]
+
+[Term]
+id: GO:0051707
+name: response to other organism
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0009607
+is_a: GO:0051704
+alt_id: GO:0009613
+alt_id: GO:0042828
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus from another living organism." [GOC:ai]
+
+[Term]
+id: GO:0010033
+name: response to organic substance
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0042221
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an organic substance stimulus." [GOC:sm]
+
+[Term]
+id: GO:0006586
+name: indolalkylamine metabolic process
+subset: gosubset_prok
+synonym: "indolalkylamine metabolism" EXACT []
+synonym: "indolamine metabolic process" BROAD []
+synonym: "indolamine metabolism" BROAD []
+namespace: biological_process
+is_a: GO:0006576
+is_a: GO:0042430
+def: "The chemical reactions and pathways involving indolalkylamines, indole or indole derivatives containing a primary, secondary, or tertiary amine group." [CHEBI:38631, GOC:curators]
+
+[Term]
+id: GO:0051704
+name: multi-organism process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "interaction between organisms" EXACT []
+synonym: "physiological interaction between organisms" EXACT []
+synonym: "physiological interaction with other organism" EXACT []
+namespace: biological_process
+is_a: GO:0008150
+alt_id: GO:0051706
+def: "A biological process which involves another organism of the same or different species." [GOC:jl]
+
+[Term]
+id: GO:0043234
+name: protein complex
+subset: goslim_generic
+subset: goslim_pir
+subset: gosubset_prok
+xref: Wikipedia:Protein_complex
+synonym: "protein-protein complex" EXACT []
+namespace: cellular_component
+is_a: GO:0032991
+def: "Any macromolecular complex composed of two or more polypeptide subunits, which may or may not be identical. Protein complexes may have other associated non-protein prosthetic groups, such as nucleotides, metal ions or other small molecules." [GOC:go_curators]
+
+[Term]
+id: GO:0044700
+name: single organism signaling
+is_a: GO:0023052
+is_a: GO:0044699
+namespace: biological_process
+def: "A signaling process occurring within a single organism." [GOC:jl]
+
+[Term]
+id: GO:0044702
+name: single organism reproductive process
+is_a: GO:0022414
+is_a: GO:0044699
+namespace: biological_process
+def: "A biological process that directly contributes to the process of producing new individuals, involving a single organism." [GOC:jl]
+
+[Term]
+id: GO:0009607
+name: response to biotic stimulus
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: goslim_plant
+subset: gosubset_prok
+synonym: "response to biotic stress" NARROW []
+namespace: biological_process
+is_a: GO:0050896
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a biotic stimulus, a stimulus caused or produced by a living organism." [GOC:hb]
+
+[Term]
+id: GO:1901566
+name: organonitrogen compound biosynthetic process
+synonym: "organonitrogen compound anabolism" EXACT [GOC:TermGenie]
+synonym: "organonitrogen compound biosynthesis" EXACT [GOC:TermGenie]
+synonym: "organonitrogen compound formation" EXACT [GOC:TermGenie]
+synonym: "organonitrogen compound synthesis" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:1901564
+is_a: GO:1901576
+def: "The chemical reactions and pathways resulting in the formation of organonitrogen compound." [GOC:pr, GOC:TermGenie]
+
+[Term]
+id: GO:0044707
+name: single-multicellular organism process
+is_a: GO:0032501
+is_a: GO:0044699
+namespace: biological_process
+def: "A biological process occurring within a single, multicellular organism." [GOC:jl]
+
+[Term]
+id: GO:0009790
+name: embryo development
+subset: goslim_generic
+subset: goslim_plant
+xref: Wikipedia:Embryogenesis
+synonym: "embryogenesis" EXACT []
+synonym: "embryogenesis and morphogenesis" BROAD []
+synonym: "embryonal development" EXACT []
+relationship: part_of GO:0007275
+namespace: biological_process
+is_a: GO:0044767
+is_a: GO:0048856
+alt_id: GO:0009795
+def: "The process whose specific outcome is the progression of an embryo from its formation until the end of its embryonic life stage. The end of the embryonic stage is organism-specific. For example, for mammals, the process would begin with zygote formation and end with birth. For insects, the process would begin at zygote formation and end with larval hatching. For plant zygotic embryos, this would be from zygote formation to the end of seed dormancy. For plant vegetative embryos, this would be from the initial determination of the cell or group of cells to form an embryo until the point when the embryo becomes independent of the parent plant." [GOC:go_curators, GOC:isa_complete, GOC:mtg_sensu]
+
+[Term]
+id: GO:0019538
+name: protein metabolic process
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Protein_metabolism
+synonym: "protein metabolic process and modification" EXACT []
+synonym: "protein metabolism" EXACT []
+synonym: "protein metabolism and modification" EXACT []
+namespace: biological_process
+is_a: GO:0043170
+is_a: GO:0044238
+alt_id: GO:0006411
+def: "The chemical reactions and pathways involving a specific protein, rather than of proteins in general. Includes protein modification." [GOC:ma]
+
+[Term]
+id: GO:0044708
+name: single-organism behavior
+is_a: GO:0007610
+namespace: biological_process
+def: "The specific actions or reactions of a single organism in response to external or internal stimuli." [GOC:jl]
+
+[Term]
+id: GO:0005829
+name: cytosol
+subset: goslim_aspergillus
+subset: goslim_generic
+subset: goslim_plant
+subset: gosubset_prok
+xref: NIF_Subcellular:sao101633890
+xref: Wikipedia:Cytosol
+namespace: cellular_component
+is_a: GO:0044444
+def: "The part of the cytoplasm that does not contain organelles but which does contain other particulate matter, such as protein complexes." [GOC:hgd, GOC:jl]
+
+[Term]
+id: GO:0007444
+name: imaginal disc development
+is_a: GO:0044767
+is_a: GO:0048513
+namespace: biological_process
+def: "The process whose specific outcome is the progression of the imaginal disc over time, from its formation to the metamorphosis to form adult structures. Imaginal discs are epithelial infoldings in the larvae of holometabolous insects that develop into adult structures (legs, antennae, wings, etc.)." [GOC:bf, ISBN:0879694238]
+
+[Term]
+id: GO:0051353
+name: positive regulation of oxidoreductase activity
+subset: gosubset_prok
+xref: EC:1.97.1.-
+synonym: "activation of oxidoreductase activity" NARROW []
+synonym: "oxidoreductase activator" EXACT []
+synonym: "ribonucleotide reductase activating enzyme activity" NARROW []
+synonym: "stimulation of oxidoreductase activity" NARROW []
+synonym: "up regulation of oxidoreductase activity" EXACT []
+synonym: "up-regulation of oxidoreductase activity" EXACT []
+synonym: "upregulation of oxidoreductase activity" EXACT []
+namespace: biological_process
+is_a: GO:0043085
+is_a: GO:0051341
+alt_id: GO:0009391
+def: "Any process that activates or increases the frequency, rate or extent of oxidoreductase activity, the catalysis of an oxidation-reduction (redox) reaction, a reversible chemical reaction in which the oxidation state of an atom or atoms within a molecule is altered." [GOC:ai]
+
+[Term]
+id: GO:0046530
+name: photoreceptor cell differentiation
+namespace: biological_process
+is_a: GO:0030182
+alt_id: GO:0007467
+def: "The specialization of organization of a photoreceptor, a cell that responds to incident electromagnetic radiation, particularly visible light. An example of this process is found in Drosophila melanogaster." [GOC:ai, ISBN:0198506732]
+
+[Term]
+id: GO:0033554
+name: cellular response to stress
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+namespace: biological_process
+is_a: GO:0006950
+is_a: GO:0051716
+def: "Any process that results in a change in state or activity of a cell (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus indicating the organism is under stress. The stress is usually, but not necessarily, exogenous (e.g. temperature, humidity, ionizing radiation)." [GOC:mah]
+
+[Term]
+id: GO:0044424
+name: intracellular part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+subset: gosubset_prok
+relationship: part_of GO:0005622
+namespace: cellular_component
+is_a: GO:0044464
+def: "Any constituent part of the living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm." [GOC:jl]
+
+[Term]
+id: GO:0019438
+name: aromatic compound biosynthetic process
+subset: gosubset_prok
+synonym: "aromatic compound anabolism" EXACT []
+synonym: "aromatic compound biosynthesis" EXACT []
+synonym: "aromatic compound formation" EXACT []
+synonym: "aromatic compound synthesis" EXACT []
+synonym: "aromatic hydrocarbon biosynthesis" NARROW []
+synonym: "aromatic hydrocarbon biosynthetic process" NARROW []
+namespace: biological_process
+is_a: GO:0006725
+is_a: GO:0044249
+def: "The chemical reactions and pathways resulting in the formation of aromatic compounds, any substance containing an aromatic carbon ring." [GOC:ai]
+
+[Term]
+id: GO:0005525
+name: GTP binding
+subset: gosubset_prok
+xref: Reactome:REACT_100336 "The receptor:G-protein complex binds GTP, Xenopus tropicalis"
+xref: Reactome:REACT_101169 "The receptor:G-protein complex binds GTP, Rattus norvegicus"
+xref: Reactome:REACT_15491 "The receptor:G-protein complex binds GTP, Homo sapiens"
+xref: Reactome:REACT_28426 "The receptor:G-protein complex binds GTP, Sus scrofa"
+xref: Reactome:REACT_32895 "The receptor:G-protein complex binds GTP, Taeniopygia guttata"
+xref: Reactome:REACT_84605 "The receptor:G-protein complex binds GTP, Gallus gallus"
+xref: Reactome:REACT_84948 "The receptor:G-protein complex binds GTP, Bos taurus"
+xref: Reactome:REACT_87202 "The receptor:G-protein complex binds GTP, Canis familiaris"
+xref: Reactome:REACT_87916 "The receptor:G-protein complex binds GTP, Danio rerio"
+xref: Reactome:REACT_90887 "The receptor:G-protein complex binds GTP, Mus musculus"
+namespace: molecular_function
+is_a: GO:0032550
+is_a: GO:0032561
+is_a: GO:0035639
+def: "Interacting selectively and non-covalently with GTP, guanosine triphosphate." [GOC:ai]
+
+[Term]
+id: GO:0044421
+name: extracellular region part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+subset: gosubset_prok
+relationship: part_of GO:0005576
+namespace: cellular_component
+is_a: GO:0005575
+def: "Any constituent part of the extracellular region, the space external to the outermost structure of a cell. For cells without external protective or external encapsulating structures this refers to space outside of the plasma membrane. This term covers constituent parts of the host cell environment outside an intracellular parasite." [GOC:jl]
+
+[Term]
+id: GO:0044422
+name: organelle part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+subset: gosubset_prok
+relationship: part_of GO:0043226
+namespace: cellular_component
+is_a: GO:0005575
+def: "Any constituent part of an organelle, an organized structure of distinctive morphology and function. Includes constituent parts of the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton, but excludes the plasma membrane." [GOC:jl]
+
+[Term]
+id: GO:0044281
+name: small molecule metabolic process
+comment: Small molecules in GO include monosaccharides but exclude disaccharides and polysaccharides.
+subset: goslim_generic
+subset: goslim_metagenomics
+xref: Reactome:REACT_111217 "Metabolism, Homo sapiens"
+xref: Reactome:REACT_112077 "Metabolism, Xenopus tropicalis"
+xref: Reactome:REACT_112140 "Metabolism, Dictyostelium discoideum"
+xref: Reactome:REACT_112621 "Metabolism, Mus musculus"
+xref: Reactome:REACT_112912 "Metabolism, Arabidopsis thaliana"
+xref: Reactome:REACT_113131 "Metabolism, Schizosaccharomyces pombe"
+xref: Reactome:REACT_113305 "Metabolism, Canis familiaris"
+xref: Reactome:REACT_113457 "Metabolism, Mycobacterium tuberculosis"
+xref: Reactome:REACT_113568 "Metabolism, Rattus norvegicus"
+xref: Reactome:REACT_113610 "Metabolism, Caenorhabditis elegans"
+xref: Reactome:REACT_113934 "Metabolism, Escherichia coli"
+xref: Reactome:REACT_114081 "Metabolism, Gallus gallus"
+xref: Reactome:REACT_114137 "Metabolism, Sus scrofa"
+xref: Reactome:REACT_114421 "Metabolism, Saccharomyces cerevisiae"
+xref: Reactome:REACT_114473 "Metabolism, Danio rerio"
+xref: Reactome:REACT_114495 "Metabolism, Staphylococcus aureus N315"
+xref: Reactome:REACT_114668 "Metabolism, Plasmodium falciparum"
+xref: Reactome:REACT_114983 "Metabolism, Drosophila melanogaster"
+xref: Reactome:REACT_115063 "Metabolism, Taeniopygia guttata"
+xref: Reactome:REACT_115388 "Metabolism, Oryza sativa"
+xref: Reactome:REACT_115420 "Metabolism, Bos taurus"
+xref: Reactome:REACT_115655 "Metabolism, Gallus gallus"
+synonym: "small molecule metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0044710
+def: "The chemical reactions and pathways involving small molecules, any low molecular weight, monomeric, non-encoded molecule." [GOC:curators, GOC:pde, GOC:vw]
+
+[Term]
+id: GO:0005488
+name: binding
+comment: For ligands that bind to signal transducing receptors, consider the molecular function term 'receptor binding ; GO:0005102' and its children.
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Binding_(molecular)
+synonym: "ligand" NARROW []
+namespace: molecular_function
+is_a: GO:0003674
+def: "The selective, non-covalent, often stoichiometric, interaction of a molecule with one or more specific sites on another molecule." [GOC:ceb, GOC:mah, ISBN:0198506732]
+
+[Term]
+id: GO:0048666
+name: neuron development
+relationship: part_of GO:0030182
+namespace: biological_process
+is_a: GO:0048468
+def: "The process whose specific outcome is the progression of a neuron over time, from initial commitment of the cell to a specific fate, to the fully functional differentiated cell." [GOC:dph]
+
+[Term]
+id: GO:0048858
+name: cell projection morphogenesis
+comment: This term was added by GO_REF:0000021.
+relationship: part_of GO:0000902
+namespace: biological_process
+is_a: GO:0030030
+is_a: GO:0032990
+def: "The process in which the anatomical structures of a cell projection are generated and organized." [GO_REF:0000021, GOC:mtg_15jun06]
+
+[Term]
+id: GO:0006457
+name: protein folding
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_pombe
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Reactome:REACT_100411 "Chaperonin-mediated protein folding, Arabidopsis thaliana"
+xref: Reactome:REACT_104912 "Chaperonin-mediated protein folding, Caenorhabditis elegans"
+xref: Reactome:REACT_105663 "Chaperonin-mediated protein folding, Rattus norvegicus"
+xref: Reactome:REACT_106009 "Chaperonin-mediated protein folding, Canis familiaris"
+xref: Reactome:REACT_106427 "Chaperonin-mediated protein folding, Mus musculus"
+xref: Reactome:REACT_106894 "Formation of tubulin folding intermediates by CCT/TriC, Canis familiaris"
+xref: Reactome:REACT_106927 "Chaperonin-mediated protein folding, Drosophila melanogaster"
+xref: Reactome:REACT_107029 "Formation of tubulin folding intermediates by CCT/TriC, Drosophila melanogaster"
+xref: Reactome:REACT_108248 "Chaperonin-mediated protein folding, Gallus gallus"
+xref: Reactome:REACT_109411 "Formation of tubulin folding intermediates by CCT/TriC, Bos taurus"
+xref: Reactome:REACT_110417 "Formation of tubulin folding intermediates by CCT/TriC, Rattus norvegicus"
+xref: Reactome:REACT_16956 "Formation of tubulin folding intermediates by CCT/TriC, Homo sapiens"
+xref: Reactome:REACT_17001 "Formation of tubulin folding intermediates by CCT/TriC, Mus musculus"
+xref: Reactome:REACT_17004 "Chaperonin-mediated protein folding, Homo sapiens"
+xref: Reactome:REACT_17056 "Cooperation of Prefoldin and TriC/CCT in actin and tubulin folding, Bos taurus"
+xref: Reactome:REACT_23878 "N-glycan trimming in the ER and Calnexin/Calreticulin cycle, Homo sapiens"
+xref: Reactome:REACT_30906 "Chaperonin-mediated protein folding, Oryza sativa"
+xref: Reactome:REACT_32155 "Chaperonin-mediated protein folding, Saccharomyces cerevisiae"
+xref: Reactome:REACT_32255 "Chaperonin-mediated protein folding, Schizosaccharomyces pombe"
+xref: Reactome:REACT_33395 "Formation of tubulin folding intermediates by CCT/TriC, Mus musculus"
+xref: Reactome:REACT_77627 "Chaperonin-mediated protein folding, Plasmodium falciparum"
+xref: Reactome:REACT_77963 "Formation of tubulin folding intermediates by CCT/TriC, Saccharomyces cerevisiae"
+xref: Reactome:REACT_78530 "Formation of tubulin folding intermediates by CCT/TriC, Gallus gallus"
+xref: Reactome:REACT_81155 "Formation of tubulin folding intermediates by CCT/TriC, Caenorhabditis elegans"
+xref: Reactome:REACT_83906 "Chaperonin-mediated protein folding, Dictyostelium discoideum"
+xref: Reactome:REACT_85492 "Formation of tubulin folding intermediates by CCT/TriC, Sus scrofa"
+xref: Reactome:REACT_85496 "Formation of tubulin folding intermediates by CCT/TriC, Plasmodium falciparum"
+xref: Reactome:REACT_86318 "Formation of tubulin folding intermediates by CCT/TriC, Arabidopsis thaliana"
+xref: Reactome:REACT_91676 "Formation of tubulin folding intermediates by CCT/TriC, Schizosaccharomyces pombe"
+xref: Reactome:REACT_92785 "Formation of tubulin folding intermediates by CCT/TriC, Dictyostelium discoideum"
+xref: Reactome:REACT_92961 "Chaperonin-mediated protein folding, Xenopus tropicalis"
+xref: Reactome:REACT_92981 "Chaperonin-mediated protein folding, Taeniopygia guttata"
+xref: Reactome:REACT_94123 "Formation of tubulin folding intermediates by CCT/TriC, Taeniopygia guttata"
+xref: Reactome:REACT_94443 "Formation of tubulin folding intermediates by CCT/TriC, Danio rerio"
+xref: Reactome:REACT_94772 "Chaperonin-mediated protein folding, Sus scrofa"
+xref: Reactome:REACT_96773 "Chaperonin-mediated protein folding, Danio rerio"
+xref: Reactome:REACT_97016 "Chaperonin-mediated protein folding, Bos taurus"
+xref: Reactome:REACT_97220 "Formation of tubulin folding intermediates by CCT/TriC, Xenopus tropicalis"
+xref: Reactome:REACT_98132 "Formation of tubulin folding intermediates by CCT/TriC, Oryza sativa"
+xref: Wikipedia:Protein_folding
+synonym: "alpha-tubulin folding" NARROW [GOC:mah]
+synonym: "beta-tubulin folding" NARROW [GOC:mah]
+synonym: "chaperone activity" RELATED []
+synonym: "chaperonin ATPase activity" RELATED []
+synonym: "chaperonin-mediated tubulin folding" NARROW [GOC:mah]
+synonym: "co-chaperone activity" RELATED []
+synonym: "co-chaperonin activity" RELATED []
+synonym: "glycoprotein-specific chaperone activity" RELATED []
+synonym: "non-chaperonin molecular chaperone ATPase activity" RELATED []
+synonym: "protein complex assembly, multichaperone pathway" RELATED []
+namespace: biological_process
+is_a: GO:0044267
+alt_id: GO:0007022
+alt_id: GO:0007024
+alt_id: GO:0007025
+def: "The process of assisting in the covalent and noncovalent assembly of single chain polypeptides or multisubunit complexes into the correct tertiary structure." [GOC:go_curators, GOC:rb]
+
+[Term]
+id: GO:0007635
+name: chemosensory behavior
+synonym: "behavioral response to chemical stimulus" EXACT []
+synonym: "behavioural response to chemical stimulus" EXACT []
+synonym: "chemosensory behaviour" EXACT []
+namespace: biological_process
+is_a: GO:0042221
+is_a: GO:0044708
+def: "Behavior that is dependent upon the sensation of chemicals." [GOC:go_curators]
+
+[Term]
+id: GO:0009953
+name: dorsal/ventral pattern formation
+synonym: "dorsal-ventral pattern formation" EXACT [GOC:mah]
+synonym: "dorsal/ventral pattern specification" NARROW []
+synonym: "dorsoventral pattern formation" EXACT [GOC:mah]
+namespace: biological_process
+is_a: GO:0003002
+def: "The regionalization process in which the areas along the dorsal/ventral axis are established that will lead to differences in cell differentiation. The dorsal/ventral axis is defined by a line that runs orthogonal to both the anterior/posterior and left/right axes. The dorsal end is defined by the upper or back side of an organism. The ventral end is defined by the lower or front side of an organism." [GOC:dph, GOC:go_curators, GOC:isa_complete, GOC:tb]
+
+[Term]
+id: GO:0048599
+name: oocyte development
+relationship: part_of GO:0009994
+namespace: biological_process
+is_a: GO:0007281
+def: "The process whose specific outcome is the progression of an oocyte over time, from initial commitment of the cell to its specific fate, to the fully functional differentiated cell." [GOC:go_curators]
+
+[Term]
+id: GO:0003002
+name: regionalization
+synonym: "pattern formation" RELATED [GOC:dph]
+namespace: biological_process
+is_a: GO:0007389
+def: "The pattern specification process that results in the subdivision of an axis or axes in space to define an area or volume in which specific patterns of cell differentiation will take place or in which cells interpret a specific environment." [GOC:dph, GOC:isa_complete]
+
+[Term]
+id: GO:0043232
+name: intracellular non-membrane-bounded organelle
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "intracellular non-membrane-enclosed organelle" EXACT []
+namespace: cellular_component
+is_a: GO:0043228
+is_a: GO:0043229
+def: "Organized structure of distinctive morphology and function, not bounded by a lipid bilayer membrane and occurring within the cell. Includes ribosomes, the cytoskeleton and chromosomes." [GOC:go_curators]
+
+[Term]
+id: GO:0006928
+name: cellular component movement
+comment: Note that in GO cellular components include whole cells (cell is_a cellular component).
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "cell movement" RELATED []
+synonym: "cellular component motion" EXACT [GOC:dph, GOC:jl]
+namespace: biological_process
+is_a: GO:0044763
+def: "The directed, self-propelled movement of a cellular component without the involvement of an external agent such as a transporter or a pore." [GOC:dgh, GOC:dph, GOC:jl, GOC:mlg]
+
+[Term]
+id: GO:0050821
+name: protein stabilization
+subset: gosubset_prok
+synonym: "lysosomal protein stabilization" NARROW []
+synonym: "positive regulation of protein stability" EXACT []
+synonym: "protein sequestering" RELATED []
+synonym: "protein stabilization activity" RELATED []
+namespace: biological_process
+is_a: GO:0031647
+def: "Any process involved in maintaining the structure and integrity of a protein and preventing it from degradation or aggregation." [GOC:ai]
+
+[Term]
+id: GO:0043229
+name: intracellular organelle
+subset: goslim_pir
+subset: gosubset_prok
+namespace: cellular_component
+is_a: GO:0043226
+is_a: GO:0044424
+def: "Organized structure of distinctive morphology and function, occurring within the cell. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton. Excludes the plasma membrane." [GOC:go_curators]
+
+[Term]
+id: GO:0006807
+name: nitrogen compound metabolic process
+comment: Note that amino acid and derivative metabolism should not be annotated here. Instead use the 'amino acid and derivative metabolism' node.
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "nitrogen compound metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0008152
+def: "The chemical reactions and pathways involving organic or inorganic compounds that contain nitrogen, including (but not limited to) nitrogen fixation, nitrification, denitrification, assimilatory/dissimilatory nitrate reduction and the interconversion of nitrogenous organic matter and ammonium." [CHEBI:51143, GOC:go_curators, GOC:jl, ISBN:0198506732]
+
+[Term]
+id: GO:0003674
+name: molecular_function
+comment: Note that, in addition to forming the root of the molecular function ontology, this term is recommended for use for the annotation of gene products whose molecular function is unknown. Note that when this term is used for annotation, it indicates that no information was available about the molecular function of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this.
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+disjoint_from: GO:0005575
+disjoint_from: GO:0008150
+synonym: "molecular function" EXACT []
+synonym: "molecular function unknown" NARROW []
+namespace: molecular_function
+alt_id: GO:0005554
+def: "Elemental activities, such as catalysis or binding, describing the actions of a gene product at the molecular level. A given gene product may exhibit one or more molecular functions." [GOC:go_curators]
+
+[Term]
+id: GO:0042742
+name: defense response to bacterium
+subset: gosubset_prok
+synonym: "antibacterial peptide activity" RELATED []
+synonym: "defence response to bacteria" EXACT []
+synonym: "defence response to bacterium" EXACT []
+synonym: "defense response to bacteria" EXACT []
+namespace: biological_process
+is_a: GO:0006952
+is_a: GO:0009617
+alt_id: GO:0042830
+def: "Reactions triggered in response to the presence of a bacterium that act to protect the cell or organism." [GOC:jl]
+
+[Term]
+id: GO:0042428
+name: serotonin metabolic process
+synonym: "serotonin metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0042430
+is_a: GO:1901160
+def: "The chemical reactions and pathways involving serotonin (5-hydroxytryptamine), a monoamine neurotransmitter occurring in the peripheral and central nervous systems, also having hormonal properties." [GOC:jl, ISBN:0198506732]
+
+[Term]
+id: GO:0007411
+name: axon guidance
+xref: Reactome:REACT_104226 "Axon guidance, Xenopus tropicalis"
+xref: Reactome:REACT_108197 "Axon guidance, Schizosaccharomyces pombe"
+xref: Reactome:REACT_110262 "Axon guidance, Drosophila melanogaster"
+xref: Reactome:REACT_112315 "Axon guidance, Plasmodium falciparum"
+xref: Reactome:REACT_114665 "Axon guidance, Arabidopsis thaliana"
+xref: Reactome:REACT_115127 "Axon guidance, Oryza sativa"
+xref: Reactome:REACT_18266 "Axon guidance, Homo sapiens"
+xref: Reactome:REACT_29678 "Axon guidance, Taeniopygia guttata"
+xref: Reactome:REACT_29862 "Axon guidance, Caenorhabditis elegans"
+xref: Reactome:REACT_34580 "Axon guidance, Dictyostelium discoideum"
+xref: Reactome:REACT_77452 "Axon guidance, Sus scrofa"
+xref: Reactome:REACT_77923 "Axon guidance, Danio rerio"
+xref: Reactome:REACT_83818 "Axon guidance, Saccharomyces cerevisiae"
+xref: Reactome:REACT_86479 "Axon guidance, Gallus gallus"
+xref: Reactome:REACT_88453 "Axon guidance, Bos taurus"
+xref: Reactome:REACT_92778 "Axon guidance, Mus musculus"
+xref: Reactome:REACT_94408 "Axon guidance, Rattus norvegicus"
+xref: Reactome:REACT_95076 "Axon guidance, Canis familiaris"
+xref: Wikipedia:Axon_guidance
+synonym: "axon chemotaxis" RELATED [GOC:curators]
+synonym: "axon growth cone guidance" NARROW []
+synonym: "axon pathfinding" EXACT [GOC:mah]
+relationship: part_of GO:0007409
+namespace: biological_process
+is_a: GO:0006935
+alt_id: GO:0008040
+def: "The chemotaxis process that directs the migration of an axon growth cone to a specific target site in response to a combination of attractive and repulsive cues." [ISBN:0878932437]
+
+[Term]
+id: GO:0042427
+name: serotonin biosynthetic process
+xref: Wikipedia:Serotonin
+synonym: "serotonin anabolism" EXACT []
+synonym: "serotonin biosynthesis" EXACT []
+synonym: "serotonin formation" EXACT []
+synonym: "serotonin synthesis" EXACT []
+namespace: biological_process
+is_a: GO:0042428
+is_a: GO:0042435
+is_a: GO:1901162
+def: "The chemical reactions and pathways resulting in the formation of serotonin (5-hydroxytryptamine), a monoamine neurotransmitter occurring in the peripheral and central nervous systems, also having hormonal properties." [GOC:jl, ISBN:0198506732]
+
+[Term]
+id: GO:0035556
+name: intracellular signal transduction
+synonym: "intracellular signal transduction pathway" NARROW []
+synonym: "intracellular signaling cascade" EXACT []
+synonym: "intracellular signaling chain" EXACT [ISBN:3527303782]
+synonym: "intracellular signaling pathway" RELATED []
+synonym: "signal transduction via intracellular signaling cascade" RELATED []
+synonym: "signal transmission via intracellular cascade" NARROW []
+namespace: biological_process
+is_a: GO:0007165
+alt_id: GO:0007242
+alt_id: GO:0023013
+alt_id: GO:0023034
+def: "The process in which a signal is passed on to downstream components within the cell, which become activated themselves to further propagate the signal and finally trigger a change in the function or state of the cell." [GOC:signaling, ISBN:3527303782]
+
+[Term]
+id: GO:0030716
+name: oocyte fate determination
+synonym: "oocyte cell fate determination" EXACT []
+namespace: biological_process
+is_a: GO:0001709
+def: "The process in which a cell becomes capable of differentiating autonomously into an oocyte cell regardless of its environment; upon determination, the cell fate cannot be reversed." [GOC:go_curators]
+
+[Term]
+id: GO:0043227
+name: membrane-bounded organelle
+subset: gosubset_prok
+xref: NIF_Subcellular:sao414196390
+synonym: "membrane-enclosed organelle" EXACT []
+namespace: cellular_component
+is_a: GO:0043226
+def: "Organized structure of distinctive morphology and function, bounded by a single or double lipid bilayer membrane. Includes the nucleus, mitochondria, plastids, vacuoles, and vesicles. Excludes the plasma membrane." [GOC:go_curators]
+
+[Term]
+id: GO:0050789
+name: regulation of biological process
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: gosubset_prok
+synonym: "regulation of physiological process" EXACT []
+relationship: regulates GO:0008150
+namespace: biological_process
+is_a: GO:0065007
+alt_id: GO:0050791
+def: "Any process that modulates the frequency, rate or extent of a biological process. Biological processes are regulated by many means; examples include the control of gene expression, protein modification or interaction with a protein or substrate molecule." [GOC:ai, GOC:go_curators]
+
+[Term]
+id: GO:1901265
+name: nucleoside phosphate binding
+is_a: GO:0097159
+is_a: GO:1901363
+namespace: molecular_function
+def: "Interacting selectively and non-covalently with nucleoside phosphate." [GOC:TermGenie]
+
+[Term]
+id: GO:0005856
+name: cytoskeleton
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Wikipedia:Cytoskeleton
+namespace: cellular_component
+is_a: GO:0043232
+def: "Any of the various filamentous elements that form the internal framework of cells, and typically remain after treatment of the cells with mild detergent to remove membrane constituents and soluble components of the cytoplasm. The term embraces intermediate filaments, microfilaments, microtubules, the microtrabecular lattice, and other structures characterized by a polymeric filamentous nature and long-range order within the cell. The various elements of the cytoskeleton not only serve in the maintenance of cellular shape but also have roles in other cellular functions, including cellular movement, cell division, endocytosis, and movement of organelles." [GOC:mah, ISBN:0198547684, PMID:16959967]
+
+[Term]
+id: GO:0002376
+name: immune system process
+comment: Note that this term is a direct child of 'biological_process ; GO:0008150' because some immune system processes are types of cellular process (GO:0009987), whereas others are types of multicellular organism process (GO:0032501). This term was added by GO_REF:0000022.
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+xref: Wikipedia:Immune_system
+namespace: biological_process
+is_a: GO:0008150
+def: "Any process involved in the development or functioning of the immune system, an organismal system for calibrated responses to potential internal or invasive threats." [GO_REF:0000022, GOC:add, GOC:mtg_15nov05]
+
+[Term]
+id: GO:0051341
+name: regulation of oxidoreductase activity
+subset: gosubset_prok
+synonym: "oxidoreductase regulator" EXACT []
+namespace: biological_process
+is_a: GO:0050790
+def: "Any process that modulates the frequency, rate or extent of oxidoreductase activity, the catalysis of an oxidation-reduction (redox) reaction, a reversible chemical reaction in which the oxidation state of an atom or atoms within a molecule is altered. One substrate acts as a hydrogen or electron donor and becomes oxidized, while the other acts as hydrogen or electron acceptor and becomes reduced." [EC:1.-.-.-, GOC:ai]
+
+[Term]
+id: GO:0000904
+name: cell morphogenesis involved in differentiation
+relationship: part_of GO:0048468
+namespace: biological_process
+is_a: GO:0000902
+def: "The change in form (cell shape and size) that occurs when relatively unspecialized cells, e.g. embryonic or regenerative cells, acquire specialized structural and/or functional features that characterize the cells, tissues, or organs of the mature organism or some other relatively stable phase of the organism's life history." [GOC:go_curators]
+
+[Term]
+id: GO:0031572
+name: G2 DNA damage checkpoint
+comment: Note that this term should only be used as a grouping term for the mitotic and meiotic G2 DNA damage checkpoints, and should not be used for direct manual annotation. You should always be able to choose one of its child terms instead.
+subset: gocheck_do_not_manually_annotate
+synonym: "G2/M transition DNA damage checkpoint" EXACT []
+namespace: biological_process
+is_a: GO:0000077
+def: "A cell cycle checkpoint that detects and negatively regulates progression from G2 to M phase in the cell cycle in response to DNA damage." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0000902
+name: cell morphogenesis
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_yeast
+subset: gosubset_prok
+synonym: "cellular morphogenesis" EXACT []
+namespace: biological_process
+is_a: GO:0032989
+alt_id: GO:0007148
+alt_id: GO:0045790
+alt_id: GO:0045791
+def: "The developmental process in which the size or shape of a cell is generated and organized." [GOC:clt, GOC:dph, GOC:go_curators, GOC:tb]
+
+[Term]
+id: GO:0044260
+name: cellular macromolecule metabolic process
+subset: gosubset_prok
+synonym: "cellular biopolymer metabolic process" EXACT [GOC:mtg_chebi_dec09]
+synonym: "cellular macromolecule metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0043170
+is_a: GO:0044237
+alt_id: GO:0034960
+def: "The chemical reactions and pathways involving macromolecules, any molecule of high relative molecular mass, the structure of which essentially comprises the multiple repetition of units derived, actually or conceptually, from molecules of low relative molecular mass, as carried out by individual cells." [CHEBI:33694, GOC:mah]
+
+[Term]
+id: GO:0043167
+name: ion binding
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_yeast
+subset: gosubset_prok
+synonym: "atom binding" RELATED []
+namespace: molecular_function
+is_a: GO:0005488
+def: "Interacting selectively and non-covalently with ions, charged atoms or groups of atoms." [GOC:jl]
+
+[Term]
+id: GO:0016043
+name: cellular component organization
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+synonym: "cell organisation" EXACT []
+synonym: "cell organization and biogenesis" RELATED [GOC:mah]
+synonym: "cellular component organisation at cellular level" EXACT [GOC:mah]
+synonym: "cellular component organisation in other organism" EXACT [GOC:mah]
+synonym: "cellular component organization at cellular level" EXACT []
+synonym: "cellular component organization in other organism" EXACT []
+namespace: biological_process
+is_a: GO:0071840
+alt_id: GO:0044235
+alt_id: GO:0071842
+def: "A process that results in the assembly, arrangement of constituent parts, or disassembly of a cellular component." [GOC:ai, GOC:jl, GOC:mah]
+
+[Term]
+id: GO:0006568
+name: tryptophan metabolic process
+subset: gosubset_prok
+xref: Wikipedia:Tryptophan
+synonym: "tryptophan metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0006586
+is_a: GO:0009072
+is_a: GO:1901605
+def: "The chemical reactions and pathways involving tryptophan, the chiral amino acid 2-amino-3-(1H-indol-3-yl)propanoic acid." [ISBN:0198547684]
+
+[Term]
+id: GO:0044430
+name: cytoskeletal part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+synonym: "cytoskeleton component" EXACT []
+relationship: part_of GO:0005856
+namespace: cellular_component
+is_a: GO:0044446
+def: "Any constituent part of the cytoskeleton, a cellular scaffolding or skeleton that maintains cell shape, enables some cell motion (using structures such as flagella and cilia), and plays important roles in both intra-cellular transport (e.g. the movement of vesicles and organelles) and cellular division. Includes constituent parts of intermediate filaments, microfilaments, microtubules, and the microtrabecular lattice." [GOC:jl]
+
+[Term]
+id: GO:0065007
+name: biological regulation
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "regulation" BROAD []
+namespace: biological_process
+is_a: GO:0008150
+def: "Any process that modulates a measurable attribute of any biological process, quality or function." [GOC:dph, GOC:isa_complete, GOC:mah, GOC:pr, GOC:vw]
+
+[Term]
+id: GO:0043085
+name: positive regulation of catalytic activity
+subset: gosubset_prok
+synonym: "activation of enzyme activity" NARROW []
+synonym: "positive regulation of enzyme activity" EXACT [GOC:tb]
+synonym: "stimulation of enzyme activity" NARROW []
+synonym: "up regulation of enzyme activity" EXACT []
+synonym: "up-regulation of enzyme activity" EXACT []
+synonym: "upregulation of enzyme activity" EXACT []
+namespace: biological_process
+is_a: GO:0044093
+is_a: GO:0050790
+def: "Any process that activates or increases the activity of an enzyme." [GOC:jl, GOC:tb]
+
+[Term]
+id: GO:0032549
+name: ribonucleoside binding
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0001882
+def: "Interacting selectively and non-covalently with a ribonucleoside, a compound consisting of a purine or pyrimidine nitrogenous base linked to ribose." [GOC:mah]
+
+[Term]
+id: GO:0044267
+name: cellular protein metabolic process
+subset: gosubset_prok
+xref: Reactome:REACT_101554 "Metabolism of proteins, Gallus gallus"
+xref: Reactome:REACT_102155 "Metabolism of proteins, Arabidopsis thaliana"
+xref: Reactome:REACT_105825 "Metabolism of proteins, Dictyostelium discoideum"
+xref: Reactome:REACT_106151 "Metabolism of proteins, Xenopus tropicalis"
+xref: Reactome:REACT_108005 "Metabolism of proteins, Bos taurus"
+xref: Reactome:REACT_109022 "Metabolism of proteins, Schizosaccharomyces pombe"
+xref: Reactome:REACT_17015 "Metabolism of proteins, Homo sapiens"
+xref: Reactome:REACT_32904 "Metabolism of proteins, Canis familiaris"
+xref: Reactome:REACT_34473 "Metabolism of proteins, Taeniopygia guttata"
+xref: Reactome:REACT_80561 "Metabolism of proteins, Escherichia coli"
+xref: Reactome:REACT_81994 "Metabolism of proteins, Sus scrofa"
+xref: Reactome:REACT_82523 "Metabolism of proteins, Danio rerio"
+xref: Reactome:REACT_85873 "Metabolism of proteins, Saccharomyces cerevisiae"
+xref: Reactome:REACT_86658 "Metabolism of proteins, Drosophila melanogaster"
+xref: Reactome:REACT_89852 "Metabolism of proteins, Rattus norvegicus"
+xref: Reactome:REACT_91052 "Metabolism of proteins, Caenorhabditis elegans"
+xref: Reactome:REACT_93132 "Metabolism of proteins, Mus musculus"
+xref: Reactome:REACT_96466 "Metabolism of proteins, Plasmodium falciparum"
+xref: Reactome:REACT_99179 "Metabolism of proteins, Oryza sativa"
+synonym: "cellular protein metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0019538
+is_a: GO:0044260
+def: "The chemical reactions and pathways involving a specific protein, rather than of proteins in general, occurring at the level of an individual cell. Includes cellular protein modification." [GOC:jl]
+
+[Term]
+id: GO:0065009
+name: regulation of molecular function
+subset: gosubset_prok
+synonym: "regulation of a molecular function" EXACT []
+namespace: biological_process
+is_a: GO:0065007
+def: "Any process that modulates the frequency, rate or extent of a molecular function, an elemental biological activity occurring at the molecular level, such as catalysis or binding." [GOC:isa_complete]
+
+[Term]
+id: GO:0065008
+name: regulation of biological quality
+subset: gosubset_prok
+synonym: "regulation of biological attribute" EXACT []
+synonym: "regulation of biological characteristic" EXACT []
+namespace: biological_process
+is_a: GO:0065007
+def: "Any process that modulates a qualitative or quantitative trait of a biological quality. A biological quality is a measurable attribute of an organism or part of an organism, such as size, mass, shape, color, etc." [GOC:dph, GOC:isa_complete, GOC:mah, GOC:pr, GOC:vw]
+
+[Term]
+id: GO:0048477
+name: oogenesis
+xref: Wikipedia:Oogenesis
+synonym: "ovum development" EXACT systematic_synonym []
+namespace: biological_process
+is_a: GO:0007292
+alt_id: GO:0009993
+alt_id: GO:0048157
+def: "The complete process of formation and maturation of an ovum or female gamete from a primordial female germ cell. Examples of this process are found in Mus musculus and Drosophila melanogaster." [GOC:kmv, GOC:mtg_sensu]
+
+[Term]
+id: GO:0030234
+name: enzyme regulator activity
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+synonym: "catalytic regulator activity" EXACT [GOC:dph]
+synonym: "enzyme modulator" EXACT []
+namespace: molecular_function
+is_a: GO:0003674
+def: "Modulates the activity of an enzyme." [GOC:mah]
+
+[Term]
+id: GO:0048646
+name: anatomical structure formation involved in morphogenesis
+comment: Note that, for example, the formation of a pseudopod in an amoeba would not be considered formation involved in morphogenesis because it would not be thought of as the formation of an anatomical structure that was part of the shaping of the amoeba during its development. The formation of an axon from a neuron would be considered the formation of an anatomical structure involved in morphogenesis because it contributes to the creation of the form of the neuron in a developmental sense.
+subset: goslim_generic
+synonym: "formation of an anatomical structure involved in morphogenesis" EXACT [GOC:dph, GOC:tb]
+relationship: part_of GO:0009653
+namespace: biological_process
+is_a: GO:0032502
+def: "The developmental process pertaining to the initial formation of an anatomical structure from unspecified parts. This process begins with the specific processes that contribute to the appearance of the discrete structure and ends when the structural rudiment is recognizable. An anatomical structure is any biological entity that occupies space and is distinguished from its surroundings. Anatomical structures can be macroscopic such as a carpel, or microscopic such as an acrosome." [GOC:dph, GOC:jid, GOC:tb]
+
+[Term]
+id: GO:0018130
+name: heterocycle biosynthetic process
+subset: gosubset_prok
+synonym: "heterocycle anabolism" EXACT []
+synonym: "heterocycle biosynthesis" EXACT []
+synonym: "heterocycle formation" EXACT []
+synonym: "heterocycle synthesis" EXACT []
+namespace: biological_process
+is_a: GO:0044249
+is_a: GO:0046483
+def: "The chemical reactions and pathways resulting in the formation of heterocyclic compounds, those with a cyclic molecular structure and at least two different atoms in the ring (or rings)." [ISBN:0198547684]
+
+[Term]
+id: GO:0006588
+name: activation of tryptophan 5-monooxygenase activity
+synonym: "tryptophan hydroxylase activation" RELATED [GOC:dph, GOC:tb]
+relationship: part_of GO:0006587
+namespace: biological_process
+is_a: GO:0032770
+def: "The process in which the tryptophan 5-monooxygenase enzyme is changed so that it can carry out its enzymatic activity." [GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0009887
+name: organ morphogenesis
+synonym: "histogenesis and organogenesis" BROAD []
+relationship: part_of GO:0048513
+namespace: biological_process
+is_a: GO:0009653
+is_a: GO:0044767
+def: "Morphogenesis of an organ. An organ is defined as a tissue or set of tissues that work together to perform a specific function or functions. Morphogenesis is the process in which anatomical structures are generated and organized. Organs are commonly observed as visibly distinct structures, but may also exist as loosely associated clusters of cells that work together to perform a specific function or functions." [GOC:dgh, GOC:go_curators, ISBN:0471245208, ISBN:0721662544]
+
+[Term]
+id: GO:1901991
+name: negative regulation of mitotic cell cycle phase transition
+synonym: "down regulation of mitotic cell cycle phase transition" EXACT [GOC:TermGenie]
+synonym: "down-regulation of mitotic cell cycle phase transition" EXACT [GOC:TermGenie]
+synonym: "downregulation of mitotic cell cycle phase transition" EXACT [GOC:TermGenie]
+synonym: "inhibition of mitotic cell cycle phase transition" NARROW [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:1901988
+is_a: GO:1901990
+def: "Any process that stops, prevents or reduces the frequency, rate or extent of mitotic cell cycle phase transition." [GOC:mtg_cell_cycle, GOC:TermGenie, PMID:22841721]
+
+[Term]
+id: GO:0009308
+name: amine metabolic process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "amine metabolism" EXACT []
+namespace: biological_process
+is_a: GO:1901564
+def: "The chemical reactions and pathways involving any organic compound that is weakly basic in character and contains an amino or a substituted amino group, as carried out by individual cells. Amines are called primary, secondary, or tertiary according to whether one, two, or three carbon atoms are attached to the nitrogen atom." [GOC:jl, ISBN:0198506732]
+
+[Term]
+id: GO:0019887
+name: protein kinase regulator activity
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0019207
+def: "Modulates the activity of a protein kinase, an enzyme which phosphorylates a protein." [GOC:ai]
+
+[Term]
+id: GO:0007049
+name: cell cycle
+subset: gocheck_do_not_manually_annotate
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Cell_cycle
+synonym: "cell-division cycle" EXACT []
+namespace: biological_process
+is_a: GO:0044763
+def: "The progression of biochemical and morphological phases and events that occur in a cell during successive cell replication or nuclear replication events. Canonically, the cell cycle comprises the replication and segregation of genetic material followed by the division of the cell, but in endocycles or syncytial cells nuclear replication or nuclear division may not be followed by cell division." [GOC:go_curators, GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0032768
+name: regulation of monooxygenase activity
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0051341
+def: "Any process that modulates the activity of a monooxygenase." [GOC:mah]
+
+[Term]
+id: GO:0050790
+name: regulation of catalytic activity
+subset: gosubset_prok
+synonym: "regulation of enzyme activity" EXACT []
+namespace: biological_process
+is_a: GO:0019222
+is_a: GO:0065009
+def: "Any process that modulates the activity of an enzyme." [GOC:ai]
+
+[Term]
+id: GO:0044710
+name: single-organism metabolic process
+is_a: GO:0008152
+namespace: biological_process
+def: "A metabolic process - chemical reactions and pathways, including anabolism and catabolism, by which living organisms transform chemical substances - which involves a single organism." [GOC:jl]
+
+[Term]
+id: GO:0006587
+name: serotonin biosynthetic process from tryptophan
+synonym: "serotonin anabolism from tryptophan" EXACT []
+synonym: "serotonin formation from tryptophan" EXACT []
+synonym: "serotonin synthesis from tryptophan" EXACT []
+namespace: biological_process
+is_a: GO:0006568
+is_a: GO:0042427
+def: "The chemical reactions and pathways resulting in the formation from tryptophan of serotonin (5-hydroxytryptamine), a monoamine neurotransmitter occurring in the peripheral and central nervous systems, also having hormonal properties." [GOC:jl, ISBN:0198506732]
+
+[Term]
+id: GO:0050794
+name: regulation of cellular process
+subset: gosubset_prok
+synonym: "regulation of cellular physiological process" EXACT []
+relationship: regulates GO:0009987
+namespace: biological_process
+is_a: GO:0050789
+alt_id: GO:0051244
+def: "Any process that modulates the frequency, rate or extent of a cellular process, any of those that are carried out at the cellular level, but are not necessarily restricted to a single cell. For example, cell communication occurs among more than one cell, but occurs at the cellular level." [GOC:go_curators]
+
+[Term]
+id: GO:0006952
+name: defense response
+subset: gosubset_prok
+synonym: "antimicrobial peptide activity" RELATED []
+synonym: "defence response" EXACT []
+synonym: "defense/immunity protein activity" RELATED []
+synonym: "physiological defense response" EXACT []
+namespace: biological_process
+is_a: GO:0006950
+alt_id: GO:0002217
+alt_id: GO:0042829
+def: "Reactions, triggered in response to the presence of a foreign body or the occurrence of an injury, which result in restriction of damage to the organism attacked or prevention/recovery from the infection caused by the attack." [GOC:go_curators]
+
+[Term]
+id: GO:1901987
+name: regulation of cell cycle phase transition
+synonym: "regulation of cell cycle transition" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:0010564
+def: "Any process that modulates the frequency, rate or extent of cell cycle phase transition." [GOC:mtg_cell_cycle, GOC:TermGenie, PMID:22841721]
+
+[Term]
+id: GO:0006950
+name: response to stress
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_plant
+subset: gosubset_prok
+synonym: "response to abiotic stress" RELATED []
+synonym: "response to biotic stress" RELATED []
+namespace: biological_process
+is_a: GO:0050896
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a disturbance in organismal or cellular homeostasis, usually, but not necessarily, exogenous (e.g. temperature, humidity, ionizing radiation)." [GOC:mah]
+
+[Term]
+id: GO:0008306
+name: associative learning
+xref: Wikipedia:Learning#Associative_learning
+synonym: "classical conditioning" EXACT []
+synonym: "conditional learning" EXACT []
+synonym: "conditional response" EXACT []
+synonym: "Pavlovian conditioning" EXACT []
+namespace: biological_process
+is_a: GO:0007612
+def: "Learning by associating a stimulus (the cause) with a particular outcome (the effect)." [ISBN:0582227089]
+
+[Term]
+id: GO:0008150
+name: biological_process
+comment: Note that, in addition to forming the root of the biological process ontology, this term is recommended for use for the annotation of gene products whose biological process is unknown. Note that when this term is used for annotation, it indicates that no information was available about the biological process of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this.
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_pombe
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Wikipedia:Biological_process
+synonym: "biological process" EXACT []
+synonym: "biological process unknown" NARROW []
+synonym: "physiological process" EXACT []
+namespace: biological_process
+alt_id: GO:0000004
+alt_id: GO:0007582
+def: "Any process specifically pertinent to the functioning of integrated living units: cells, tissues, organs, and organisms. A process is a collection of molecular events with a defined beginning and end." [GOC:go_curators, GOC:isa_complete]
+
+[Term]
+id: GO:0016477
+name: cell migration
+xref: Wikipedia:Cell_migration
+namespace: biological_process
+is_a: GO:0048870
+def: "The orderly movement of a cell from one site to another, often during the development of a multicellular organism or multicellular structure." [GOC:ems, GOC:pf]
+
+[Term]
+id: GO:0008152
+name: metabolic process
+comment: Note that metabolic processes do not include single functions or processes such as protein-protein interactions, protein-nucleic acids, nor receptor-ligand interactions.
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Metabolism
+synonym: "metabolic process resulting in cell growth" NARROW []
+synonym: "metabolism" EXACT []
+synonym: "metabolism resulting in cell growth" NARROW []
+namespace: biological_process
+is_a: GO:0008150
+def: "The chemical reactions and pathways, including anabolism and catabolism, by which living organisms transform chemical substances. Metabolic processes typically transform small molecules, but also include macromolecular processes such as DNA repair and replication, and protein synthesis and degradation." [GOC:go_curators, ISBN:0198547684]
+
+[Term]
+id: GO:0006955
+name: immune response
+comment: This term was improved by GO_REF:0000022. It was redefined and moved.
+namespace: biological_process
+is_a: GO:0002376
+is_a: GO:0050896
+def: "Any immune system process that functions in the calibrated response of an organism to a potential internal or invasive threat." [GO_REF:0000022, GOC:add, GOC:mtg_15nov05]
+
+[Term]
+id: GO:0042435
+name: indole-containing compound biosynthetic process
+subset: gosubset_prok
+synonym: "indole derivative biosynthesis" EXACT []
+synonym: "indole derivative biosynthetic process" EXACT [GOC:curators]
+synonym: "indole-containing compound anabolism" EXACT [GOC:curators]
+synonym: "indole-containing compound biosynthesis" EXACT [GOC:curators]
+synonym: "indole-containing compound formation" EXACT [GOC:curators]
+synonym: "indole-containing compound synthesis" EXACT [GOC:curators]
+namespace: biological_process
+is_a: GO:0018130
+is_a: GO:0019438
+is_a: GO:0042430
+is_a: GO:0044271
+is_a: GO:1901362
+is_a: GO:1901566
+def: "The chemical reactions and pathways resulting in the formation of compounds that contain an indole (2,3-benzopyrrole) skeleton." [CHEBI:24828, GOC:jl]
+
+[Term]
+id: GO:0007059
+name: chromosome segregation
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_pombe
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Wikipedia:Chromosome_segregation
+synonym: "chromosome division" EXACT []
+synonym: "chromosome transmission" RELATED []
+namespace: biological_process
+is_a: GO:0044763
+def: "The process in which genetic material, in the form of chromosomes, is organized into specific structures and then physically separated and apportioned to two or more sets. In eukaryotes, chromosome segregation begins with the alignment of chromosomes at the metaphase plate, includes chromosome separation, and ends when chromosomes have completed movement to the spindle poles." [GOC:ai, GOC:mah]
+
+[Term]
+id: GO:0006959
+name: humoral immune response
+xref: Wikipedia:Humoral_immunity
+namespace: biological_process
+is_a: GO:0006955
+def: "An immune response mediated through a body fluid." [GOC:hb, ISBN:0198506732]
+
+[Term]
+id: GO:0042430
+name: indole-containing compound metabolic process
+subset: gosubset_prok
+synonym: "indole and derivative metabolic process" EXACT [GOC:curators]
+synonym: "indole and derivative metabolism" EXACT []
+synonym: "indole derivative metabolic process" NARROW [GOC:curators]
+synonym: "indole derivative metabolism" NARROW [GOC:curators]
+synonym: "indole-containing compound metabolism" EXACT [GOC:curators]
+synonym: "ketole metabolic process" EXACT []
+synonym: "ketole metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0006725
+is_a: GO:0034641
+is_a: GO:0046483
+is_a: GO:1901360
+is_a: GO:1901564
+alt_id: GO:0042434
+def: "The chemical reactions and pathways involving compounds that contain an indole (2,3-benzopyrrole) skeleton." [CHEBI:24828, GOC:jl, GOC:mah]
+
+[Term]
+id: GO:1901988
+name: negative regulation of cell cycle phase transition
+synonym: "down regulation of cell cycle phase transition" EXACT [GOC:TermGenie]
+synonym: "down regulation of cell cycle transition" EXACT [GOC:TermGenie]
+synonym: "down-regulation of cell cycle phase transition" EXACT [GOC:TermGenie]
+synonym: "down-regulation of cell cycle transition" EXACT [GOC:TermGenie]
+synonym: "downregulation of cell cycle phase transition" EXACT [GOC:TermGenie]
+synonym: "downregulation of cell cycle transition" EXACT [GOC:TermGenie]
+synonym: "inhibition of cell cycle phase transition" NARROW [GOC:TermGenie]
+synonym: "inhibition of cell cycle transition" EXACT [GOC:TermGenie]
+synonym: "negative regulation of cell cycle transition" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:0010948
+is_a: GO:1901987
+def: "Any process that stops, prevents or reduces the frequency, rate or extent of cell cycle phase transition." [GOC:mtg_cell_cycle, GOC:TermGenie, PMID:22841721]
+
+[Term]
+id: GO:0000003
+name: reproduction
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Reproduction
+synonym: "reproductive physiological process" EXACT []
+namespace: biological_process
+is_a: GO:0008150
+alt_id: GO:0019952
+alt_id: GO:0050876
+def: "The production by an organism of new individuals that contain some portion of their genetic material inherited from that organism." [GOC:go_curators, GOC:isa_complete, ISBN:0198506732]
+
+[Term]
+id: GO:1901564
+name: organonitrogen compound metabolic process
+synonym: "organonitrogen compound metabolism" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:0006807
+is_a: GO:0071704
+def: "The chemical reactions and pathways involving organonitrogen compound." [GOC:pr, GOC:TermGenie]
+
+[Term]
+id: GO:0045165
+name: cell fate commitment
+comment: Note that this term was 'cell fate determination' but the term name was changed to better match its existing definition and the child term 'cell fate determination; GO:0001709' was also created.
+relationship: part_of GO:0030154
+namespace: biological_process
+is_a: GO:0048869
+def: "The commitment of cells to specific cell fates and their capacity to differentiate into particular kinds of cells. Positional information is established through protein signals that emanate from a localized source within a cell (the initial one-cell zygote) or within a developmental field." [ISBN:0716731185]
+
+[Term]
+id: GO:0044271
+name: cellular nitrogen compound biosynthetic process
+subset: gosubset_prok
+synonym: "nitrogen compound anabolism" BROAD []
+synonym: "nitrogen compound biosynthesis" BROAD []
+synonym: "nitrogen compound formation" BROAD []
+synonym: "nitrogen compound synthesis" BROAD []
+namespace: biological_process
+is_a: GO:0034641
+is_a: GO:0044249
+def: "The chemical reactions and pathways resulting in the formation of organic and inorganic nitrogenous compounds." [GOC:jl, ISBN:0198506732]
+
+[Term]
+id: GO:0005840
+name: ribosome
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+xref: NIF_Subcellular:sao1429207766
+xref: Wikipedia:Ribosome
+synonym: "free ribosome" NARROW [NIF_Subcellular:sao1139385046]
+synonym: "membrane bound ribosome" NARROW [NIF_Subcellular:sao1291545653]
+synonym: "ribosomal RNA" RELATED []
+namespace: cellular_component
+is_a: GO:0030529
+is_a: GO:0043232
+is_a: GO:0044444
+alt_id: GO:0033279
+def: "An intracellular organelle, about 200 A in diameter, consisting of RNA and protein. It is the site of protein biosynthesis resulting from translation of messenger RNA (mRNA). It consists of two subunits, one large and one small, each containing only protein and RNA. Both the ribosome and its subunits are characterized by their sedimentation coefficients, expressed in Svedberg units (symbol: S). Hence, the prokaryotic ribosome (70S) comprises a large (50S) subunit and a small (30S) subunit, while the eukaryotic ribosome (80S) comprises a large (60S) subunit and a small (40S) subunit. Two sites on the ribosomal large subunit are involved in translation, namely the aminoacyl site (A site) and peptidyl site (P site). Ribosomes from prokaryotes, eukaryotes, mitochondria, and chloroplasts have characteristically distinct ribosomal proteins." [ISBN:0198506732]
+
+[Term]
+id: GO:0007423
+name: sensory organ development
+synonym: "sense organ development" EXACT [GOC:dph]
+namespace: biological_process
+is_a: GO:0044767
+is_a: GO:0048513
+def: "The process whose specific outcome is the progression of sensory organs over time, from its formation to the mature structure." [GOC:go_curators]
+
+[Term]
+id: GO:0022414
+name: reproductive process
+subset: gosubset_prok
+relationship: part_of GO:0000003
+namespace: biological_process
+is_a: GO:0008150
+def: "A biological process that directly contributes to the process of producing new individuals by one or two organisms. The new individuals inherit some proportion of their genetic material from the parent or parents." [GOC:dph, GOC:isa_complete]
+
+[Term]
+id: GO:0097159
+name: organic cyclic compound binding
+is_a: GO:0005488
+namespace: molecular_function
+def: "Interacting selectively and non-covalently with an organic cyclic compound, any molecular entity that contains carbon arranged in a cyclic molecular structure." [CHEBI:33832, GOC:sjw, PMID:7583672]
+
+[Term]
+id: GO:0050896
+name: response to stimulus
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "physiological response to stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0008150
+alt_id: GO:0051869
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus. The process begins with detection of the stimulus and ends with a change in state or activity or the cell or organism." [GOC:ai, GOC:bf]
+
+[Term]
+id: GO:0031647
+name: regulation of protein stability
+subset: goslim_pir
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0010608
+is_a: GO:0065008
+def: "Any process that affects the structure and integrity of a protein by altering the likelihood of its degradation or aggregation." [GOC:dph, GOC:mah, GOC:tb]
+
+[Term]
+id: GO:0050890
+name: cognition
+xref: Wikipedia:Cognition
+namespace: biological_process
+is_a: GO:0050877
+def: "The operation of the mind by which an organism becomes aware of objects of thought or perception; it includes the mental activities associated with thinking, learning, and memory." [http://www.onelook.com/, ISBN:0721619908]
+
+[Term]
+id: GO:0044446
+name: intracellular organelle part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+subset: gosubset_prok
+relationship: part_of GO:0043229
+namespace: cellular_component
+is_a: GO:0044422
+is_a: GO:0044424
+def: "A constituent part of an intracellular organelle, an organized structure of distinctive morphology and function, occurring within the cell. Includes constituent parts of the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton but excludes the plasma membrane." [GOC:jl]
+
+[Term]
+id: GO:0019001
+name: guanyl nucleotide binding
+subset: gosubset_prok
+xref: Reactome:REACT_102579 "eEF1A complexes with GTP, Dictyostelium discoideum"
+xref: Reactome:REACT_106634 "eEF1A complexes with GTP, Saccharomyces cerevisiae"
+xref: Reactome:REACT_108817 "eEF1A complexes with GTP, Mus musculus"
+xref: Reactome:REACT_145 "reEF1A complexes with GTP, Oryctolagus cuniculus"
+xref: Reactome:REACT_31933 "eEF1A complexes with GTP, Danio rerio"
+xref: Reactome:REACT_80017 "eEF1A complexes with GTP, Canis familiaris"
+xref: Reactome:REACT_86336 "eEF1A complexes with GTP, Bos taurus"
+xref: Reactome:REACT_87166 "eEF1A complexes with GTP, Plasmodium falciparum"
+xref: Reactome:REACT_88634 "eEF1A complexes with GTP, Schizosaccharomyces pombe"
+xref: Reactome:REACT_90 "eEF1A complexes with GTP, Homo sapiens"
+xref: Reactome:REACT_95879 "eEF1A complexes with GTP, Gallus gallus"
+xref: Reactome:REACT_97634 "eEF1A complexes with GTP, Drosophila melanogaster"
+namespace: molecular_function
+is_a: GO:0017076
+def: "Interacting selectively and non-covalently with guanyl nucleotides, any compound consisting of guanosine esterified with (ortho)phosphate." [ISBN:0198506732]
+
+[Term]
+id: GO:0044444
+name: cytoplasmic part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+subset: gosubset_prok
+synonym: "cytoplasm component" EXACT []
+relationship: part_of GO:0005737
+namespace: cellular_component
+is_a: GO:0044424
+def: "Any constituent part of the cytoplasm, all of the contents of a cell excluding the plasma membrane and nucleus, but including other subcellular structures." [GOC:jl]
+
+[Term]
+id: GO:0044445
+name: cytosolic part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+subset: gosubset_prok
+synonym: "cytosol component" EXACT []
+relationship: part_of GO:0005829
+namespace: cellular_component
+is_a: GO:0044444
+def: "Any constituent part of cytosol, that part of the cytoplasm that does not contain membranous or particulate subcellular components." [GOC:jl]
+
+[Term]
+id: GO:0009416
+name: response to light stimulus
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0009314
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a light stimulus, electromagnetic radiation of wavelengths classified as infrared, visible or ultraviolet light." [GOC:go_curators, ISBN:0582227089]
+
+[Term]
+id: GO:0010608
+name: posttranscriptional regulation of gene expression
+is_a: GO:0010468
+namespace: biological_process
+def: "Any process that modulates the frequency, rate or extent of gene expression after the production of an RNA transcript." [GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0032555
+name: purine ribonucleotide binding
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0017076
+is_a: GO:0032553
+def: "Interacting selectively and non-covalently with a purine ribonucleotide, any compound consisting of a purine ribonucleoside that is esterified with (ortho)phosphate or an oligophosphate at any hydroxyl group on the ribose moiety." [GOC:mah]
+
+[Term]
+id: GO:0046983
+name: protein dimerization activity
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0005515
+def: "The formation of a protein dimer, a macromolecular structure consists of two noncovalently associated identical or nonidentical subunits." [ISBN:0198506732]
+
+[Term]
+id: GO:0046982
+name: protein heterodimerization activity
+is_a: GO:0046983
+namespace: molecular_function
+def: "Interacting selectively and non-covalently with a nonidentical protein to form a heterodimer." [GOC:ai]
+
+[Term]
+id: GO:0097305
+name: response to alcohol
+is_a: GO:0010033
+is_a: GO:1901700
+namespace: biological_process
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an alcohol stimulus." [CHEBI:30879, GOC:pr]
+
+[Term]
+id: GO:0006576
+name: cellular biogenic amine metabolic process
+subset: gosubset_prok
+synonym: "biogenic amine metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0044106
+def: "The chemical reactions and pathways occurring at the level of individual cells involving any of a group of naturally occurring, biologically active amines, such as norepinephrine, histamine, and serotonin, many of which act as neurotransmitters." [GOC:jl, ISBN:0395825172]
+
+[Term]
+id: GO:0032553
+name: ribonucleotide binding
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0000166
+def: "Interacting selectively and non-covalently with a ribonucleotide, any compound consisting of a ribonucleoside that is esterified with (ortho)phosphate or an oligophosphate at any hydroxyl group on the ribose moiety." [GOC:mah]
+
+[Term]
+id: GO:0043231
+name: intracellular membrane-bounded organelle
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "intracellular membrane-enclosed organelle" EXACT []
+namespace: cellular_component
+is_a: GO:0043227
+is_a: GO:0043229
+def: "Organized structure of distinctive morphology and function, bounded by a single or double lipid bilayer membrane and occurring within the cell. Includes the nucleus, mitochondria, plastids, vacuoles, and vesicles. Excludes the plasma membrane." [GOC:go_curators]
+
+[Term]
+id: GO:0032770
+name: positive regulation of monooxygenase activity
+synonym: "activation of monooxygenase activity" NARROW []
+synonym: "stimulation of monooxygenase activity" NARROW []
+synonym: "up regulation of monooxygenase activity" EXACT []
+synonym: "up-regulation of monooxygenase activity" EXACT []
+synonym: "upregulation of monooxygenase activity" EXACT []
+namespace: biological_process
+is_a: GO:0032768
+is_a: GO:0051353
+def: "Any process that activates or increases the activity of a monooxygenase." [GOC:mah]
+
+[Term]
+id: GO:0045930
+name: negative regulation of mitotic cell cycle
+synonym: "down regulation of progression through mitotic cell cycle" EXACT []
+synonym: "down-regulation of progression through mitotic cell cycle" EXACT []
+synonym: "downregulation of progression through mitotic cell cycle" EXACT []
+synonym: "inhibition of progression through mitotic cell cycle" NARROW []
+synonym: "negative regulation of mitotic cell cycle progression" EXACT []
+synonym: "negative regulation of progression through mitotic cell cycle" EXACT [GOC:dph, GOC:tb]
+relationship: negatively_regulates GO:0000278
+namespace: biological_process
+is_a: GO:0007346
+is_a: GO:0045786
+def: "Any process that stops, prevents or reduces the rate or extent of progression through the mitotic cell cycle." [GOC:dph, GOC:go_curators, GOC:tb]
+
+[Term]
+id: GO:0009617
+name: response to bacterium
+subset: gosubset_prok
+synonym: "response to bacteria" EXACT []
+namespace: biological_process
+is_a: GO:0051707
+alt_id: GO:0009618
+alt_id: GO:0009680
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus from a bacterium." [GOC:hb]
+
+[Term]
+id: GO:0015935
+name: small ribosomal subunit
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "ribosomal small subunit" EXACT []
+namespace: cellular_component
+is_a: GO:0044391
+def: "The smaller of the two subunits of a ribosome." [GOC:mah]
+
+[Term]
+id: GO:0048149
+name: behavioral response to ethanol
+synonym: "behavioural response to ethanol" EXACT []
+namespace: biological_process
+is_a: GO:0030534
+is_a: GO:0045471
+def: "Any process that results in a change in the behavior of an organism as a result of an ethanol stimulus." [GOC:jid]
+
+[Term]
+id: GO:0033043
+name: regulation of organelle organization
+subset: goslim_yeast
+synonym: "regulation of organelle organisation" EXACT [GOC:mah]
+synonym: "regulation of organelle organization and biogenesis" RELATED [GOC:mah]
+relationship: regulates GO:0006996
+namespace: biological_process
+is_a: GO:0051128
+def: "Any process that modulates the frequency, rate or extent of a process involved in the formation, arrangement of constituent parts, or disassembly of an organelle." [GOC:mah]
+
+[Term]
+id: GO:0035639
+name: purine ribonucleoside triphosphate binding
+synonym: "purine NTP binding" BROAD [GOC:ebc]
+namespace: molecular_function
+is_a: GO:0043168
+is_a: GO:1901265
+def: "Interacting selectively and non-covalently with a purine ribonucleoside triphosphate, a compound consisting of a purine base linked to a ribose sugar esterified with triphosphate on the sugar." [CHEBI:26398, GOC:BHF, GOC:ebc, ISBN:0198506732]
+
+[Term]
+id: GO:0010564
+name: regulation of cell cycle process
+namespace: biological_process
+is_a: GO:0051726
+def: "Any process that modulates a cellular process that is involved in the progression of biochemical and morphological phases and events that occur in a cell during successive cell replication or nuclear replication events." [GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0030154
+name: cell differentiation
+subset: goslim_generic
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Cellular_differentiation
+namespace: biological_process
+is_a: GO:0048869
+def: "The process in which relatively unspecialized cells, e.g. embryonic or regenerative cells, acquire specialized structural and/or functional features that characterize the cells, tissues, or organs of the mature organism or some other relatively stable phase of the organism's life history. Differentiation includes the processes involved in commitment of a cell to a specific fate and its subsequent development to the mature state." [ISBN:0198506732]
+
+[Term]
+id: GO:0035222
+name: wing disc pattern formation
+relationship: part_of GO:0035220
+namespace: biological_process
+is_a: GO:0007447
+def: "The process giving rise to the pattern of cell differentiation in the wing imaginal disc." [GOC:bf]
+
+[Term]
+id: GO:0019953
+name: sexual reproduction
+xref: Wikipedia:Sexual_reproduction
+namespace: biological_process
+is_a: GO:0000003
+def: "The regular alternation, in the life cycle of haplontic, diplontic and diplohaplontic organisms, of meiosis and fertilization which provides for the production offspring. In diplontic organisms there is a life cycle in which the products of meiosis behave directly as gametes, fusing to form a zygote from which the diploid, or sexually reproductive polyploid, adult organism will develop. In diplohaplontic organisms a haploid phase (gametophyte) exists in the life cycle between meiosis and fertilization (e.g. higher plants, many algae and Fungi); the products of meiosis are spores that develop as haploid individuals from which haploid gametes develop to form a diploid zygote; diplohaplontic organisms show an alternation of haploid and diploid generations. In haplontic organisms meiosis occurs in the zygote, giving rise to four haploid cells (e.g. many algae and protozoa), only the zygote is diploid and this may form a resistant spore, tiding organisms over hard times." [ISBN:0387520546]
+
+[Term]
+id: GO:0035220
+name: wing disc development
+is_a: GO:0007444
+namespace: biological_process
+def: "Progression of the wing disc over time, from its initial formation through to its metamorphosis to form adult structures including the wing hinge, wing blade and pleura." [GOC:bf, ISBN:0879694238]
+
+[Term]
+id: GO:0051128
+name: regulation of cellular component organization
+subset: gosubset_prok
+synonym: "regulation of cell organisation" RELATED [GOC:mah]
+synonym: "regulation of cell organization" RELATED [GOC:mah]
+synonym: "regulation of cellular component organisation" EXACT [GOC:curators]
+synonym: "regulation of cellular component organization and biogenesis" RELATED [GOC:mah]
+relationship: regulates GO:0016043
+namespace: biological_process
+is_a: GO:0050794
+def: "Any process that modulates the frequency, rate or extent of a process involved in the formation, arrangement of constituent parts, or disassembly of cell structures, including the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope." [GOC:ai]
+
+[Term]
+id: GO:0001751
+name: compound eye photoreceptor cell differentiation
+relationship: part_of GO:0001745
+namespace: biological_process
+is_a: GO:0001754
+def: "The process in which a relatively unspecialized cell acquires the specialized features of an eye photoreceptor cell." [GOC:go_curators]
+
+[Term]
+id: GO:0044249
+name: cellular biosynthetic process
+subset: gosubset_prok
+synonym: "cellular anabolism" EXACT []
+synonym: "cellular biosynthesis" EXACT []
+synonym: "cellular formation" EXACT []
+synonym: "cellular synthesis" EXACT []
+namespace: biological_process
+is_a: GO:0009058
+is_a: GO:0044237
+def: "The chemical reactions and pathways resulting in the formation of substances, carried out by individual cells." [GOC:jl]
+
+[Term]
+id: GO:0034641
+name: cellular nitrogen compound metabolic process
+subset: goslim_generic
+subset: gosubset_prok
+xref: Reactome:REACT_102000 "Metabolism of amino acids and derivatives, Mycobacterium tuberculosis"
+xref: Reactome:REACT_103710 "Metabolism of amino acids and derivatives, Escherichia coli"
+xref: Reactome:REACT_107293 "Metabolism of amino acids and derivatives, Arabidopsis thaliana"
+xref: Reactome:REACT_108179 "Metabolism of amino acids and derivatives, Xenopus tropicalis"
+xref: Reactome:REACT_109042 "Metabolism of amino acids and derivatives, Sus scrofa"
+xref: Reactome:REACT_13 "Metabolism of amino acids and derivatives, Homo sapiens"
+xref: Reactome:REACT_28699 "Metabolism of amino acids and derivatives, Saccharomyces cerevisiae"
+xref: Reactome:REACT_29108 "Metabolism of amino acids and derivatives, Caenorhabditis elegans"
+xref: Reactome:REACT_32429 "Metabolism of amino acids and derivatives, Rattus norvegicus"
+xref: Reactome:REACT_33347 "Metabolism of amino acids and derivatives, Mus musculus"
+xref: Reactome:REACT_34326 "Metabolism of amino acids and derivatives, Staphylococcus aureus N315"
+xref: Reactome:REACT_55564 "Metabolism of amino acids and derivatives, Gallus gallus"
+xref: Reactome:REACT_77741 "Metabolism of amino acids and derivatives, Taeniopygia guttata"
+xref: Reactome:REACT_82379 "Metabolism of amino acids and derivatives, Bos taurus"
+xref: Reactome:REACT_86268 "Metabolism of amino acids and derivatives, Drosophila melanogaster"
+xref: Reactome:REACT_90299 "Metabolism of amino acids and derivatives, Oryza sativa"
+xref: Reactome:REACT_91959 "Metabolism of amino acids and derivatives, Plasmodium falciparum"
+xref: Reactome:REACT_93580 "Metabolism of amino acids and derivatives, Danio rerio"
+xref: Reactome:REACT_95666 "Metabolism of amino acids and derivatives, Canis familiaris"
+xref: Reactome:REACT_98086 "Metabolism of amino acids and derivatives, Dictyostelium discoideum"
+xref: Reactome:REACT_99241 "Metabolism of amino acids and derivatives, Schizosaccharomyces pombe"
+synonym: "cellular nitrogen compound metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0006807
+is_a: GO:0044237
+def: "The chemical reactions and pathways involving various organic and inorganic nitrogenous compounds, as carried out by individual cells." [GOC:mah]
+
+[Term]
+id: GO:0009411
+name: response to UV
+subset: gosubset_prok
+synonym: "response to ultraviolet light stimulus" EXACT []
+synonym: "response to ultraviolet radiation stimulus" EXACT []
+synonym: "response to UV light stimulus" EXACT []
+synonym: "response to UV radiation stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0009416
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an ultraviolet radiation (UV light) stimulus. Ultraviolet radiation is electromagnetic radiation with a wavelength in the range of 10 to 380 nanometers." [GOC:hb]
+
+[Term]
+id: GO:0023052
+name: signaling
+comment: Note that a signal is any variable property or parameter that serves to convey information, and may be a physical entity such as a gene product or small molecule, a photon, or a change in state such as movement or voltage change.
+subset: goslim_pombe
+subset: goslim_yeast
+synonym: "biological signaling" EXACT []
+synonym: "signaling process" EXACT []
+synonym: "signalling" EXACT []
+synonym: "signalling process" RELATED [GOC:mah]
+namespace: biological_process
+is_a: GO:0008150
+alt_id: GO:0023046
+def: "The entirety of a process in which information is transmitted within a biological system. This process begins with an active signal and ends when a cellular response has been triggered." [GOC:mtg_signal, GOC:mtg_signaling_feb11, GOC:signaling]
+
+[Term]
+id: GO:1901990
+name: regulation of mitotic cell cycle phase transition
+namespace: biological_process
+is_a: GO:0007346
+is_a: GO:1901987
+def: "Any process that modulates the frequency, rate or extent of mitotic cell cycle phase transition." [GOC:mtg_cell_cycle, GOC:TermGenie, PMID:22841721]
+
+[Term]
+id: GO:0007154
+name: cell communication
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Cell_signaling
+namespace: biological_process
+is_a: GO:0044763
+def: "Any process that mediates interactions between a cell and its surroundings. Encompasses interactions such as signaling or attachment between one cell and another cell, between a cell and an extracellular matrix, or between a cell and any other aspect of its environment." [GOC:mah]
+
+[Term]
+id: GO:0009798
+name: axis specification
+synonym: "axis determination" RELATED []
+namespace: biological_process
+is_a: GO:0007389
+def: "The establishment, maintenance and elaboration of a pattern along a line or around a point." [GOC:dph, GOC:go_curators, GOC:isa_complete]
+
+[Term]
+id: GO:0004857
+name: enzyme inhibitor activity
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0030234
+def: "Stops, prevents or reduces the activity of an enzyme." [GOC:ai]
+
+[Term]
+id: GO:0009653
+name: anatomical structure morphogenesis
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Morphogenesis
+synonym: "anatomical structure organization" EXACT []
+synonym: "embryogenesis and morphogenesis" BROAD []
+synonym: "morphogenesis" EXACT []
+relationship: part_of GO:0048856
+namespace: biological_process
+is_a: GO:0032502
+def: "The process in which anatomical structures are generated and organized. Morphogenesis pertains to the creation of form." [GOC:go_curators, ISBN:0521436125]
+
+[Term]
+id: GO:0022008
+name: neurogenesis
+comment: This term was added by GO_REF:0000021.
+xref: Wikipedia:Neurogenesis
+synonym: "nervous system cell generation" EXACT systematic_synonym []
+synonym: "neural cell differentiation" RELATED [GOC:BHF, GOC:dph]
+relationship: part_of GO:0007399
+namespace: biological_process
+is_a: GO:0030154
+def: "Generation of cells within the nervous system." [GO_REF:0000021, GOC:cls, GOC:curators, GOC:dgh, GOC:dph, GOC:jid, GOC:mtg_15jun06]
+
+[Term]
+id: GO:0044699
+name: single-organism process
+synonym: "single organism process" EXACT []
+namespace: biological_process
+is_a: GO:0008150
+def: "A biological process that involves only one organism." [GOC:jl]
+
+[Term]
+id: GO:0045927
+name: positive regulation of growth
+subset: gosubset_prok
+synonym: "activation of growth" NARROW []
+synonym: "stimulation of growth" NARROW []
+synonym: "up regulation of growth" EXACT []
+synonym: "up-regulation of growth" EXACT []
+synonym: "upregulation of growth" EXACT []
+namespace: biological_process
+is_a: GO:0040008
+is_a: GO:0048518
+def: "Any process that activates or increases the rate or extent of growth, the increase in size or mass of all or part of an organism." [GOC:go_curators]
+
+[Term]
+id: GO:0005737
+name: cytoplasm
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Wikipedia:Cytoplasm
+namespace: cellular_component
+is_a: GO:0044424
+def: "All of the contents of a cell excluding the plasma membrane and nucleus, but including other subcellular structures." [ISBN:0198547684]
+
+[Term]
+id: GO:0032550
+name: purine ribonucleoside binding
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0001883
+is_a: GO:0032549
+def: "Interacting selectively and non-covalently with a purine ribonucleoside, a compound consisting of a purine base linked to ribose." [GOC:mah]
+
+[Term]
+id: GO:0045177
+name: apical part of cell
+subset: goslim_pir
+namespace: cellular_component
+is_a: GO:0044464
+def: "The region of a polarized cell that forms a tip or is distal to a base. For example, in a polarized epithelial cell, the apical region has an exposed surface and lies opposite to the basal lamina that separates the epithelium from other tissue." [GOC:mah, ISBN:0815316194]
+
+[Term]
+id: GO:0045171
+name: intercellular bridge
+is_a: GO:0044421
+namespace: cellular_component
+def: "A direct link between the cytoplasms of sister cells that allows cells to communicate with one another. Germline intercellular bridges facilitate the passage of cytoplasmic components between cells during development. Intercellular bridges have also been found connecting somatic cells." [PMID:9635420]
+
+[Term]
+id: GO:0030952
+name: establishment or maintenance of cytoskeleton polarity
+synonym: "cytoskeleton polarization" RELATED []
+namespace: biological_process
+is_a: GO:0007010
+is_a: GO:0007163
+def: "Any cellular process that results in the specification, formation or maintenance of polarized cytoskeletal structures." [GOC:mah]
+
+[Term]
+id: GO:0030951
+name: establishment or maintenance of microtubule cytoskeleton polarity
+is_a: GO:0000226
+is_a: GO:0030952
+namespace: biological_process
+def: "Any cellular process that results in the specification, formation or maintenance of polarized microtubule-based cytoskeletal structures." [GOC:mah]
+
+[Term]
+id: GO:0045172
+name: germline ring canal
+is_a: GO:0045171
+namespace: cellular_component
+def: "Germline specific intercellular bridge. During cyst formation in insects, ring canals interconnect the cells of the cyst, facilitating the passage of cytoplasmic components between cells." [GOC:mtg_sensu, PMID:9635420, PMID:9655801]
+
+[Term]
+id: GO:0051783
+name: regulation of nuclear division
+namespace: biological_process
+is_a: GO:0033043
+def: "Any process that modulates the frequency, rate or extent of nuclear division, the partitioning of the nucleus and its genetic information." [GOC:ai]
+
+[Term]
+id: GO:0008426
+name: protein kinase C inhibitor activity
+synonym: "diacylglycerol-activated phospholipid-dependent PKC inhibitor activity" EXACT []
+synonym: "diacylglycerol-activated phospholipid-dependent protein kinase C inhibitor activity" EXACT []
+synonym: "PKC inhibitor activity" EXACT []
+namespace: molecular_function
+is_a: GO:0030291
+alt_id: GO:0004863
+def: "Stops, prevents or reduces the activity of protein kinase C, an enzyme which phosphorylates a protein." [GOC:ai]
+
+[Term]
+id: GO:0001709
+name: cell fate determination
+xref: Wikipedia:Cell_fate_determination
+relationship: part_of GO:0045165
+namespace: biological_process
+is_a: GO:0048869
+def: "A process involved in cell fate commitment. Once determination has taken place, a cell becomes committed to differentiate down a particular pathway regardless of its environment." [ISBN:0878932437]
+
+[Term]
+id: GO:0030706
+name: germarium-derived oocyte differentiation
+synonym: "oocyte cell differentiation" RELATED []
+relationship: part_of GO:0007293
+namespace: biological_process
+is_a: GO:0009994
+is_a: GO:0044767
+def: "The process in which one relatively unspecialized immature cystocyte of the germ-line cyst in the germarium acquires the specialized features of an oocyte. An example of this process can be found in Drosophila melanogaster." [GOC:mtg_sensu, ISBN:0879694238]
+
+[Term]
+id: GO:0036094
+name: small molecule binding
+comment: Small molecules in GO include monosaccharides but exclude disaccharides and polysaccharides.
+namespace: molecular_function
+is_a: GO:0005488
+def: "Interacting selectively and non-covalently with a small molecule, any low molecular weight, monomeric, non-encoded molecule." [GOC:curators, GOC:pde, GOC:pm]
+
+[Term]
+id: GO:0051179
+name: localization
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "establishment and maintenance of cellular component location" NARROW []
+synonym: "establishment and maintenance of localization" EXACT []
+synonym: "establishment and maintenance of position" EXACT []
+synonym: "establishment and maintenance of substance location" NARROW []
+synonym: "establishment and maintenance of substrate location" NARROW []
+synonym: "localisation" EXACT [GOC:mah]
+namespace: biological_process
+is_a: GO:0008150
+def: "Any process in which a cell, a substance, or a cellular entity, such as a protein complex or organelle, is transported to, and/or maintained in a specific location." [GOC:ai]
+
+[Term]
+id: GO:0003008
+name: system process
+synonym: "organ system process" EXACT []
+namespace: biological_process
+is_a: GO:0044707
+def: "A multicellular organismal process carried out by any of the organs or tissues in an organ system. An organ system is a regularly interacting or interdependent group of organs or tissues that work together to carry out a biological objective." [GOC:mtg_cardio]
+
+[Term]
+id: GO:0030030
+name: cell projection organization
+subset: gosubset_prok
+synonym: "cell projection organisation" EXACT [GOC:curators]
+synonym: "cell projection organization and biogenesis" RELATED [GOC:mah]
+synonym: "cell surface structure organization and biogenesis" RELATED [GOC:mah]
+namespace: biological_process
+is_a: GO:0016043
+is_a: GO:0044763
+def: "A process that is carried out at the cellular level which results in the assembly, arrangement of constituent parts, or disassembly of a prolongation or process extending from a cell, e.g. a flagellum or axon." [GOC:jl, GOC:mah, http://www.cogsci.princeton.edu/~wn/]
+
+[Term]
+id: GO:0008340
+name: determination of adult lifespan
+relationship: part_of GO:0010259
+namespace: biological_process
+is_a: GO:0044707
+def: "The control of viability and duration in the adult phase of the life-cycle." [GOC:ems]
+
+[Term]
+id: GO:0046958
+name: nonassociative learning
+synonym: "unconditional response" EXACT []
+namespace: biological_process
+is_a: GO:0007612
+def: "A simple form of learning whereby the repeated presence of a stimulus leads to a change in the probability or strength of the response to that stimulus. There is no association of one type of stimulus with another, rather it is a generalized response to the environment." [ISBN:0582227089]
+
+[Term]
+id: GO:0022610
+name: biological adhesion
+subset: goslim_pir
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0008150
+def: "The attachment of a cell or organism to a substrate or other organism." [GOC:isa_complete]
+
+[Term]
+id: GO:1901605
+name: alpha-amino acid metabolic process
+synonym: "alpha-amino acid metabolism" EXACT [GOC:TermGenie]
+namespace: biological_process
+is_a: GO:0006520
+def: "The chemical reactions and pathways involving an alpha-amino acid." [GOC:TermGenie]
+
+[Term]
+id: GO:0042802
+name: identical protein binding
+subset: gosubset_prok
+synonym: "isoform-specific homophilic binding" EXACT [PMID:17889655]
+synonym: "protein homopolymerization" RELATED []
+namespace: molecular_function
+is_a: GO:0005515
+def: "Interacting selectively and non-covalently with an identical protein or proteins." [GOC:jl]
+
+[Term]
+id: GO:0042803
+name: protein homodimerization activity
+subset: gosubset_prok
+synonym: "dimerization activity" BROAD []
+namespace: molecular_function
+is_a: GO:0042802
+is_a: GO:0046983
+def: "Interacting selectively and non-covalently with an identical protein to form a homodimer." [GOC:jl]
+
+[Term]
+id: GO:0032502
+name: developmental process
+subset: goslim_aspergillus
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "development" NARROW []
+namespace: biological_process
+is_a: GO:0008150
+def: "A biological process whose specific outcome is the progression of an integrated living unit: an anatomical structure (which may be a subcellular structure, cell, tissue, or organ), or organism over time from an initial condition to a later condition." [GOC:isa_complete]
+
+[Term]
+id: GO:0006996
+name: organelle organization
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "organelle organisation" EXACT [GOC:curators]
+synonym: "organelle organization and biogenesis" RELATED [GOC:dph, GOC:jl, GOC:mah]
+namespace: biological_process
+is_a: GO:0016043
+is_a: GO:0044763
+def: "A process that is carried out at the cellular level which results in the assembly, arrangement of constituent parts, or disassembly of an organelle within a cell. An organelle is an organized structure of distinctive morphology and function. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton. Excludes the plasma membrane." [GOC:mah]
+
+[Term]
+id: GO:0032501
+name: multicellular organismal process
+subset: goslim_pir
+synonym: "organismal physiological process" EXACT []
+namespace: biological_process
+is_a: GO:0008150
+alt_id: GO:0050874
+def: "Any biological process, occurring at the level of a multicellular organism, pertinent to its function." [GOC:curators, GOC:dph, GOC:isa_complete, GOC:tb]
+
+[Term]
+id: GO:0048609
+name: multicellular organismal reproductive process
+synonym: "organismal reproductive process" BROAD [GOC:curators]
+synonym: "reproductive process in a multicellular organism" EXACT [GOC:curators]
+relationship: part_of GO:0032504
+namespace: biological_process
+is_a: GO:0022414
+def: "The process, occurring above the cellular level, that is pertinent to the reproductive function of a multicellular organism. This includes the integrated processes at the level of tissues and organs." [GOC:dph, GOC:jid, GOC:tb]
+
+[Term]
+id: GO:0032504
+name: multicellular organism reproduction
+is_a: GO:0000003
+is_a: GO:0032501
+namespace: biological_process
+def: "The biological process in which new individuals are produced by one or two multicellular organisms. The new individuals inherit some proportion of their genetic material from the parent or parents." [GOC:isa_complete, GOC:jid]
+
+[Term]
+id: GO:0044238
+name: primary metabolic process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "primary metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0008152
+def: "The chemical reactions and pathways involving those compounds which are formed as a part of the normal anabolic and catabolic processes. These processes take place in most, if not all, cells of the organism." [GOC:go_curators, http://www.metacyc.org]
+
+[Term]
+id: GO:0042048
+name: olfactory behavior
+synonym: "behavioral response to scent" EXACT []
+synonym: "behavioral response to smell" EXACT []
+synonym: "behavioural response to odour" EXACT []
+synonym: "behavioural response to scent" EXACT []
+synonym: "behavioural response to smell" EXACT []
+synonym: "olfactory behaviour" EXACT []
+namespace: biological_process
+is_a: GO:0007635
+def: "The actions or reactions of an organism in response to an odor." [GOC:jid]
+
+[Term]
+id: GO:0050877
+name: neurological system process
+subset: goslim_generic
+subset: goslim_pir
+synonym: "neurophysiological process" EXACT []
+synonym: "pan-neural process" RELATED []
+namespace: biological_process
+is_a: GO:0003008
+def: "A organ system process carried out by any of the organs or tissues of neurological system." [GOC:ai, GOC:mtg_cardio]
+
+[Term]
+id: GO:0009987
+name: cellular process
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+synonym: "cell growth and/or maintenance" NARROW []
+synonym: "cell physiology" EXACT []
+synonym: "cellular physiological process" EXACT []
+namespace: biological_process
+is_a: GO:0008150
+alt_id: GO:0008151
+alt_id: GO:0050875
+def: "Any process that is carried out at the cellular level, but not necessarily restricted to a single cell. For example, cell communication occurs among more than one cell, but occurs at the cellular level." [GOC:go_curators, GOC:isa_complete]
+
+[Term]
+id: GO:0006725
+name: cellular aromatic compound metabolic process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "aromatic compound metabolism" EXACT []
+synonym: "aromatic hydrocarbon metabolic process" NARROW []
+synonym: "aromatic hydrocarbon metabolism" NARROW []
+namespace: biological_process
+is_a: GO:0044237
+def: "The chemical reactions and pathways involving aromatic compounds, any organic compound characterized by one or more planar rings, each of which contains conjugated double bonds and delocalized pi electrons, as carried out by individual cells." [GOC:ai, ISBN:0198506732]
+
+[Term]
+id: GO:0044391
+name: ribosomal subunit
+subset: gosubset_prok
+relationship: part_of GO:0005840
+namespace: cellular_component
+is_a: GO:0030529
+is_a: GO:0044444
+is_a: GO:0044446
+def: "Either of the two subunits of a ribosome: the ribosomal large subunit or the ribosomal small subunit." [GOC:jl]
+
+[Term]
+id: GO:0004860
+name: protein kinase inhibitor activity
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0019210
+is_a: GO:0019887
+def: "Stops, prevents or reduces the activity of a protein kinase, an enzyme which phosphorylates a protein." [GOC:ai]
+
+[Term]
+id: GO:0044106
+name: cellular amine metabolic process
+is_a: GO:0009308
+is_a: GO:0034641
+namespace: biological_process
+def: "The chemical reactions and pathways involving any organic compound that is weakly basic in character and contains an amino or a substituted amino group, as carried out by individual cells. Amines are called primary, secondary, or tertiary according to whether one, two, or three carbon atoms are attached to the nitrogen atom." [GOC:jl]
+
+[Term]
+id: GO:0031175
+name: neuron projection development
+synonym: "neurite biosynthesis" NARROW []
+synonym: "neurite development" NARROW [GOC:dph]
+synonym: "neurite formation" NARROW []
+synonym: "neurite growth" NARROW []
+synonym: "neurite outgrowth" NARROW []
+relationship: part_of GO:0048666
+namespace: biological_process
+is_a: GO:0030030
+def: "The process whose specific outcome is the progression of a neuron projection over time, from its formation to the mature structure. A neuron projection is any process extending from a neural cell, such as axons or dendrites (collectively called neurites)." [GOC:mah]
+
+[Term]
+id: GO:0030529
+name: ribonucleoprotein complex
+subset: goslim_pir
+subset: gosubset_prok
+xref: Wikipedia:Ribonucleoprotein
+synonym: "protein-RNA complex" EXACT []
+synonym: "ribonucleoprotein" EXACT []
+synonym: "RNA-protein complex" EXACT []
+synonym: "RNP" EXACT []
+namespace: cellular_component
+is_a: GO:0032991
+is_a: GO:0044424
+def: "A macromolecular complex containing both protein and RNA molecules." [GOC:krc]
+
+[Term]
+id: GO:0001654
+name: eye development
+xref: Wikipedia:Eye_development
+namespace: biological_process
+is_a: GO:0007423
+alt_id: GO:0042460
+def: "The process whose specific outcome is the progression of the eye over time, from its formation to the mature structure. The eye is the organ of sight." [GOC:jid, GOC:jl]
+
+[Term]
+id: GO:0040011
+name: locomotion
+subset: goslim_generic
+subset: goslim_pir
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0008150
+def: "Self-propelled movement of a cell or organism from one location to another." [GOC:dgh]
+
+[Term]
+id: GO:0007409
+name: axonogenesis
+synonym: "axon growth" NARROW []
+synonym: "neuron long process generation" EXACT systematic_synonym []
+relationship: part_of GO:0048667
+namespace: biological_process
+is_a: GO:0048812
+alt_id: GO:0007410
+def: "Generation of a long process of a neuron, that carries efferent (outgoing) action potentials from the cell body towards target cells." [GOC:jid, ISBN:0198506732]
+
+[Term]
+id: GO:0032991
+name: macromolecular complex
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "macromolecule complex" EXACT []
+namespace: cellular_component
+is_a: GO:0005575
+def: "A stable assembly of two or more macromolecules, i.e. proteins, nucleic acids, carbohydrates or lipids, in which the constituent parts function together." [GOC:mah]
+
+[Term]
+id: GO:0007293
+name: germarium-derived egg chamber formation
+relationship: part_of GO:0048477
+namespace: biological_process
+is_a: GO:0003006
+is_a: GO:0044767
+is_a: GO:0048646
+def: "Construction of a stage-1 egg chamber in the anterior part of the germarium, from the progeny of germ-line and somatic stem cells. An example of this is found in Drosophila melanogaster." [GOC:mtg_sensu, ISBN:0879694238]
+
+[Term]
+id: GO:0032989
+name: cellular component morphogenesis
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "cellular structure morphogenesis" EXACT [GOC:dph, GOC:tb]
+namespace: biological_process
+is_a: GO:0009653
+is_a: GO:0016043
+is_a: GO:0044767
+is_a: GO:0048869
+def: "The process in which cellular structures, including whole cells or cell parts, are generated and organized." [GOC:dph, GOC:mah, GOC:tb]
+
+[Term]
+id: GO:0016483
+name: tryptophan hydroxylase activator activity
+is_a: GO:0008047
+namespace: molecular_function
+def: "Increases the activity of the enzyme tryptophase hydroxylase." [GOC:ai]
+
+[Term]
+id: GO:0032990
+name: cell part morphogenesis
+is_a: GO:0032989
+namespace: biological_process
+def: "The process in which the anatomical structures of a cell part are generated and organized." [GOC:mah]
+
+[Term]
+id: GO:0051674
+name: localization of cell
+subset: gosubset_prok
+synonym: "cell localization" EXACT []
+synonym: "establishment and maintenance of cell localization" EXACT []
+synonym: "establishment and maintenance of localization of cell" EXACT []
+synonym: "localisation of cell" EXACT [GOC:mah]
+namespace: biological_process
+is_a: GO:0051179
+def: "Any process in which a cell is transported to, and/or maintained in, a specific location." [GOC:ai]
+
+[Term]
+id: GO:0008283
+name: cell proliferation
+comment: This term was moved out from being a child of 'cellular process' because it is a cell population-level process, and cellular processes are restricted to those processes that involve individual cells.
+subset: goslim_generic
+subset: goslim_pir
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0044699
+def: "The multiplication or reproduction of cells, resulting in the expansion of a cell population." [GOC:mah, GOC:mb]
+
+[Term]
+id: GO:0007088
+name: regulation of mitosis
+namespace: biological_process
+is_a: GO:0007346
+is_a: GO:0010564
+is_a: GO:0051783
+def: "Any process that modulates the frequency, rate or extent of mitosis." [GOC:go_curators]
+
+[Term]
+id: GO:0007568
+name: aging
+subset: goslim_generic
+xref: Wikipedia:Aging
+synonym: "ageing" EXACT []
+namespace: biological_process
+is_a: GO:0044767
+alt_id: GO:0016280
+def: "A developmental process that is a deterioration and loss of function over time. Aging includes loss of functions such as resistance to disease, homeostasis, and fertility, as well as wear and tear. Aging includes cellular senescence, but is more inclusive. May precede death (GO:0016265) and may succeed developmental maturation (GO:0021700)." [GOC:PO_curators]
+
+[Term]
+id: GO:0000075
+name: cell cycle checkpoint
+comment: Note that the effector processes are not part of the checkpoint but are positively regulated by the checkpoint signaling and should not be annotated here.
+subset: gocheck_do_not_manually_annotate
+xref: Reactome:REACT_100401 "Cell Cycle Checkpoints, Gallus gallus"
+xref: Reactome:REACT_102145 "Cell Cycle Checkpoints, Saccharomyces cerevisiae"
+xref: Reactome:REACT_102175 "Cell Cycle Checkpoints, Canis familiaris"
+xref: Reactome:REACT_106487 "Cell Cycle Checkpoints, Rattus norvegicus"
+xref: Reactome:REACT_109101 "Cell Cycle Checkpoints, Drosophila melanogaster"
+xref: Reactome:REACT_1538 "Cell Cycle Checkpoints, Homo sapiens"
+xref: Reactome:REACT_29957 "Cell Cycle Checkpoints, Bos taurus"
+xref: Reactome:REACT_31789 "Cell Cycle Checkpoints, Dictyostelium discoideum"
+xref: Reactome:REACT_33305 "Cell Cycle Checkpoints, Oryza sativa"
+xref: Reactome:REACT_79078 "Cell Cycle Checkpoints, Sus scrofa"
+xref: Reactome:REACT_84460 "Cell Cycle Checkpoints, Arabidopsis thaliana"
+xref: Reactome:REACT_89660 "Cell Cycle Checkpoints, Xenopus tropicalis"
+xref: Reactome:REACT_90285 "Cell Cycle Checkpoints, Mus musculus"
+xref: Reactome:REACT_90465 "Cell Cycle Checkpoints, Caenorhabditis elegans"
+xref: Reactome:REACT_92239 "Cell Cycle Checkpoints, Danio rerio"
+xref: Reactome:REACT_96499 "Cell Cycle Checkpoints, Taeniopygia guttata"
+xref: Reactome:REACT_99737 "Cell Cycle Checkpoints, Schizosaccharomyces pombe"
+xref: Wikipedia:Cell_cycle_checkpoint
+synonym: "G1/S checkpoint" NARROW []
+synonym: "G1/S transition checkpoint" NARROW []
+synonym: "G2/M checkpoint" NARROW []
+synonym: "G2/M transition checkpoint" NARROW []
+namespace: biological_process
+is_a: GO:1901988
+alt_id: GO:0031576
+alt_id: GO:0071779
+def: "A cell cycle process that controls cell cycle progression by monitoring the integrity of specific cell cycle events. A cell cycle checkpoint begins with detection of deficiencies or defects and ends with signal transduction." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0006082
+name: organic acid metabolic process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "organic acid metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0044237
+is_a: GO:0044281
+def: "The chemical reactions and pathways involving organic acids, any acidic compound containing carbon in covalent linkage." [ISBN:0198506732]
+
+[Term]
+id: GO:0048667
+name: cell morphogenesis involved in neuron differentiation
+synonym: "neuron morphogenesis involved in differentiation" EXACT [GOC:dph, GOC:tb]
+relationship: part_of GO:0048666
+namespace: biological_process
+is_a: GO:0000904
+def: "The process in which the structures of a neuron are generated and organized. This process occurs while the initially relatively unspecialized cell is acquiring the specialized features of a neuron." [GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0044464
+name: cell part
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_annotate
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "protoplast" RELATED [GOC:mah]
+relationship: part_of GO:0005623
+namespace: cellular_component
+is_a: GO:0005575
+def: "Any constituent part of a cell, the basic structural and functional unit of all organisms." [GOC:jl]
+
+[Term]
+id: GO:0000077
+name: DNA damage checkpoint
+xref: Wikipedia:DNA_damage_checkpoint
+xref: Wikipedia:Postreplication_checkpoint
+synonym: "DNA damage response, signal transduction resulting in cell cycle arrest" NARROW []
+namespace: biological_process
+is_a: GO:0006974
+is_a: GO:0031570
+def: "A cell cycle checkpoint that regulates progression through the cell cycle in response to DNA damage. A DNA damage checkpoint may blocks cell cycle progression (in G1, G2 or metaphase) or slow the rate at which S phase proceeds." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0005623
+name: cell
+subset: goslim_generic
+subset: goslim_plant
+subset: gosubset_prok
+xref: NIF_Subcellular:sao1813327414
+xref: Wikipedia:Cell_(biology)
+namespace: cellular_component
+is_a: GO:0005575
+def: "The basic structural and functional unit of all organisms. Includes the plasma membrane and any external encapsulating structures such as the cell wall and cell envelope." [GOC:go_curators]
+
+[Term]
+id: GO:0005622
+name: intracellular
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Intracellular
+synonym: "internal to cell" EXACT []
+synonym: "nucleocytoplasm" RELATED [GOC:mah]
+synonym: "protoplasm" EXACT []
+synonym: "protoplast" RELATED [GOC:mah]
+namespace: cellular_component
+is_a: GO:0044464
+def: "The living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm." [ISBN:0198506732]
+
+[Term]
+id: GO:0006974
+name: response to DNA damage stimulus
+subset: goslim_yeast
+subset: gosubset_prok
+synonym: "cellular DNA damage response" EXACT []
+synonym: "cellular response to DNA damage stimulus" EXACT []
+synonym: "DNA damage response" EXACT []
+synonym: "response to genotoxic stress" EXACT []
+namespace: biological_process
+is_a: GO:0033554
+alt_id: GO:0034984
+def: "Any process that results in a change in state or activity of a cell (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a stimulus indicating damage to its DNA from environmental insults or errors during metabolism." [GOC:go_curators]
+
+[Term]
+id: GO:0043228
+name: non-membrane-bounded organelle
+subset: gosubset_prok
+xref: NIF_Subcellular:sao1456184038
+synonym: "non-membrane-enclosed organelle" EXACT []
+namespace: cellular_component
+is_a: GO:0043226
+def: "Organized structure of distinctive morphology and function, not bounded by a lipid bilayer membrane. Includes ribosomes, the cytoskeleton and chromosomes." [GOC:go_curators]
+
+[Term]
+id: GO:0005515
+name: protein binding
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_pir
+subset: goslim_plant
+subset: gosubset_prok
+xref: Reactome:REACT_100287 "Formation of the IGF:IGFBP-4 Complex, Canis familiaris"
+xref: Reactome:REACT_101129 "Formation of the IGF:IGFBP-3:ALS Complex, Rattus norvegicus"
+xref: Reactome:REACT_102084 "Formation of the IGF:IGFBP-5:ALS Complex, Mus musculus"
+xref: Reactome:REACT_102457 "An anchoring protein, SARA, recruits SMAD2/3, Canis familiaris"
+xref: Reactome:REACT_103972 "Type II receptor recruits type I receptor, Xenopus tropicalis"
+xref: Reactome:REACT_104029 "Formation of the IGF:IGFBP-6 Complex, Bos taurus"
+xref: Reactome:REACT_104599 "Type II receptor recruits type I receptor, Sus scrofa"
+xref: Reactome:REACT_105776 "Formation of the IGF:IGFBP-3:ALS Complex, Danio rerio"
+xref: Reactome:REACT_105895 "Formation of the IGF:IGFBP-4 Complex, Bos taurus"
+xref: Reactome:REACT_106168 "Formation of the IGF:IGFBP-2 Complex, Bos taurus"
+xref: Reactome:REACT_106189 "Formation of the IGF:IGFBP-5:ALS Complex, Gallus gallus"
+xref: Reactome:REACT_107402 "Formation of the IGF:IGFBP-4 Complex, Mus musculus"
+xref: Reactome:REACT_108283 "Formation of the IGF:IGFBP-4 Complex, Xenopus tropicalis"
+xref: Reactome:REACT_109392 "Formation of the IGF:IGFBP-3:ALS Complex, Gallus gallus"
+xref: Reactome:REACT_110419 "Type II receptor recruits type I receptor, Bos taurus"
+xref: Reactome:REACT_110570 "Formation of the IGF:IGFBP-3:ALS Complex, Sus scrofa"
+xref: Reactome:REACT_15321 "Formation of the IGF:IGFBP-1 Complex, Homo sapiens"
+xref: Reactome:REACT_15325 "Formation of the IGF:IGFBP-4 Complex, Homo sapiens"
+xref: Reactome:REACT_15355 "Formation of the IGF:IGFBP-5:ALS Complex, Homo sapiens"
+xref: Reactome:REACT_15417 "Formation of the IGF:IGFBP-3:ALS Complex, Homo sapiens"
+xref: Reactome:REACT_15419 "Formation of the IGF:IGFBP-2 Complex, Homo sapiens"
+xref: Reactome:REACT_15506 "Formation of the IGF:IGFBP-6 Complex, Homo sapiens"
+xref: Reactome:REACT_15541 "Traversal of the cortical actin network and docking at plasma membrane, Homo sapiens"
+xref: Reactome:REACT_20509 "Exocytosis of Insulin, Mus musculus"
+xref: Reactome:REACT_20539 "Traversal of the cortical actin network., Mus musculus"
+xref: Reactome:REACT_28794 "Formation of the IGF:IGFBP-4 Complex, Sus scrofa"
+xref: Reactome:REACT_30571 "Formation of the IGF:IGFBP-6 Complex, Danio rerio"
+xref: Reactome:REACT_30672 "Formation of the IGF:IGFBP-2 Complex, Taeniopygia guttata"
+xref: Reactome:REACT_31305 "Formation of the IGF:IGFBP-3:ALS Complex, Taeniopygia guttata"
+xref: Reactome:REACT_31537 "Formation of the IGF:IGFBP-6 Complex, Rattus norvegicus"
+xref: Reactome:REACT_31641 "Type II receptor recruits type I receptor, Danio rerio"
+xref: Reactome:REACT_31648 "An anchoring protein, SARA, recruits SMAD2/3, Mus musculus"
+xref: Reactome:REACT_32973 "Formation of the IGF:IGFBP-1 Complex, Canis familiaris"
+xref: Reactome:REACT_33135 "An anchoring protein, SARA, recruits SMAD2/3, Rattus norvegicus"
+xref: Reactome:REACT_34719 "Formation of the IGF:IGFBP-1 Complex, Danio rerio"
+xref: Reactome:REACT_6923 "An anchoring protein, SARA, recruits SMAD2/3, Homo sapiens"
+xref: Reactome:REACT_6945 "Type II receptor recruits type I receptor, Homo sapiens"
+xref: Reactome:REACT_78382 "Formation of the IGF:IGFBP-1 Complex, Mus musculus"
+xref: Reactome:REACT_78466 "Formation of the IGF:IGFBP-6 Complex, Canis familiaris"
+xref: Reactome:REACT_79634 "Formation of the IGF:IGFBP-5:ALS Complex, Canis familiaris"
+xref: Reactome:REACT_80470 "Formation of the IGF:IGFBP-1 Complex, Rattus norvegicus"
+xref: Reactome:REACT_80778 "Type II receptor recruits type I receptor, Mus musculus"
+xref: Reactome:REACT_83147 "Type II receptor recruits type I receptor, Rattus norvegicus"
+xref: Reactome:REACT_83165 "Formation of the IGF:IGFBP-5:ALS Complex, Sus scrofa"
+xref: Reactome:REACT_83532 "Formation of the IGF:IGFBP-2 Complex, Xenopus tropicalis"
+xref: Reactome:REACT_85250 "Formation of the IGF:IGFBP-2 Complex, Canis familiaris"
+xref: Reactome:REACT_85858 "Formation of the IGF:IGFBP-2 Complex, Gallus gallus"
+xref: Reactome:REACT_85975 "An anchoring protein, SARA, recruits SMAD2/3, Danio rerio"
+xref: Reactome:REACT_87187 "An anchoring protein, SARA, recruits SMAD2/3, Xenopus tropicalis"
+xref: Reactome:REACT_87374 "Formation of the IGF:IGFBP-6 Complex, Sus scrofa"
+xref: Reactome:REACT_87652 "Formation of the IGF:IGFBP-5:ALS Complex, Bos taurus"
+xref: Reactome:REACT_88068 "Formation of the IGF:IGFBP-3:ALS Complex, Canis familiaris"
+xref: Reactome:REACT_88138 "Formation of the IGF:IGFBP-5:ALS Complex, Danio rerio"
+xref: Reactome:REACT_88223 "Formation of the IGF:IGFBP-1 Complex, Sus scrofa"
+xref: Reactome:REACT_89261 "Formation of the IGF:IGFBP-4 Complex, Taeniopygia guttata"
+xref: Reactome:REACT_90027 "Formation of the IGF:IGFBP-2 Complex, Rattus norvegicus"
+xref: Reactome:REACT_90105 "Formation of the IGF:IGFBP-1 Complex, Xenopus tropicalis"
+xref: Reactome:REACT_90666 "An anchoring protein, SARA, recruits SMAD2/3, Sus scrofa"
+xref: Reactome:REACT_91560 "Type II receptor recruits type I receptor, Canis familiaris"
+xref: Reactome:REACT_92029 "Formation of the IGF:IGFBP-4 Complex, Rattus norvegicus"
+xref: Reactome:REACT_93175 "Formation of the IGF:IGFBP-1 Complex, Gallus gallus"
+xref: Reactome:REACT_93938 "Formation of the IGF:IGFBP-5:ALS Complex, Rattus norvegicus"
+xref: Reactome:REACT_94522 "Formation of the IGF:IGFBP-5:ALS Complex, Taeniopygia guttata"
+xref: Reactome:REACT_94808 "Formation of the IGF:IGFBP-6 Complex, Mus musculus"
+xref: Reactome:REACT_95241 "Formation of the IGF:IGFBP-3:ALS Complex, Mus musculus"
+xref: Reactome:REACT_95561 "Formation of the IGF:IGFBP-5:ALS Complex, Xenopus tropicalis"
+xref: Reactome:REACT_95647 "Formation of the IGF:IGFBP-3:ALS Complex, Bos taurus"
+xref: Reactome:REACT_96236 "Formation of the IGF:IGFBP-2 Complex, Mus musculus"
+xref: Reactome:REACT_96264 "Formation of the IGF:IGFBP-2 Complex, Danio rerio"
+xref: Reactome:REACT_98028 "Formation of the IGF:IGFBP-1 Complex, Taeniopygia guttata"
+xref: Reactome:REACT_98807 "An anchoring protein, SARA, recruits SMAD2/3, Bos taurus"
+synonym: "alpha-2 macroglobulin receptor-associated protein activity" RELATED []
+synonym: "protein amino acid binding" EXACT []
+synonym: "protein degradation tagging activity" RELATED []
+synonym: "protein folding chaperone" NARROW [GOC:dph, GOC:mah, GOC:tb]
+synonym: "protein tagging activity" RELATED []
+namespace: molecular_function
+is_a: GO:0005488
+alt_id: GO:0045308
+def: "Interacting selectively and non-covalently with any protein or protein complex (a complex of two or more proteins that may include other nonprotein molecules)." [GOC:go_curators]
+
+[Term]
+id: GO:0048731
+name: system development
+relationship: part_of GO:0007275
+namespace: biological_process
+is_a: GO:0048856
+def: "The process whose specific outcome is the progression of an organismal system over time, from its formation to the mature structure. A system is a regularly interacting or interdependent group of organs or tissues that work together to carry out a given biological process." [GOC:dph, GOC:jid]
+
+[Term]
+id: GO:0008047
+name: enzyme activator activity
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0030234
+def: "Increases the activity of an enzyme." [GOC:mah]
+
+[Term]
+id: GO:0007447
+name: imaginal disc pattern formation
+relationship: part_of GO:0007444
+namespace: biological_process
+is_a: GO:0003002
+def: "The regionalization process that results in defined areas of the imaginal disc that will undergo specific cell differentaiton. Imaginal discs are epithelial infoldings in the larvae of holometabolous insects that develop into adult appendages (legs, antennae, wings, etc.) during metamorphosis from larval to adult form." [GOC:dph, GOC:isa_complete, GOC:jid]
+
+[Term]
+id: GO:0048610
+name: cellular process involved in reproduction
+subset: gosubset_prok
+synonym: "reproductive cellular process" RELATED [GOC:dph, GOC:tb]
+relationship: part_of GO:0000003
+namespace: biological_process
+is_a: GO:0009987
+def: "A process, occurring at the cellular level, that is involved in the reproductive function of a multicellular or single-celled organism." [GOC:dph, GOC:jid]
+
+[Term]
+id: GO:0038023
+name: signaling receptor activity
+comment: Note that this term and its child terms are intended for receptors that are directly coupled to a signal transduction pathway. This term should therefore not be used to annotate decoy receptors and other proteins that bind a signal but do not pass the signal on. This term can be used to annotate dependence receptors that transduce a signal when a ligand is withdrawn (in this case, signal withdrawal is considered to be the initiating signal), or receptors that signal at a basal level in the absence of a bound agonist. For receptors that mediate transport of a substance into the cell by receptor-mediated endocytosis, consider instead the term 'cargo receptor activity ; GO:0038024' and its children.
+synonym: "receptor activity involved in signal transduction" EXACT [GOC:bf]
+synonym: "signalling receptor activity" EXACT [GOC:mah]
+namespace: molecular_function
+is_a: GO:0004871
+is_a: GO:0004872
+def: "Receiving a signal and transmitting the signal in the cell to initiate a change in cell activity. A signal is a physical entity or change in state that is used to transfer information in order to trigger a response." [GOC:bf, GOC:signaling]
+
+[Term]
+id: GO:0019207
+name: kinase regulator activity
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0030234
+def: "Modulates the activity of a kinase, an enzyme which catalyzes of the transfer of a phosphate group, usually from ATP, to a substrate molecule." [GOC:ai]
+
+[Term]
+id: GO:0009994
+name: oocyte differentiation
+synonym: "oocyte cell differentiation" EXACT []
+relationship: part_of GO:0048477
+namespace: biological_process
+is_a: GO:0003006
+is_a: GO:0022412
+is_a: GO:0030154
+def: "The process in which a relatively unspecialized immature germ cell acquires the specialized features of a mature female gamete." [GOC:go_curators, GOC:mtg_sensu]
+
+[Term]
+id: GO:0045448
+name: mitotic cell cycle, embryonic
+relationship: part_of GO:0009790
+namespace: biological_process
+is_a: GO:0000278
+def: "The eukaryotic cell cycle in which a cell is duplicated without changing ploidy, occurring in the embryo." [GOC:go_curators]
+
+[Term]
+id: GO:0048870
+name: cell motility
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: gosubset_prok
+synonym: "cell locomotion" EXACT []
+synonym: "cell movement" RELATED []
+synonym: "movement of a cell" EXACT []
+relationship: part_of GO:0051674
+namespace: biological_process
+is_a: GO:0006928
+is_a: GO:0040011
+def: "Any process involved in the controlled self-propelled movement of a cell that results in translocation of the cell from one place to another." [GOC:dgh, GOC:dph, GOC:isa_complete, GOC:mlg]
+
+[Term]
+id: GO:1901363
+name: heterocyclic compound binding
+is_a: GO:0005488
+namespace: molecular_function
+def: "Interacting selectively and non-covalently with heterocyclic compound." [GOC:TermGenie]
+
+[Term]
+id: GO:0019752
+name: carboxylic acid metabolic process
+subset: gosubset_prok
+synonym: "carboxylic acid metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0043436
+is_a: GO:0071704
+def: "The chemical reactions and pathways involving carboxylic acids, any organic acid containing one or more carboxyl (COOH) groups or anions (COO-)." [ISBN:0198506732]
+
+[Term]
+id: GO:0043170
+name: macromolecule metabolic process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "biopolymer metabolic process" EXACT [GOC:mtg_chebi_dec09]
+synonym: "macromolecule metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0071704
+alt_id: GO:0043283
+def: "The chemical reactions and pathways involving macromolecules, any molecule of high relative molecular mass, the structure of which essentially comprises the multiple repetition of units derived, actually or conceptually, from molecules of low relative molecular mass." [CHEBI:33694, GOC:mah]
+
+[Term]
+id: GO:0010948
+name: negative regulation of cell cycle process
+namespace: biological_process
+is_a: GO:0010564
+def: "Any process that decreases the rate, frequency or extent of a cellular process that is involved in the progression of biochemical and morphological phases and events that occur in a cell during successive cell replication or nuclear replication events." [GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0071944
+name: cell periphery
+is_a: GO:0044464
+namespace: cellular_component
+def: "The part of a cell encompassing the cell cortex, the plasma membrane, and any external encapsulating structures." [GOC:mah]
+
+[Term]
+id: GO:0044774
+name: mitotic DNA integrity checkpoint
+synonym: "mitotic cell cycle G2/M transition decatenation checkpoint" EXACT []
+synonym: "topo II checkpoint" EXACT [GOC:jp]
+synonym: "topoisomerase II checkpoint" EXACT [GOC:jp]
+namespace: biological_process
+is_a: GO:0007093
+is_a: GO:0031570
+alt_id: GO:0070683
+def: "A mitotic cell cycle process that controls cell cycle progression in response to changes in DNA structure by monitoring the integrity of the DNA. The DNA integrity checkpoint begins with detection of DNA damage, defects in DNA structure or DNA replication, and ends with signal transduction." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0004872
+name: receptor activity
+subset: goslim_metagenomics
+subset: goslim_plant
+subset: gosubset_prok
+synonym: "receptor guanylate cyclase activity" NARROW []
+synonym: "viral antireceptor activity" NARROW []
+namespace: molecular_function
+is_a: GO:0003674
+alt_id: GO:0019041
+def: "Combining with an extracellular or intracellular messenger to initiate a change in cell activity." [GOC:ceb, ISBN:0198506732]
+
+[Term]
+id: GO:0004871
+name: signal transducer activity
+comment: Ligands do NOT have the molecular function 'signal transducer activity'.
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+synonym: "hematopoietin/interferon-class (D200-domain) cytokine receptor signal transducer activity" NARROW []
+synonym: "quorum sensing response regulator activity" NARROW []
+synonym: "quorum sensing signal generator activity" NARROW []
+namespace: molecular_function
+is_a: GO:0060089
+alt_id: GO:0005062
+alt_id: GO:0009369
+alt_id: GO:0009370
+def: "Conveys a signal across a cell to trigger a change in cell function or state. A signal is a physical entity or change in state that is used to transfer information in order to trigger a response." [GOC:go_curators]
+
+[Term]
+id: GO:0007308
+name: oocyte construction
+synonym: "oocyte arrangement" EXACT [GOC:dph, GOC:tb]
+relationship: part_of GO:0048599
+namespace: biological_process
+is_a: GO:0003006
+is_a: GO:0022412
+is_a: GO:0048469
+alt_id: GO:0048110
+def: "The synthesis, deposition, and organization of the materials in a cell of an ovary; where the cell can then undergo meiosis and form an ovum. An example of this is found in Drosophila melanogaster." [GOC:dph, GOC:ems, GOC:mtg_sensu, GOC:tb, ISBN:0198506732]
+
+[Term]
+id: GO:0007309
+name: oocyte axis specification
+synonym: "oocyte axis determination" RELATED []
+relationship: part_of GO:0007308
+namespace: biological_process
+is_a: GO:0003006
+is_a: GO:0009798
+alt_id: GO:0048111
+def: "The establishment, maintenance and elaboration of an axis in the oocyte. An example of this is found in Drosophila melanogaster." [GOC:mtg_sensu, ISBN:0879694238]
+
+[Term]
+id: GO:0005634
+name: nucleus
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+xref: NIF_Subcellular:sao1702920020
+xref: Wikipedia:Cell_nucleus
+synonym: "cell nucleus" EXACT []
+namespace: cellular_component
+is_a: GO:0043231
+def: "A membrane-bounded organelle of eukaryotic cells in which chromosomes are housed and replicated. In most cells, the nucleus contains all of the cell's chromosomes except the organellar chromosomes, and is the site of RNA synthesis and processing. In some species, or in specialized cell types, RNA metabolism or DNA replication may be absent." [GOC:go_curators]
+
+[Term]
+id: GO:0007275
+name: multicellular organismal development
+comment: Note that this term was 'developmental process'.
+subset: goslim_plant
+namespace: biological_process
+is_a: GO:0032502
+is_a: GO:0044707
+def: "The biological process whose specific outcome is the progression of a multicellular organism over time from an initial condition (e.g. a zygote or a young adult) to a later condition (e.g. a multicellular animal or an aged adult)." [GOC:dph, GOC:ems, GOC:isa_complete, GOC:tb]
+
+[Term]
+id: GO:0007276
+name: gamete generation
+synonym: "gametogenesis" RELATED []
+relationship: part_of GO:0019953
+namespace: biological_process
+is_a: GO:0044702
+is_a: GO:0048609
+alt_id: GO:0009552
+def: "The generation and maintenance of gametes in a multicellular organism. A gamete is a haploid reproductive cell." [GOC:ems, GOC:mtg_sensu]
+
+[Term]
+id: GO:0008355
+name: olfactory learning
+is_a: GO:0008306
+is_a: GO:0042048
+namespace: biological_process
+def: "Any process in an organism in which a relatively long-lasting adaptive behavioral change occurs in response to (repeated) exposure to an olfactory cue." [ISBN:0582227089]
+
+[Term]
+id: GO:0007389
+name: pattern specification process
+synonym: "pattern biosynthesis" RELATED []
+synonym: "pattern formation" RELATED []
+relationship: part_of GO:0007275
+namespace: biological_process
+is_a: GO:0032502
+is_a: GO:0044707
+def: "Any developmental process that results in the creation of defined areas or spaces within an organism to which cells respond and eventually are instructed to differentiate." [GOC:go_curators, GOC:isa_complete, ISBN:0521436125]
+
+[Term]
+id: GO:0021700
+name: developmental maturation
+comment: This term was added by GO_REF:0000021.
+subset: goslim_generic
+namespace: biological_process
+is_a: GO:0044767
+def: "A developmental process, independent of morphogenetic (shape) change, that is required for an anatomical structure, cell or cellular component to attain its fully functional state." [GO_REF:0000021, GOC:cls, GOC:dgh, GOC:dph, GOC:jid, GOC:mtg_15jun06]
+
+[Term]
+id: GO:0040008
+name: regulation of growth
+subset: gosubset_prok
+namespace: biological_process
+is_a: GO:0050789
+def: "Any process that modulates the frequency, rate or extent of the growth of all or part of an organism so that it occurs at its proper speed, either globally or in a specific part of the organism's development." [GOC:ems, GOC:mah]
+
+[Term]
+id: GO:0006520
+name: cellular amino acid metabolic process
+subset: goslim_aspergillus
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pombe
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Reactome:REACT_116093 "Amino acid metabolism, Gallus gallus"
+synonym: "amino acid and derivative metabolism" EXACT [GOC:curators]
+synonym: "amino acid metabolic process" EXACT [GOC:curators]
+synonym: "cellular amino acid and derivative metabolic process" EXACT []
+synonym: "cellular amino acid metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0019752
+is_a: GO:0044238
+is_a: GO:1901564
+alt_id: GO:0006519
+def: "The chemical reactions and pathways involving amino acids, carboxylic acids containing one or more amino groups, as carried out by individual cells." [CHEBI:33709, GOC:curators, ISBN:0198506732]
+
+[Term]
+id: GO:0043226
+name: organelle
+subset: goslim_generic
+subset: goslim_pir
+subset: gosubset_prok
+xref: NIF_Subcellular:sao1539965131
+xref: Wikipedia:Organelle
+namespace: cellular_component
+is_a: GO:0005575
+def: "Organized structure of distinctive morphology and function. Includes the nucleus, mitochondria, plastids, vacuoles, vesicles, ribosomes and the cytoskeleton, and prokaryotic structures such as anammoxosomes and pirellulosomes. Excludes the plasma membrane." [GOC:go_curators]
+
+[Term]
+id: GO:0044773
+name: mitotic DNA damage checkpoint
+is_a: GO:0000077
+is_a: GO:0044774
+namespace: biological_process
+def: "A mitotic cell cycle checkpoint that detects and negatively regulates progression through the cell cycle in response to DNA damage." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0071704
+name: organic substance metabolic process
+synonym: "organic molecular entity metabolic process" EXACT []
+synonym: "organic molecular entity metabolism" EXACT []
+synonym: "organic substance metabolism" EXACT []
+namespace: biological_process
+is_a: GO:0008152
+def: "The chemical reactions and pathways involving an organic substance, any molecular entity containing carbon." [CHEBI:50860, GOC:mah]
+
+[Term]
+id: GO:0048812
+name: neuron projection morphogenesis
+synonym: "neurite biosynthesis" NARROW []
+synonym: "neurite formation" NARROW []
+synonym: "neurite growth" NARROW []
+synonym: "neurite morphogenesis" RELATED [GOC:dph, GOC:tb]
+relationship: part_of GO:0031175
+namespace: biological_process
+is_a: GO:0048858
+def: "The process in which the anatomical structures of a neuron projection are generated and organized. A neuron projection is any process extending from a neural cell, such as axons or dendrites." [GOC:mah]
+
+[Term]
+id: GO:0008354
+name: germ cell migration
+synonym: "germ-cell migration" EXACT []
+synonym: "primordial germ cell migration" RELATED []
+relationship: part_of GO:0007276
+namespace: biological_process
+is_a: GO:0016477
+is_a: GO:0022412
+def: "The orderly movement of a cell specialized to produce haploid gametes through the embryo from its site of production to the place where the gonads will form." [GOC:bf, GOC:jl]
+
+[Term]
+id: GO:0016325
+name: oocyte microtubule cytoskeleton organization
+synonym: "oocyte microtubule cytoskeleton organisation" EXACT [GOC:curators]
+relationship: part_of GO:0007308
+namespace: biological_process
+is_a: GO:0022412
+is_a: GO:0030951
+alt_id: GO:0048130
+def: "Formation and maintenance of a polarized microtubule array originating from a microtubule-organizing center (MTOC) in the oocyte. An example of this is found in Drosophila melanogaster." [GOC:mtg_sensu, PMID:11231123]
+
+[Term]
+id: GO:0001882
+name: nucleoside binding
+subset: goslim_pir
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0036094
+is_a: GO:0097159
+is_a: GO:1901363
+def: "Interacting selectively and non-covalently with a nucleoside, a compound consisting of a purine or pyrimidine nitrogenous base linked either to ribose or deoxyribose." [GOC:hjd]
+
+[Term]
+id: GO:0005694
+name: chromosome
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Wikipedia:Chromosome
+synonym: "chromatid" RELATED []
+synonym: "interphase chromosome" NARROW []
+synonym: "prophase chromosome" NARROW []
+namespace: cellular_component
+is_a: GO:0043232
+def: "A structure composed of a very long molecule of DNA and associated proteins (e.g. histones) that carries hereditary information." [ISBN:0198547684]
+
+[Term]
+id: GO:0010468
+name: regulation of gene expression
+subset: gosubset_prok
+xref: Wikipedia:Regulation_of_gene_expression
+synonym: "regulation of gene product expression" RELATED [GOC:curators]
+synonym: "regulation of protein expression" NARROW [GOC:curators]
+namespace: biological_process
+is_a: GO:0060255
+def: "Any process that modulates the frequency, rate or extent of gene expression. Gene expression is the process in which a gene's coding sequence is converted into a mature gene product or products (proteins or RNA). This includes the production of an RNA transcript as well as any processing to produce a mature RNA product or an mRNA (for protein-coding genes) and the translation of that mRNA into protein. Some protein processing events may be included when they are required to form an active form of a product from an inactive precursor form." [GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0048749
+name: compound eye development
+synonym: "insect-type retina development" EXACT [PMID:11735386]
+namespace: biological_process
+is_a: GO:0001654
+alt_id: GO:0007456
+def: "The process whose specific outcome is the progression of the compound eye over time, from its formation to the mature structure. The compound eye is an organ of sight that contains multiple repeating units, often arranged hexagonally. Each unit has its own lens and photoreceptor cell(s) and can generate either a single pixelated image or multiple images, per eye." [GOC:jid, GOC:mtg_sensu, Wikipedia:Eye]
+
+[Term]
+id: GO:0019210
+name: kinase inhibitor activity
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0004857
+is_a: GO:0019207
+def: "Stops, prevents or reduces the activity of a kinase, an enzyme which catalyzes of the transfer of a phosphate group, usually from ATP, to a substrate molecule." [GOC:mah]
+
+[Term]
+id: GO:0015630
+name: microtubule cytoskeleton
+subset: goslim_aspergillus
+namespace: cellular_component
+is_a: GO:0005856
+def: "The part of the cytoskeleton (the internal framework of a cell) composed of microtubules and associated proteins." [GOC:jl, ISBN:0395825172]
+
+[Term]
+id: GO:0048190
+name: wing disc dorsal/ventral pattern formation
+synonym: "wing disc dorsal-ventral pattern formation" EXACT [GOC:mah]
+synonym: "wing disc dorsoventral pattern formation" EXACT [GOC:mah]
+namespace: biological_process
+is_a: GO:0007450
+is_a: GO:0035222
+def: "The establishment, maintenance and elaboration of the dorsal/ventral axis of the wing disc, a precursor to the adult wing." [GOC:jid]
+
+[Term]
+id: GO:0000278
+name: mitotic cell cycle
+subset: goslim_yeast
+xref: Reactome:REACT_100451 "Cell Cycle, Mitotic, Taeniopygia guttata"
+xref: Reactome:REACT_104035 "Cell Cycle, Mitotic, Sus scrofa"
+xref: Reactome:REACT_104195 "Cell Cycle, Mitotic, Canis familiaris"
+xref: Reactome:REACT_105856 "Cell Cycle, Mitotic, Danio rerio"
+xref: Reactome:REACT_108233 "Cell Cycle, Mitotic, Saccharomyces cerevisiae"
+xref: Reactome:REACT_152 "Cell Cycle, Mitotic, Homo sapiens"
+xref: Reactome:REACT_28464 "Cell Cycle, Mitotic, Xenopus tropicalis"
+xref: Reactome:REACT_28953 "Cell Cycle, Mitotic, Bos taurus"
+xref: Reactome:REACT_33388 "Cell Cycle, Mitotic, Rattus norvegicus"
+xref: Reactome:REACT_53493 "Cell Cycle, Mitotic, Plasmodium falciparum"
+xref: Reactome:REACT_79085 "Cell Cycle, Mitotic, Schizosaccharomyces pombe"
+xref: Reactome:REACT_84794 "Cell Cycle, Mitotic, Caenorhabditis elegans"
+xref: Reactome:REACT_85137 "Cell Cycle, Mitotic, Gallus gallus"
+xref: Reactome:REACT_85950 "Cell Cycle, Mitotic, Arabidopsis thaliana"
+xref: Reactome:REACT_90332 "Cell Cycle, Mitotic, Mus musculus"
+xref: Reactome:REACT_90846 "Cell Cycle, Mitotic, Oryza sativa"
+xref: Reactome:REACT_96281 "Cell Cycle, Mitotic, Drosophila melanogaster"
+xref: Reactome:REACT_97744 "Cell Cycle, Mitotic, Dictyostelium discoideum"
+xref: Reactome:REACT_98208 "Cell Cycle, Mitotic, Mycobacterium tuberculosis"
+namespace: biological_process
+is_a: GO:0007049
+def: "Progression through the phases of the mitotic cell cycle, the most common eukaryotic cell cycle, which canonically comprises four successive phases called G1, S, G2, and M and includes replication of the genome and the subsequent segregation of chromosomes into daughter cells. In some variant cell cycles nuclear replication or nuclear division may not be followed by cell division, or G1 and G2 phases may be absent." [GOC:mah, ISBN:0815316194, Reactome:69278]
+
+[Term]
+id: GO:0030182
+name: neuron differentiation
+relationship: part_of GO:0048699
+namespace: biological_process
+is_a: GO:0030154
+def: "The process in which a relatively unspecialized cell acquires specialized features of a neuron." [GOC:mah]
+
+[Term]
+id: GO:1901576
+name: organic substance biosynthetic process
+synonym: "organic molecular entity anabolism" EXACT [GOC:TermGenie]
+synonym: "organic molecular entity biosynthesis" EXACT [GOC:TermGenie]
+synonym: "organic molecular entity biosynthetic process" EXACT []
+synonym: "organic molecular entity formation" EXACT [GOC:TermGenie]
+synonym: "organic molecular entity synthesis" EXACT [GOC:TermGenie]
+synonym: "organic substance anabolism" EXACT []
+synonym: "organic substance biosynthesis" EXACT []
+synonym: "organic substance formation" EXACT []
+synonym: "organic substance synthesis" EXACT []
+namespace: biological_process
+is_a: GO:0009058
+is_a: GO:0071704
+def: "The chemical reactions and pathways resulting in the formation of an organic substance, any molecular entity containing carbon." [GOC:pr, GOC:TermGenie]
+
+[Term]
+id: GO:0048592
+name: eye morphogenesis
+relationship: part_of GO:0001654
+namespace: biological_process
+is_a: GO:0009887
+alt_id: GO:0048748
+def: "The process in which the anatomical structures of the eye are generated and organized." [GOC:jid, GOC:mtg_sensu]
+
+[Term]
+id: GO:0007346
+name: regulation of mitotic cell cycle
+subset: goslim_pombe
+synonym: "control of mitotic cell cycle progression" EXACT []
+synonym: "mitotic cell cycle control" EXACT []
+synonym: "mitotic cell cycle modulation" EXACT []
+synonym: "mitotic cell cycle regulation" EXACT []
+synonym: "mitotic cell cycle regulator" RELATED []
+synonym: "modulation of mitotic cell cycle progression" EXACT []
+synonym: "regulation of mitotic cell cycle progression" EXACT []
+synonym: "regulation of progression through mitotic cell cycle" EXACT [GOC:dph, GOC:tb]
+relationship: regulates GO:0000278
+namespace: biological_process
+is_a: GO:0051726
+def: "Any process that modulates the rate or extent of progress through the mitotic cell cycle." [GOC:dph, GOC:go_curators, GOC:tb]
+
+[Term]
+id: GO:0044767
+name: single-organism developmental process
+is_a: GO:0032502
+is_a: GO:0044699
+namespace: biological_process
+def: "A biological process whose specific outcome is the progression of an integrated living unit: an anatomical structure (which may be a subcellular structure, cell, tissue, or organ), or organism over time from an initial condition to a later condition, involving only one organism." [GOC:jl]
+
+[Term]
+id: GO:0045471
+name: response to ethanol
+namespace: biological_process
+is_a: GO:0097305
+alt_id: GO:0017036
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an ethanol stimulus." [GOC:go_curators]
+
+[Term]
+id: GO:0009058
+name: biosynthetic process
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_plant
+subset: gosubset_prok
+xref: Wikipedia:Anabolism
+synonym: "anabolism" EXACT []
+synonym: "biosynthesis" EXACT []
+synonym: "formation" EXACT []
+synonym: "synthesis" EXACT []
+namespace: biological_process
+is_a: GO:0008152
+def: "The chemical reactions and pathways resulting in the formation of substances; typically the energy-requiring part of metabolism in which simpler substances are transformed into more complex ones." [GOC:curators, ISBN:0198547684]
+
+[Term]
+id: GO:0044763
+name: single-organism cellular process
+is_a: GO:0009987
+is_a: GO:0044699
+namespace: biological_process
+def: "Any process that is carried out at the cellular level, occurring within a single organism." [GOC:jl]
+
+[Term]
+id: GO:0005886
+name: plasma membrane
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+xref: NIF_Subcellular:sao1663586795
+xref: Wikipedia:Cell_membrane
+synonym: "bacterial inner membrane" NARROW []
+synonym: "cell membrane" EXACT []
+synonym: "cytoplasmic membrane" EXACT []
+synonym: "inner endospore membrane" NARROW []
+synonym: "juxtamembrane" BROAD []
+synonym: "plasma membrane lipid bilayer" NARROW [GOC:mah]
+synonym: "plasmalemma" EXACT []
+relationship: part_of GO:0071944
+namespace: cellular_component
+is_a: GO:0016020
+is_a: GO:0044464
+alt_id: GO:0005904
+def: "The membrane surrounding a cell that separates the cell from its external environment. It consists of a phospholipid bilayer and associated proteins." [ISBN:0716731363]
+
+[Term]
+id: GO:0007155
+name: cell adhesion
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_pombe
+subset: gosubset_prok
+xref: Wikipedia:Cell_adhesion
+synonym: "cell adhesion molecule activity" RELATED []
+namespace: biological_process
+is_a: GO:0022610
+is_a: GO:0044763
+def: "The attachment of a cell, either to another cell or to an underlying substrate such as the extracellular matrix, via cell adhesion molecules." [GOC:hb, GOC:pf]
+
+[Term]
+id: GO:0042221
+name: response to chemical stimulus
+comment: Note that this term is in the subset of terms that should not be used for direct gene product annotation. Instead, select a child term or, if no appropriate child term exists, please request a new term. Direct annotations to this term may be amended during annotation QC.
+subset: gocheck_do_not_manually_annotate
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_yeast
+subset: gosubset_prok
+synonym: "response to chemical substance" EXACT []
+namespace: biological_process
+is_a: GO:0050896
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of a chemical stimulus." [GOC:jl]
+
+[Term]
+id: GO:0007265
+name: Ras protein signal transduction
+xref: Reactome:REACT_100282 "Signalling to RAS, Saccharomyces cerevisiae"
+xref: Reactome:REACT_100832 "Signalling to RAS, Sus scrofa"
+xref: Reactome:REACT_102992 "Signalling to RAS, Schizosaccharomyces pombe"
+xref: Reactome:REACT_109099 "Signalling to RAS, Gallus gallus"
+xref: Reactome:REACT_114204 "Signalling to RAS, Oryza sativa"
+xref: Reactome:REACT_114859 "Signalling to RAS, Arabidopsis thaliana"
+xref: Reactome:REACT_115010 "Signalling to RAS, Dictyostelium discoideum"
+xref: Reactome:REACT_12033 "Signalling to RAS, Homo sapiens"
+xref: Reactome:REACT_31921 "Signalling to RAS, Danio rerio"
+xref: Reactome:REACT_78554 "Signalling to RAS, Rattus norvegicus"
+xref: Reactome:REACT_79426 "Signalling to RAS, Drosophila melanogaster"
+xref: Reactome:REACT_79898 "Signalling to RAS, Xenopus tropicalis"
+xref: Reactome:REACT_81747 "Signalling to RAS, Caenorhabditis elegans"
+xref: Reactome:REACT_82585 "Signalling to RAS, Bos taurus"
+xref: Reactome:REACT_89778 "Signalling to RAS, Mus musculus"
+xref: Reactome:REACT_93180 "Signalling to RAS, Taeniopygia guttata"
+xref: Reactome:REACT_97052 "Signalling to RAS, Canis familiaris"
+synonym: "Ras mediated signal transduction" EXACT []
+namespace: biological_process
+is_a: GO:0007264
+def: "A series of molecular signals within the cell that are mediated by a member of the Ras superfamily of proteins switching to a GTP-bound active state." [GOC:bf]
+
+[Term]
+id: GO:0007264
+name: small GTPase mediated signal transduction
+subset: gosubset_prok
+xref: Reactome:REACT_103736 "Signaling by Rho GTPases, Drosophila melanogaster"
+xref: Reactome:REACT_104376 "Signalling to p38 via RIT and RIN, Canis familiaris"
+xref: Reactome:REACT_104921 "Signaling by Rho GTPases, Sus scrofa"
+xref: Reactome:REACT_107228 "Signaling by Rho GTPases, Caenorhabditis elegans"
+xref: Reactome:REACT_107412 "Signalling to p38 via RIT and RIN, Saccharomyces cerevisiae"
+xref: Reactome:REACT_108043 "Signalling to p38 via RIT and RIN, Danio rerio"
+xref: Reactome:REACT_108899 "Signaling by Rho GTPases, Arabidopsis thaliana"
+xref: Reactome:REACT_11044 "Signaling by Rho GTPases, Homo sapiens"
+xref: Reactome:REACT_113091 "Signalling to p38 via RIT and RIN, Oryza sativa"
+xref: Reactome:REACT_114399 "Signalling to p38 via RIT and RIN, Arabidopsis thaliana"
+xref: Reactome:REACT_115149 "Signalling to p38 via RIT and RIN, Dictyostelium discoideum"
+xref: Reactome:REACT_12077 "Signalling to p38 via RIT and RIN, Homo sapiens"
+xref: Reactome:REACT_29744 "Signalling to p38 via RIT and RIN, Xenopus tropicalis"
+xref: Reactome:REACT_30245 "Signaling by Rho GTPases, Rattus norvegicus"
+xref: Reactome:REACT_30798 "Signalling to p38 via RIT and RIN, Schizosaccharomyces pombe"
+xref: Reactome:REACT_32217 "Signaling by Rho GTPases, Gallus gallus"
+xref: Reactome:REACT_33280 "Signalling to p38 via RIT and RIN, Taeniopygia guttata"
+xref: Reactome:REACT_42108 "Signalling to p38 via RIT and RIN, Caenorhabditis elegans"
+xref: Reactome:REACT_77454 "Signaling by Rho GTPases, Mus musculus"
+xref: Reactome:REACT_77940 "Signalling to p38 via RIT and RIN, Drosophila melanogaster"
+xref: Reactome:REACT_77969 "Signalling to p38 via RIT and RIN, Sus scrofa"
+xref: Reactome:REACT_82274 "Signalling to p38 via RIT and RIN, Bos taurus"
+xref: Reactome:REACT_85042 "Signaling by Rho GTPases, Saccharomyces cerevisiae"
+xref: Reactome:REACT_85386 "Signaling by Rho GTPases, Schizosaccharomyces pombe"
+xref: Reactome:REACT_85575 "Signaling by Rho GTPases, Taeniopygia guttata"
+xref: Reactome:REACT_85886 "Signaling by Rho GTPases, Dictyostelium discoideum"
+xref: Reactome:REACT_86435 "Signaling by Rho GTPases, Xenopus tropicalis"
+xref: Reactome:REACT_88164 "Signaling by Rho GTPases, Canis familiaris"
+xref: Reactome:REACT_90015 "Signalling to p38 via RIT and RIN, Gallus gallus"
+xref: Reactome:REACT_90246 "Signaling by Rho GTPases, Danio rerio"
+xref: Reactome:REACT_91397 "Signaling by Rho GTPases, Oryza sativa"
+xref: Reactome:REACT_93599 "Signalling to p38 via RIT and RIN, Rattus norvegicus"
+xref: Reactome:REACT_94830 "Signaling by Rho GTPases, Bos taurus"
+xref: Reactome:REACT_96351 "Signalling to p38 via RIT and RIN, Mus musculus"
+synonym: "small GTPase-mediated signal transduction" EXACT []
+namespace: biological_process
+is_a: GO:0035556
+def: "Any series of molecular signals in which a small monomeric GTPase relays one or more of the signals." [GOC:mah]
+
+[Term]
+id: GO:0010389
+name: regulation of G2/M transition of mitotic cell cycle
+synonym: "regulation of mitotic entry" EXACT [GOC:vw]
+namespace: biological_process
+is_a: GO:1901990
+def: "Any process that modulates the rate or extent of progression from G2 phase to M phase of the mitotic cell cycle." [GOC:mtg_cell_cycle, PMID:17329565]
+
+[Term]
+id: GO:0005875
+name: microtubule associated complex
+relationship: part_of GO:0015630
+namespace: cellular_component
+is_a: GO:0043234
+is_a: GO:0044430
+def: "Any multimeric complex connected to a microtubule." [GOC:jl]
+
+[Term]
+id: GO:1901700
+name: response to oxygen-containing compound
+synonym: "response to oxygen molecular entity" EXACT []
+namespace: biological_process
+is_a: GO:0042221
+def: "Any process that results in a change in state or activity of a cell or an organism (in terms of movement, secretion, enzyme production, gene expression, etc.) as a result of an oxygen-containing compound stimulus." [GOC:pr, GOC:TermGenie]
+
+[Term]
+id: GO:0030534
+name: adult behavior
+comment: See also the biological process term 'behavior ; GO:0007610'.
+synonym: "adult behavioral response to stimulus" EXACT []
+synonym: "adult behaviour" EXACT []
+synonym: "adult behavioural response to stimulus" EXACT []
+namespace: biological_process
+is_a: GO:0044707
+is_a: GO:0044708
+def: "Behavior in a fully developed and mature organism." [GOC:mah, ISBN:0877797099]
+
+[Term]
+id: GO:0048699
+name: generation of neurons
+synonym: "neuron generation" EXACT [GOC:curators]
+namespace: biological_process
+is_a: GO:0022008
+def: "The process in which nerve cells are generated. This includes the production of neuroblasts and their differentiation into neurons." [GOC:nln]
+
+[Term]
+id: GO:0007017
+name: microtubule-based process
+is_a: GO:0044763
+namespace: biological_process
+def: "Any cellular process that depends upon or alters the microtubule cytoskeleton, that part of the cytoskeleton comprising microtubules and their associated proteins." [GOC:mah]
+
+[Term]
+id: GO:0007010
+name: cytoskeleton organization
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_pombe
+subset: goslim_yeast
+subset: gosubset_prok
+synonym: "cytoskeletal organization and biogenesis" RELATED [GOC:mah]
+synonym: "cytoskeletal regulator activity" RELATED []
+synonym: "cytoskeleton organisation" EXACT [GOC:curators]
+synonym: "cytoskeleton organization and biogenesis" RELATED [GOC:mah]
+namespace: biological_process
+is_a: GO:0006996
+def: "A process that is carried out at the cellular level which results in the assembly, arrangement of constituent parts, or disassembly of cytoskeletal structures." [GOC:dph, GOC:jl, GOC:mah]
+
+[Term]
+id: GO:0031570
+name: DNA integrity checkpoint
+is_a: GO:0000075
+namespace: biological_process
+def: "A cell cycle process that controls cell cycle progression in response to changes in DNA structure by monitoring the integrity of the DNA. The DNA integrity checkpoint begins with detection of DNA damage, defects in DNA structure or DNA replication, and progresses through signal transduction and ends with cell cycle effector processes." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0007399
+name: nervous system development
+synonym: "pan-neural process" RELATED []
+namespace: biological_process
+is_a: GO:0048731
+def: "The process whose specific outcome is the progression of nervous tissue over time, from its formation to its mature state." [GOC:dgh]
+
+[Term]
+id: GO:0051726
+name: regulation of cell cycle
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Reactome:REACT_100159 "Inactivation of Myt1 kinase, Mus musculus"
+xref: Reactome:REACT_1006 "Polo-like kinase mediated events, Homo sapiens"
+xref: Reactome:REACT_102418 "Polo-like kinase mediated events, Schizosaccharomyces pombe"
+xref: Reactome:REACT_102475 "Inactivation of Myt1 kinase, Rattus norvegicus"
+xref: Reactome:REACT_103468 "Activation of Cdc25C, Drosophila melanogaster"
+xref: Reactome:REACT_104523 "Inactivation of Wee1 kinase, Bos taurus"
+xref: Reactome:REACT_105454 "Polo-like kinase mediated events, Dictyostelium discoideum"
+xref: Reactome:REACT_106237 "Polo-like kinase mediated events, Caenorhabditis elegans"
+xref: Reactome:REACT_106324 "Activation of Cdc25C, Mus musculus"
+xref: Reactome:REACT_107424 "Inactivation of Myt1 kinase, Canis familiaris"
+xref: Reactome:REACT_108578 "Inactivation of Myt1 kinase, Xenopus tropicalis"
+xref: Reactome:REACT_109244 "Inactivation of Myt1 kinase, Schizosaccharomyces pombe"
+xref: Reactome:REACT_109507 "Polo-like kinase mediated events, Taeniopygia guttata"
+xref: Reactome:REACT_109584 "Polo-like kinase mediated events, Saccharomyces cerevisiae"
+xref: Reactome:REACT_110774 "Inactivation of Myt1 kinase, Drosophila melanogaster"
+xref: Reactome:REACT_112480 "Inactivation of Wee1 kinase, Dictyostelium discoideum"
+xref: Reactome:REACT_113569 "Activation of Cdc25C, Saccharomyces cerevisiae"
+xref: Reactome:REACT_113990 "Activation of Cdc25C, Schizosaccharomyces pombe"
+xref: Reactome:REACT_114323 "Activation of Cdc25C, Caenorhabditis elegans"
+xref: Reactome:REACT_1944 "Inactivation of Wee1 kinase, Homo sapiens"
+xref: Reactome:REACT_2119 "Activation of Cdc25C, Homo sapiens"
+xref: Reactome:REACT_28091 "Inactivation of Wee1 kinase, Canis familiaris"
+xref: Reactome:REACT_29213 "Activation of Cdc25C, Rattus norvegicus"
+xref: Reactome:REACT_30490 "Inactivation of Myt1 kinase, Danio rerio"
+xref: Reactome:REACT_30836 "Inactivation of Myt1 kinase, Bos taurus"
+xref: Reactome:REACT_30859 "Polo-like kinase mediated events, Gallus gallus"
+xref: Reactome:REACT_32077 "Inactivation of Myt1 kinase, Dictyostelium discoideum"
+xref: Reactome:REACT_34285 "Activation of Cdc25C, Bos taurus"
+xref: Reactome:REACT_414 "Inactivation of Myt1 kinase, Homo sapiens"
+xref: Reactome:REACT_80617 "Inactivation of Wee1 kinase, Xenopus tropicalis"
+xref: Reactome:REACT_81789 "Polo-like kinase mediated events, Drosophila melanogaster"
+xref: Reactome:REACT_82824 "Inactivation of Wee1 kinase, Rattus norvegicus"
+xref: Reactome:REACT_83089 "Inactivation of Myt1 kinase, Saccharomyces cerevisiae"
+xref: Reactome:REACT_83883 "Polo-like kinase mediated events, Canis familiaris"
+xref: Reactome:REACT_87352 "Polo-like kinase mediated events, Danio rerio"
+xref: Reactome:REACT_88486 "Inactivation of Wee1 kinase, Taeniopygia guttata"
+xref: Reactome:REACT_89122 "Activation of Cdc25C, Canis familiaris"
+xref: Reactome:REACT_91085 "Inactivation of Wee1 kinase, Danio rerio"
+xref: Reactome:REACT_92033 "Inactivation of Myt1 kinase, Caenorhabditis elegans"
+xref: Reactome:REACT_93521 "Polo-like kinase mediated events, Mus musculus"
+xref: Reactome:REACT_93702 "Polo-like kinase mediated events, Rattus norvegicus"
+xref: Reactome:REACT_95088 "Inactivation of Wee1 kinase, Mus musculus"
+xref: Reactome:REACT_96524 "Activation of Cdc25C, Xenopus tropicalis"
+xref: Reactome:REACT_97306 "Polo-like kinase mediated events, Bos taurus"
+xref: Reactome:REACT_97384 "Polo-like kinase mediated events, Xenopus tropicalis"
+xref: Reactome:REACT_98443 "Inactivation of Wee1 kinase, Gallus gallus"
+xref: Reactome:REACT_99158 "Inactivation of Wee1 kinase, Drosophila melanogaster"
+synonym: "cell cycle control" EXACT []
+synonym: "cell cycle modulation" EXACT []
+synonym: "cell cycle regulation" EXACT []
+synonym: "cell cycle regulator" RELATED []
+synonym: "control of cell cycle progression" EXACT []
+synonym: "modulation of cell cycle progression" EXACT []
+synonym: "regulation of cell cycle progression" EXACT []
+synonym: "regulation of progression through cell cycle" EXACT []
+synonym: "tumor suppressor" RELATED []
+relationship: regulates GO:0007049
+namespace: biological_process
+is_a: GO:0050794
+alt_id: GO:0000074
+def: "Any process that modulates the rate or extent of progression through the cell cycle." [GOC:ai, GOC:dph, GOC:tb]
+
+[Term]
+id: GO:0048856
+name: anatomical structure development
+comment: This term was added by GO_REF:0000021.
+subset: goslim_generic
+synonym: "development of an anatomical structure" EXACT []
+namespace: biological_process
+is_a: GO:0032502
+def: "The biological process whose specific outcome is the progression of an anatomical structure from an initial condition to its mature state. This process begins with the formation of the structure and ends with the mature structure, whatever form that may be including its natural destruction. An anatomical structure is any biological entity that occupies space and is distinguished from its surroundings. Anatomical structures can be macroscopic such as a carpel, or microscopic such as an acrosome." [GO_REF:0000021, GOC:mtg_15jun06]
+
+[Term]
+id: GO:0044237
+name: cellular metabolic process
+subset: goslim_pir
+subset: gosubset_prok
+synonym: "cellular metabolism" EXACT []
+synonym: "intermediary metabolism" RELATED [GOC:mah]
+namespace: biological_process
+is_a: GO:0008152
+is_a: GO:0009987
+def: "The chemical reactions and pathways by which individual cells transform chemical substances." [GOC:go_curators]
+
+[Term]
+id: GO:0043168
+name: anion binding
+subset: gosubset_prok
+namespace: molecular_function
+is_a: GO:0043167
+def: "Interacting selectively and non-covalently with anions, charged atoms or groups of atoms with a net negative charge." [GOC:jl]
+
+[Term]
+id: GO:0005575
+name: cellular_component
+comment: Note that, in addition to forming the root of the cellular component ontology, this term is recommended for use for the annotation of gene products whose cellular component is unknown. Note that when this term is used for annotation, it indicates that no information was available about the cellular component of the gene product annotated as of the date the annotation was made; the evidence code ND, no data, is used to indicate this.
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_metagenomics
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+disjoint_from: GO:0008150
+xref: NIF_Subcellular:sao1337158144
+synonym: "cellular component" EXACT []
+synonym: "cellular component unknown" NARROW []
+namespace: cellular_component
+alt_id: GO:0008372
+def: "The part of a cell or its extracellular environment in which a gene product is located. A gene product may be located in one or more parts of a cell and its location may be as specific as a particular macromolecular complex, that is, a stable, persistent association of macromolecules that function together." [GOC:go_curators]
+
+[Term]
+id: GO:0004888
+name: transmembrane signaling receptor activity
+comment: 'Transmembrane' in the term name refers to the mechanism of transmitting the signal across the membrane, rather than the subcellular location of the receptor.
+subset: gosubset_prok
+synonym: "non G protein coupled 7TM receptor activity" NARROW []
+synonym: "non-G-protein coupled 7TM receptor activity" NARROW []
+synonym: "non-G-protein-coupled 7TM receptor activity" NARROW []
+synonym: "transmembrane receptor activity" BROAD [GOC:bf, GOC:signaling]
+synonym: "transmembrane signalling receptor activity" EXACT [GOC:mah]
+namespace: molecular_function
+is_a: GO:0038023
+alt_id: GO:0004926
+def: "Combining with an extracellular or intracellular signal and transmitting the signal from one side of the membrane to the other to initiate a change in cell activity." [GOC:go_curators, Wikipedia:Transmembrane_receptor]
+
+[Term]
+id: GO:0005576
+name: extracellular region
+comment: Note that this term is intended to annotate gene products that are not attached to the cell surface. For gene products from multicellular organisms which are secreted from a cell but retained within the organism (i.e. released into the interstitial fluid or blood), consider the cellular component term 'extracellular space ; GO:0005615'.
+subset: goslim_aspergillus
+subset: goslim_candida
+subset: goslim_generic
+subset: goslim_pir
+subset: goslim_plant
+subset: goslim_yeast
+subset: gosubset_prok
+xref: Wikipedia:Extracellular
+synonym: "extracellular" EXACT []
+namespace: cellular_component
+is_a: GO:0005575
+def: "The space external to the outermost structure of a cell. For cells without external protective or external encapsulating structures this refers to space outside of the plasma membrane. This term covers the host cell environment outside an intracellular parasite." [GOC:go_curators]
+
+[Term]
+id: GO:0048523
+name: negative regulation of cellular process
+subset: gosubset_prok
+synonym: "down regulation of cellular process" EXACT []
+synonym: "down-regulation of cellular process" EXACT []
+synonym: "downregulation of cellular process" EXACT []
+synonym: "inhibition of cellular process" NARROW []
+synonym: "negative regulation of cellular physiological process" EXACT []
+relationship: negatively_regulates GO:0009987
+namespace: biological_process
+is_a: GO:0048519
+is_a: GO:0050794
+alt_id: GO:0051243
+def: "Any process that stops, prevents, or reduces the frequency, rate or extent of a cellular process, any of those that are carried out at the cellular level, but are not necessarily restricted to a single cell. For example, cell communication occurs among more than one cell, but occurs at the cellular level." [GOC:jid]
+
+[Term]
+id: GO:0007095
+name: mitotic G2 DNA damage checkpoint
+synonym: "mitotic cell cycle G2/M transition DNA damage checkpoint" EXACT []
+namespace: biological_process
+is_a: GO:0010972
+is_a: GO:0031572
+is_a: GO:0044773
+def: "A mitotic cell cycle checkpoint that detects and negatively regulates progression through the G2/M transition of the cell cycle in response to DNA damage." [GOC:mtg_cell_cycle]
+
+[Term]
+id: GO:0000226
+name: microtubule cytoskeleton organization
+synonym: "microtubule cytoskeleton organisation" EXACT [GOC:mah]
+synonym: "microtubule cytoskeleton organization and biogenesis" RELATED [GOC:mah]
+synonym: "microtubule dynamics" EXACT [GOC:dph, GOC:tb]
+namespace: biological_process
+is_a: GO:0007010
+is_a: GO:0007017
+def: "A process that is carried out at the cellular level which results in the assembly, arrangement of constituent parts, or disassembly of cytoskeletal structures comprising microtubules and their associated proteins." [GOC:mah]
+
+[Term]
+id: GO:0007093
+name: mitotic cell cycle checkpoint
+synonym: "mitotic cell cycle G1/S transition checkpoint" RELATED []
+synonym: "mitotic cell cycle G2/M transition checkpoint" RELATED []
+synonym: "mitotic checkpoint" RELATED []
+synonym: "mitotic G1/S checkpoint" RELATED [GOC:vw]
+synonym: "mitotic G2/M checkpoint" RELATED [GOC:mah]
+namespace: biological_process
+is_a: GO:0000075
+is_a: GO:1901991
+alt_id: GO:0031575
+alt_id: GO:0071780
+def: "A cell cycle checkpoint that ensures accurate chromosome replication and segregation by preventing progression through a mitotic cell cycle until conditions are suitable for the cell to proceed to the next stage." [GOC:mtg_cell_cycle]
+
+[Typedef]
+id: negatively_regulates
+name: negatively_regulates
+xref: RO:0002212
+is_a: regulates ! regulates
+
+[Typedef]
+id: part_of
+name: part_of
+xref: BFO:0000050
+xref: OBO_REL:part_of
+is_transitive: true
+
+[Typedef]
+id: positively_regulates
+name: positively_regulates
+xref: RO:0002213
+is_a: regulates ! regulates
+
+[Typedef]
+id: regulates
+name: regulates
+xref: RO:0002211
+transitive_over: part_of ! part_of
