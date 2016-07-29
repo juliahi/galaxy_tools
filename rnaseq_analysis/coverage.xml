@@ -1,4 +1,4 @@
-<tool id="my_coverage" name="Genome coverage" version="1.0">
+<tool id="my_coverage" name="Genome coverage" version="1.0.1">
 <requirements>
     <requirement type="python-module">pysam</requirement>
 </requirements>
