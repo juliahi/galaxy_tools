@@ -31,10 +31,9 @@ while [ $index -lt ${#args[@]} ]; do
 	    ((index++)) 
           IND=${args[$index]#?}
 	    ((index++))
-          if [ ${IND} != "" ] && [ ! ${NAME}.bai ]; then
+          if [ ${IND} != "" ] && [ ! -f "${NAME}.bai" ]; then
              ln -s "${IND}" "${NAME}.bai"
           fi
-          #echo "${NAME} ${IND}"
        done;;
     *) echo "$USAGE" 1>&2
        echo "$index ${args[$index]}" 1>&2
