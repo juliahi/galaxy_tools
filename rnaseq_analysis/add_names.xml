@@ -1,0 +1,28 @@
+<tool id="add_name" name="Add column with gene name" version="2.0.1">
+<requirements>
+</requirements>
+
+  <description>Add gene name to DESeq output</description>
+  <command interpreter="python"> add_names.py -o $output -i $input 
+      
+</command>
+  <inputs>
+    
+    <param format="tabular" name="input" type="data" optional="false" label="DESeq output"/>
+   
+  </inputs>
+  <outputs>
+        <data format="tabular" name="output" label="${tool.name} on ${on_string}"/>
+        
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+Extract gene names from DESeq output first column and add as new column.
+
+  </help>
+
+</tool>
+

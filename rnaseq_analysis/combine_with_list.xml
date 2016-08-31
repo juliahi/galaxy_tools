@@ -1,0 +1,51 @@
+<tool id="combine_with_list" name="Find values" version="1.0">
+    <requirements>
+    </requirements>
+    
+    <description>Combine columns with lists of values</description>
+    <command interpreter="python"> 
+        combine_with_list.py
+        -i ${input1.file_name}
+        -l
+        #for $i in $inputs
+        "${i.values.file_name}"
+        #end for
+        -c
+        #for $i in $inputs
+        "${i.field}"
+        #end for
+        -n
+        #for $i in $inputs
+        "${i.name}"
+        #end for
+        -o ${output.file_name}
+        
+        
+    </command>
+    
+    <inputs>
+        <param name="input1" label="File to modify" format="tabular" type="data" />
+        <repeat name="inputs" title="What columns to add" min="1" default="1">
+                <param name="values" label="Input file with values to look for" 
+                       format="text" type="data" />
+                <param name="field" label="Column"  type="data_column" data_ref="input1" />
+                <param name="name" label="Column name" type="text"/>
+       </repeat>
+
+    </inputs>
+    <outputs>
+        <data format="tabular" name="output" label="Added columns to ${on_string}"/>
+    </outputs>
+    
+    <tests>
+    </tests>
+    
+    <help>
+        For each selected field add column with '+' for values that are on the list, 
+        and '-' if value is not on the list. 
+        
+        Author: Julia
+    </help>
+    
+</tool>
+

@@ -31,7 +31,7 @@ def read_list(filename):
                 else:
                     out.append( "_".join(content[0].split('_')[1:-1]))
             elif content[1] != '0':
-                raise Exception("Invalid values in list of genes")
+                raise Exception("Invalid values in list of genes: second column includes %s instead of 0 or 1"%content[1])
     return out
 
 
@@ -76,7 +76,7 @@ def main():
     parser = argparse.ArgumentParser(add_help=False)
     
     required = parser.add_argument_group('required named arguments')
-    required.add_argument('-o', '--out', type=str, required=True,
+    required.add_argument('-o', '--out', type=str, required=True, nargs = '+',
                    help='output file')
     
     required.add_argument('-i', '--inp', type=str, required=True,
@@ -87,8 +87,8 @@ def main():
                    help='input GO graph file (.obo)')
     
     
-    parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png"],  
-                   help='output file format', default = "html")
+    parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png", "tabular"],  nargs = "+",
+                   help='output file format', default = ["html"])
     
     parser.add_argument('-c', '--corrections', choices=["bonferroni","bh_fdr", "bonferroni,bh_fdr", "bh_fdr,bonferroni"],  
                    help='multiple hypothesis testing corrections', nargs='+', default=[])
@@ -113,12 +113,15 @@ def main():
     if len(sys.argv) < 2:
         main_parser.print_usage()
         sys.exit(1)
-        
+    
     args = main_parser.parse_args()
+    if len(args.out) != len(args.outputformat):
+        main_parser.error("Number of output files doesn't match numer of formats!")
     check_file(main_parser, args.inp, 'r')
     check_file(main_parser, args.assoc, 'r')
     check_file(main_parser, args.gograph, 'r')
-    check_file(main_parser, args.out, 'w+')
+    for f in args.out:
+        check_file(main_parser, f, 'w+')
     
     cors = []
     for cor in args.corrections:
@@ -149,13 +152,16 @@ def main():
         result = run_parent_child(assocs, go_graph, gene_list, args.corrections, args.method)
 
 
-    print result
-    with open(args.out, 'w+') as outfile:
-        assert result!= None,  "An error occured while computing result"
-        OntoIO.pretty_print(result, go_graph, outfile, args.outputformat, go_to_url="http://amigo.geneontology.org/amigo/term/")
 
-        
-        
+    print result
+    assert result!= None,  "An error occured while computing result"
+    for outfilename, outputformat in zip(args.out, args.outputformat):
+        with open(outfilename, 'w+') as outfile:
+            if outputformat == 'html':
+                OntoIO.pretty_print(result, go_graph, outfile, outputformat, go_to_url="http://amigo.geneontology.org/amigo/term/")
+            else:
+                OntoIO.pretty_print(result, go_graph, outfile, outputformat)
+                
         
         
     

@@ -1,0 +1,37 @@
+<tool id="rename" name="Rename" version="1.0">
+    <requirements>
+    </requirements>
+    
+    <description>Rename using selected fields from tabular</description>
+    <command interpreter="python"> 
+        rename.py
+        -i ${input1.file_name}
+        -d "${input2.file_name}"
+        -c ${col1} ${col2}
+        -o ${output.file_name}
+        
+        
+    </command>
+    
+    <inputs>
+        <param name="input1" label="File to modify" format="text" type="data" />
+        <param name="input2" label="File to use as dictionary" format="tabular" type="data" />
+        <param name="col1" label="Old name"  type="data_column" data_ref="input2" />
+        <param name="col2" label="New name" type="data_column" data_ref="input2"/>
+
+    </inputs>
+    <outputs>
+        <data format="tabular" name="output" label="Rename on ${on_string}"/>
+    </outputs>
+    
+    <tests>
+    </tests>
+    
+    <help>
+        Change each line of first input for matching entry from selected column from second input.    
+ 
+        Author: Julia
+    </help>
+    
+</tool>
+

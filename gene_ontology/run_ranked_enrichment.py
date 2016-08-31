@@ -9,27 +9,39 @@ import Bio.Ontology
 import Bio.Ontology.IO as OntoIO
 
 
+
 def read_deseq_output(filename, column):
     ##column=5 #value from which column to take -> 5=log2FoldChange
     remove_inf = True   #remove entries with infinity? (otherwise change to max)
     
+    def is_float(s):
+        try:
+            float(s)
+        except ValueError:
+            return False
+        else:
+            return True
+    
     out = []
     with open(filename, 'r') as file_in:
         line = file_in.readline()  #header
-        if not line[0] == '!' or '#': file_in.seek(0)
+        if (not line[0] == '!' or '#') and (len(line.split('\t')) == 2 and is_float(line.split('\t')[1])): 
+            file_in.seek(0)
         
         maxval = 0
         minval = 0
 
         for line in file_in:
-            content = line.split('\t') 
+            content = line.strip().split('\t') 
             if len(content) <= column:
-                continue
-            out.append( ("_".join(content[0].split('_')[1:-1]), content[column]))
+                if content == [""]:
+                    continue
+                else:
+                    raise Exception("Error in line: %s\nGene ranking should be 2-columns TAB-separated file"%line)
+            out.append( (content[0], content[column]))
             if not remove_inf and not "Inf" in content[column]:
                 maxval = max(maxval, float(content[column]))
                 minval = min(minval, float(content[column]))
-            
     if remove_inf:
             return [(x[0], float(x[1])) for x in out if "Inf" not in x[1] ]
     else:
@@ -41,7 +53,6 @@ def read_deseq_output(filename, column):
                 else:
                     out[i][1] = float(x[1])
     return out
-
 
 
 
@@ -89,7 +100,7 @@ def main():
     
     
     required = parser.add_argument_group('required named arguments')
-    required.add_argument('-o', '--out', type=str, required=True,
+    required.add_argument('-o', '--out', type=str, required=True, nargs = '+',
                    help='output file')
     
     required.add_argument('-i', '--inp', type=str, required=True,
@@ -100,8 +111,8 @@ def main():
                    help='input GO graph file (.obo)')
     
     
-    parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png"],  
-                   help='output file format', default = "html")
+    parser.add_argument('-f', '--outputformat', choices=["html","txt", "gml", "png", "tabular"],  nargs = '+',
+                   help='output file format', default = ["html"])
     
     parser1 = subparsers.add_parser("GSEA", parents=[parser])
     parser2 = subparsers.add_parser("parent-child", parents=[parser])
@@ -113,6 +124,8 @@ def main():
                    help='minimal intersection between set of genes in rank and in studied set')
     parser1.add_argument('-c', '--corrpower', type=float, default=1, 
                    help='how strong correlation will affect enrichment')
+    
+    parser1.add_argument('--seed', type=int, help=argparse.SUPPRESS)
 
     #parser1.set_defaults(which='GSEA')
 
@@ -133,10 +146,13 @@ def main():
         sys.exit(1)
         
     args = main_parser.parse_args()
+    if len(args.out) != len(args.outputformat):
+        main_parser.error("Number of output files doesn't match numer of formats!")
     check_file(main_parser, args.inp, 'r')
     check_file(main_parser, args.assoc, 'r')
     check_file(main_parser, args.gograph, 'r')
-    check_file(main_parser, args.out, 'w+')
+    for f in args.out:
+        check_file(main_parser, f, 'w+')
     
     if args.which == "parent-child":
         cors = []
@@ -173,10 +189,14 @@ def main():
 
 
     print result
-    with open(args.out, 'w+') as outfile:
-        assert result!= None,  "An error occured while computing result"
-        OntoIO.pretty_print(result, go_graph, outfile, args.outputformat, go_to_url="http://amigo.geneontology.org/amigo/term/")
-
+    assert result!= None,  "An error occured while computing result"
+    for outfilename, outputformat in zip(args.out, args.outputformat):
+        with open(outfilename, 'w+') as outfile:
+            if outputformat == 'html':
+                OntoIO.pretty_print(result, go_graph, outfile, outputformat, go_to_url="http://amigo.geneontology.org/amigo/term/")
+            else:
+                OntoIO.pretty_print(result, go_graph, outfile, outputformat)
+                
         
         
         
