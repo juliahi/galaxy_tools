@@ -62,16 +62,16 @@ echo files: "${NAMEST[@]}" ${TREATEDP[@]} - ${TREATEDM[@]}
 #echo untreated: ${NAMESU[@]} ${UNTREATEDP[@]} - ${UNTREATEDM[@]}
 
 if [ $NPROC -gt 1 ] ; then
-        (python ${DIR}/policystr.py -a "$ANNOT" -s "+" -o "${OUTPUT1}.plus" -f ${TREATEDP[@]}  -c "${NAMEST[@]}"  -n $OVERLAP; echo $? >"$tmp1" ) &
+        (python ${DIR}/policystr_annotRom.py -a "$ANNOT" -s "+" -o "${OUTPUT1}.plus" -f ${TREATEDP[@]}  -c "${NAMEST[@]}"  -n $OVERLAP; echo $? >"$tmp1" ) &
 	proc1=$!
 
-	(python ${DIR}/policystr.py -a "$ANNOT" -s "-" -o "${OUTPUT1}.minus" -f ${TREATEDM[@]} -c "${NAMEST[@]}" -n $OVERLAP ; echo $? >"$tmp2" ) &
+	(python ${DIR}/policystr_annotRom.py -a "$ANNOT" -s "-" -o "${OUTPUT1}.minus" -f ${TREATEDM[@]} -c "${NAMEST[@]}" -n $OVERLAP ; echo $? >"$tmp2" ) &
 	proc2=$!
 	wait ${proc1} ${proc2}
 else 
-        python ${DIR}/policystr.py -a "$ANNOT" -s "+" -o "${OUTPUT1}.plus" -f ${TREATEDP[@]}  -c "${NAMEST[@]}"  -n $OVERLAP; echo $? >"$tmp1" 
+        python ${DIR}/policystr_annotRom.py -a "$ANNOT" -s "+" -o "${OUTPUT1}.plus" -f ${TREATEDP[@]}  -c "${NAMEST[@]}"  -n $OVERLAP; echo $? >"$tmp1" 
 
-	python ${DIR}/policystr.py -a "$ANNOT" -s "-" -o "${OUTPUT1}.minus" -f ${TREATEDM[@]} -c "${NAMEST[@]}" -n $OVERLAP ; echo $? >"$tmp2"  
+	python ${DIR}/policystr_annotRom.py -a "$ANNOT" -s "-" -o "${OUTPUT1}.minus" -f ${TREATEDM[@]} -c "${NAMEST[@]}" -n $OVERLAP ; echo $? >"$tmp2"  
 fi
 
 read ret1 <"$tmp1"

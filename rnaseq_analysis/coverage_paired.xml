@@ -1,0 +1,66 @@
+<tool id="my_coverage" name="Genome coverage" version="1.0">
+<!--<tool id="my_coverage" name="Genome coverage in BedGraph for paired end" version="1.0">-->
+<requirements>
+    <requirement type="python-module">pysam</requirement>
+</requirements>
+
+  <description>Genome Coverage in BedGraph format</description>
+  <command interpreter="bash">  <![CDATA[ coverage_paired.sh  
+-o "${output1.file_name}" "${output2.file_name}" 
+-i 
+#for $b in $bams
+  "${b.bam_plus.file_name}" "_${b.bam_plus.metadata.bam_index}"   "${b.bam_minus.file_name}" "_${b.bam_minus.metadata.bam_index}" 
+  #if $b.norm.normalize == "no" 
+  "no"
+  #elif $b.norm.normalize =="reads" 
+  "reads"
+  #elif $b.norm.normalize =="number" 
+   "number" "${b.norm.number_value}" 
+  #elif $b.norm.normalize =="fromfile" 
+  "file"  "${b.norm.file_value.file_name}" 
+  #end if
+#end for
+]]> 
+</command>
+  <inputs>
+    <repeat name="bams" title="Input bam files" min="1" default="1">
+             <param name="bam_plus" label="Input bam file - plus strand" format="bam" type="data" data_ref="bam_file"  />
+             <param name="bam_minus" label="Input bam file - minus strand" format="bam" type="data" data_ref="bam_file"  />
+            
+        <conditional name="norm">
+            <param name="normalize" type="select" label="Normalize by this number">
+                <option value="no" selected="true">do not normalize</option>
+                <option value="reads">total number of reads (per million)</option>
+                <option value="number">number </option>
+                <option value="fromfile">number from file </option>
+            </param>
+             
+            <when value="fromfile">
+                <param name="file_value" label="normalize" format="txt" type="data" />      
+            </when>
+           <when value="number"> 
+                <param name="number_value" label="Value to normalize by"  type="integer" value="1" min="1"  />
+            </when>
+             
+        </conditional>
+    </repeat>
+
+    
+  </inputs>
+  <outputs>
+        <data format="bedgraph" name="output1" label="${tool.name} on ${on_string} - plus strand"/>
+        <data format="bedgraph" name="output2" label="${tool.name} on ${on_string} - minus strand"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+Create BedGraph of genome coverage from list of BAM files.
+
+
+Author: Julia
+  </help>
+
+</tool>
+
