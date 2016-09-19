@@ -1,0 +1,38 @@
+<tool id="count_regexp" name="Count occurences in fastq file" version="1.0">
+    <requirements>
+    <requirement type="python-module">biopython</requirement>
+</requirements>
+
+  <description>Count how many records in fastq file match regular expressions</description>
+  <command interpreter="python"> count_regexp.py -i $input.file_name -o $output.file_name 
+      -p
+      #for reg in $regs
+            "${reg.expression}"
+      #end for
+      
+  </command>
+  <inputs>
+      
+        <param name="input" label="File to modify" format="fastq" type="data" />
+<!--         <param name="regexp" label="Expression to find" type="text" /> -->
+        
+        <repeat name="regs" title="Regular expressions to count" min="1" default="1">
+            <param name="expression" size="40" type="text" value="" label="Expression">
+                <sanitizer>
+                    <valid><add preset="string.printable"/><remove value="\"/><remove value="'"/></valid>
+                    <mapping initial="none"><add source="\" target="__backslash__"/><add source="'" target="__sq__"/></mapping>
+                    
+                </sanitizer>
+            </param>
+        </repeat>
+        
+  </inputs>
+  <outputs>
+      
+        <data format="tabular" name="output" label="Count records matching regular expressions in fastq"/>
+  </outputs>
+  
+  <help>
+      Using Python re module counts how many sequences from FASTQ file match regular expression.
+  </help>
+</tool>
