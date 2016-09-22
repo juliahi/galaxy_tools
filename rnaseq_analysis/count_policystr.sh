@@ -53,7 +53,7 @@ tmp2=$(mktemp)
 echo files: "${NAMEST[@]}" ${TREATEDP[@]} - ${TREATEDM[@]}
 #echo untreated: ${NAMESU[@]} ${UNTREATEDP[@]} - ${UNTREATEDM[@]}
 
-python ${DIR}/policystr.py -a "$ANNOT" -s "${STRAND}" -o "${OUTPUT1}.plus" -f ${TREATEDP[@]}  -c "${NAMEST[@]}"  -n $OVERLAP; echo $? >"$tmp1" 
+python ${DIR}/policystr_annotRom_mate.py -a "$ANNOT" -s "${STRAND}" -o "${OUTPUT1}.plus" -f ${TREATEDP[@]}  -c "${NAMEST[@]}"  -n $OVERLAP; echo $? >"$tmp1" 
 
 
 read ret1 <"$tmp1"

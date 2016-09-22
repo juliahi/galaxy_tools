@@ -1,0 +1,23 @@
+<tool id="nonuniq" name="Filter non-unique  " version="0.1">    
+  <requirements>
+    <requirement type="python-module">pysam</requirement>
+  </requirements>
+
+  <description> Filter non-unique reads from bam file </description>
+  
+  <command interpreter="bash"> filter_nonuniq.sh $input ${input.metadata.bam_index} $output1 $output2
+  </command>
+  <inputs>
+      
+        <param name="input" label="File to filter" format="bam" type="data" />
+  </inputs>
+  <outputs>
+      
+        <data format="bam" name="output1" label="NON-unique reads from ${on_string}"/>
+        <data format="bam" name="output2" label="Duplicated reads from ${on_string}"/>
+  </outputs>
+  
+  <help>
+      
+  </help>
+</tool>
