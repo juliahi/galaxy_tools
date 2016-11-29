@@ -1,0 +1,30 @@
+<tool id="annot_for_deseq" name="Prepare annotation before DESeq" version="0.1">    
+  <requirements>
+    <!-- <requirement type="python-module"></requirement>-->
+  </requirements>
+
+  <description>Prepare annotation for counting before DESeq, from GFF file</description>
+  
+  <command interpreter="python3"> 
+      annot_from_gff.py  ${input.file_name} ${output.file_name}
+  </command>
+  <inputs>
+      
+        <param name="input" label="File to modify" format="gtf,gff" type="data" />
+  </inputs>
+  <outputs>
+      
+        <data format="tabular" name="output" label="Annotation file from ${on_string}"/>
+  </outputs>
+  
+  <help>
+Takes annotation file in gff format and prepares it as input to DESeq format. Returns tabular file with columns:
+     
+     transcript_id chromosome strand start end exon_starts exon_ends human_readable_gene_name (gene_id)      
+
+-----
+
+Author: Julia
+
+  </help>
+</tool>
