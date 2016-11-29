@@ -1,0 +1,55 @@
+<tool id="inactive" name="Select inactive genes" version="0.1">
+  <requirements>
+    <!--<requirement type="python-module">...</requirement>-->
+  </requirements>
+
+  <description>Find inactive genes using counts table</description>
+  
+
+  <command interpreter="python"> inactive.py -i $input -a $annotation
+      -o $output1 $output2 $output3
+      -t $counting
+      
+  </command>
+  <inputs>
+      
+        <param name="input" label="Counts file" format="tabular" type="data" />
+        
+        <param format="tabular" name="annotation" type="data" optional="false" label="Genome or region annotation"/>
+
+        <param name="counting" type="select" label="Count hits on:">
+            <option value="e">Exons (separatelly)</option>
+            <option value="g" selected="true">Genes (hits overlaping any transcript of that gene)</option>
+            <option value="i">Genes (hits overlaping any transcript of that gene, introns INCLUDED)</option>
+            <option value="t">Transcripts (hits overlaping any exon)</option>    
+        </param>
+  </inputs>
+  <outputs>
+      
+        <data format="tabular" name="output1" label="Inactive genes to ${on_string} (list)"/>
+        <data format="tabular" name="output2" label="Active genes to ${on_string} (filtered counts)"/>
+        <data format="pdf" name="output3" label="Counts distributions on ${on_string} (histograms)"/>
+  </outputs>
+  
+  <help>
+      
+Filter genes from count table, that show no activity in all samples, i.e. TMP (transcripts per milion) is less than 2 for each sample in gene table (as suggested here: http://link.springer.com/article/10.1007%2Fs12064-013-0178-3 ).
+
+Returns file with names of inactive genes, count table of active genes and file with histogram of TMPs for each sample.      
+      
+Requires annotation in format: 
+
+    transcript_id       chromosome      strand  start   end     exon_starts     exon_ends       human_readable_gene_name        gene_id (optional)
+
+Coordinates are 0-based, half-inclusive (=endpoint is EXCLUSIVE!).
+
+Returned file is sorted according to start points (for both strands first genes on forward strand, then all on reverse strand). 
+
+
+
+-----
+
+Author: Julia
+      
+  </help>
+</tool>

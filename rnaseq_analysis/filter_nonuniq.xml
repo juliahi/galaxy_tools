@@ -1,9 +1,9 @@
-<tool id="nonuniq" name="Filter non-unique  " version="0.1">    
+<tool id="nonuniq" name="Find non-unique reads " version="0.1">    
   <requirements>
     <requirement type="python-module">pysam</requirement>
   </requirements>
 
-  <description> Filter non-unique reads from bam file </description>
+  <description> Find non-uniquely mapped and duplicated reads in bam file </description>
   
   <command interpreter="bash"> filter_nonuniq.sh $input ${input.metadata.bam_index} $output1 $output2
   </command>
@@ -18,6 +18,12 @@
   </outputs>
   
   <help>
-      
+   Find two types of reads in BAM file:
+      * NON-unique reads - non-uniquely mapped reads, i.e. reads with mapping quality less/equal 3 (meaning they are mapped to at least two locations)
+      * duplicated reads - reads mapped onto same starting position as another read, with the same sequence (or longer). 
+
+-----
+
+Author: Irina
   </help>
 </tool>

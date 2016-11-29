@@ -1,0 +1,32 @@
+<tool id="find_ends" name="Find reads with specific ends" version="0.1">    
+  <requirements>
+    <!--<requirement type="python-module">...</requirement>-->
+  </requirements>
+
+  <description>Find reads with defined sequence in 3' end</description>
+  
+  <command interpreter="python"> find_UserDefEndReads.py -f $input -e $sequence -o $output
+  </command>
+  <inputs>
+      
+        <param name="input" label="File to search" format="bam" type="data" />
+        <param name="sequence" label="sequence to find" type="text" size="100" value="AAA">
+      <!--<sanitizer>
+        <valid initial="ACTG">
+        </valid>
+      </sanitizer>-->
+     </param>
+  </inputs>
+  <outputs>
+      
+        <data format="bam" name="output" label="Reads from ${on_string} ended with selected sequence"/>
+  </outputs>
+  
+  <help>
+Filter reads from BAM file that end with specified sequence. Returns new BAM file.
+
+-----
+
+Author: Irina      
+  </help>
+</tool>
