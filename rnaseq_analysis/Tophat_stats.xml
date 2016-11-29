@@ -2,7 +2,7 @@
 <requirements>
 </requirements>
 
-  <description>Compare many mappings from Tophat</description>
+  <description>Compare results of Tophat2 mappings</description>
   <command interpreter="python"> TopHat_stat.py -o $output -f 
 #for $r in $results
   ${r.file.file_name} 

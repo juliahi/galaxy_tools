@@ -33,6 +33,14 @@
   </outputs>
   
   <help>
-      Using Python re module counts how many sequences from FASTQ file match regular expression.
+<![CDATA[
+      Using Python ``re`` module counts how many sequences from FASTQ file does regular expression occure at least one time.
+     
+      See Python documentation http://docs.python.org/2/library/re.html for regular expressions in Python.
+ 
+    
+
+      Author: Julia 
+]]>
   </help>
 </tool>

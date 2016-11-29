@@ -26,6 +26,7 @@ def main():
     counts = [0 for i in xrange(n)]
     
     for key, value in mapped_chars.items():
+         for pattern in args.patterns:
                pattern = pattern.replace(value, key)
                
                

@@ -1,14 +1,15 @@
-<tool id="sort_bam" name="Filter/split bam">
+<tool id="sort_bam" name="Filter/split bam" version="0.1">
 <requirements>
     <requirement type="python-module">pysam</requirement>
 </requirements>
 
-  <description>Returnes bam file(s) with reads filtered by mapping quality, without unmapped reads or secondary alignments. Splits by strand of the first read.</description>
-  <command interpreter="python"> sort_bam.py -f "${bam_file}" -i "${bam_file.metadata.bam_index}" $unmapped $secondary $split $revert
+  <description>Returnes bam file(s) with reads filtered by mapping quality, without unmapped reads or secondary alignments. Optionally splits by strand of one of the reads.</description>
+  <command interpreter="python"> sort_bam.py -f "${bam_file}" -i "${bam_file.metadata.bam_index}" $unmapped $secondary  
 #if $block.quality
 -l -m $block.qn
 #end if
-#if $split
+#if $sblock.split
+   -s ${sblock.revert}
   -o $output1 $output2
 #else
   -o $output3 $output3
@@ -26,19 +27,27 @@
                 <param name="qn" type="integer" value="3" min="0" max="40" label="mapping quality" help="reads with mapping quality less or equal will be discarded" />
             </when>
     </conditional>
-    <param name="split" truevalue="-s" falsevalue="" checked="true" type="boolean" label="split to separate files by strand of first read"/>
-    <param name="revert" type="boolean" checked="false" truevalue="-r" falsevalue="" label="Use second read as strand indicator"/>
-    
+    <conditional name="sblock">
+        <param name="split" type="boolean" checked="true" label="split read pairs to separate files by strand of one of reads from pair"/>
+        <when value="true"> 
+             <!-- <param name="revert" type="select" truevalue="-r" falsevalue="" label="Use second read as strand indicator (default: No, use first read.)"/> -->
+             <param name="revert" type="select" label="Which read from pair use to split">
+                   <option value="" selected="true">First</option>
+                   <option value="-r"              >Second</option>
+             </param>
+       </when>
+    </conditional>
   </inputs>
   <outputs>
         <data format="bam" name="output1" label="${tool.name} on ${on_string}: Filtered plus-strand pairs">
-          <filter> split is True</filter>
+          <filter> sblock['split'] is True </filter>
         </data>
         <data format="bam" name="output2" label="${tool.name} on ${on_string}: Filtered minus-strand pairs">
-          <filter> split is True</filter>
+          <!--<filter> split is True</filter>-->
+          <filter> sblock['split'] is True </filter>
         </data>
         <data format="bam" name="output3" label="${tool.name} on ${on_string}: Filtered pairs">
-          <filter> split is False</filter>
+          <filter> sblock['split'] is False </filter>
         </data>
     
   </outputs>
@@ -53,8 +62,11 @@ This tool allows few types of filtering of reads in bam file:
 * by type of alignment - discard secondary alignments
 * by quality - discard reads with mapping quality smaller or equal than chosen value
 
-It also allows separation of reads by strand of the first read from pair
+It also allows separation of reads by strand of the first (or second) read from pair.
 
+-----
+
+Author: Julia 
   </help>
 
 </tool>

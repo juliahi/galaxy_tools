@@ -1,9 +1,9 @@
-<tool id="my_coverage" name="Genome coverage" version="1.0.1">
+<tool id="my_coverage" name="Genome coverage in BedGraph" version="1.0.1">
 <requirements>
     <requirement type="python-module">pysam</requirement>
 </requirements>
 
-  <description>Genome Coverage in BedGraph format</description>
+  <description>Genome Coverage in BedGraph format (for multiple files)</description>
   <command interpreter="bash"> coverage.sh -o 
 #if $normalize
    "${output}"
@@ -18,11 +18,11 @@
 
 </command>
   <inputs>
-    <repeat name="bams" min="1" default="3" title="Input bam files">
+    <repeat name="bams" min="1" default="1" title="Input bam files">
       <param name="bam_file" label="Bam file" format="bam" type="data" />
     </repeat>
     <param name="normalize" type="boolean" checked="true" truevalue="-n" falsevalue=""
-           label="Normalize each track by read count"/>
+           label="Normalize each track by number of reads in it"/>
   </inputs>
   <outputs>
         <data format="bedgraph" name="output" label="Normalized ${tool.name} on ${on_string}">
@@ -37,9 +37,10 @@
   </tests>
 
   <help>
-Create BedGraph of genome coverage from list of BAM files.
-If normalize option set, each files reads are normalized by #reads/1M reads.
+    Create BedGraph of genome coverage from list of BAM files.
+    If normalize option set, for each file reads are normalized by #reads/1M reads before combining coverages.
 
+-----
 
 Author: Julia
   </help>

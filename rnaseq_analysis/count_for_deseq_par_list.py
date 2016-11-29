@@ -22,6 +22,10 @@ class Gene:
         self.exons = set(exons)
     def update(self, exons):
         self.exons.update(exons)
+    def length(self, typ):
+        if typ == 'g':
+            return self.end-self.start
+        return sum([e-s for e,s in exons])
     
 
 def gen_genes(annotation, counttype, strand):
@@ -35,6 +39,7 @@ def gen_genes(annotation, counttype, strand):
     prev_chrom = None
     start_pos = 0
 
+    id_count = 0
     for line in open(annotation, "r"):
         if line[0] == "#": continue
         g = line.strip().split('\t')
@@ -52,10 +57,16 @@ def gen_genes(annotation, counttype, strand):
             gene_ids = []
             prev_chrom = g[1]
         
-        if g[8] in gene_ids:
+        if len(g) <= 8:
+            g.append(g[7]+'_'+g[1])
+        pos = None
+        if gene_ids != [] and g[8] == gene_ids[-1]:
+            pos = len(gene_ids)-1
+        elif g[8] in gene_ids:
             pos = gene_ids.index(g[8])
+        if pos is not None:
             gene = genes[start_pos + pos]
-
+            print gene.name, pos, g[8]
             gene.start=min(gene.start, start)
             gene.end=max(gene.end, end)
             if counttype != "i":
@@ -63,6 +74,9 @@ def gen_genes(annotation, counttype, strand):
         else:
             genes += [Gene(g[8]+'_'+g[7], g[1], g[2], start, end, exons)]
             gene_ids.append( g[8] )
+            id_count += 1
+        
+            
     if counttype == "g" or counttype == "i":
         for gene in genes:
             if counttype == "g":

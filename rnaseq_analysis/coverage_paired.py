@@ -96,7 +96,7 @@ def main():
                    help='output file')
     
     #parser.add_argument("-s", '--strand', type=str, help='strand')
-    parser.add_argument('-n', type=int, nargs='+',
+    parser.add_argument('-n', type=float, nargs='+',
                    help='normalize by this number')
     
     args = parser.parse_args()

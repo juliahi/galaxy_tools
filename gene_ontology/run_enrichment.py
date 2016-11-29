@@ -99,14 +99,9 @@ def main():
     
     
 
-    
-    #Term-for-term params
-    #parser1.set_defaults(which='term')
-
     #Parent-child
     parser2.add_argument('-m', '--method', choices=["union", "intersection"],  
                    help='method used to compute probabilities', default = "union")
-    #parser2.set_defaults(which='parent-child')
     
     
     #validate args    
@@ -131,30 +126,23 @@ def main():
             cors.append(cor)
     args.corrections = list(set(cors))
     
-    
+    #Read inputs
     gene_list = read_list(args.inp)
     
-    #gene_rank = [('FBgn0043467', 0.1), ('FBgn0010339', 0.7), ('FBgn0070057', 0.4), ('FBgn0070052', 0.9)]
-    
-    
-    #go_graph = OntoIO.read("Ontology/go_test.obo", "obo")
-    #assocs = OntoIO.read("Ontology/ga_test.fb", "gaf")
-    
     go_graph = OntoIO.read(args.gograph, "obo")
-    assocs = OntoIO.read(args.assoc, "gaf")
+    assocs = OntoIO.read(args.assoc, "gaf", assoc_format = "in_mem_sql")
     result=None
     
         
     if args.which == "term-for-term":
         result = run_term(assocs, go_graph, gene_list, args.corrections)
     elif args.which == "parent-child":
-        #parser.error("Method unimplemented!")
         result = run_parent_child(assocs, go_graph, gene_list, args.corrections, args.method)
+    else:
+        parser.error("Method unimplemented!")
 
-
-
-    print result
     assert result!= None,  "An error occured while computing result"
+    print result
     for outfilename, outputformat in zip(args.out, args.outputformat):
         with open(outfilename, 'w+') as outfile:
             if outputformat == 'html':

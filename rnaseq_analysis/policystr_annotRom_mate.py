@@ -51,7 +51,9 @@ def calc_reads(sam, an, n, genes, b_nr, ind):
             for key in an:
                 #print pos[0]+n,int(key), pos[-1]-n, "|", pos_mate[0]+n, int(key), pos_mate[-1]-n
                 #if pos[0]+n <= int(key) <=  pos[-1]-n or pos_mate[0]+n <= int(key) <=  pos_mate[-1]-n:
-                if (key - n in pos and key + n in pos) or (key - n in pos_mate and key + n in pos_mate):
+                if n == 0: 
+                    if key in pos or key in pos_mate: position.append(an[key])
+                elif (key - n in pos and key + n in pos) or (key - n in pos_mate and key + n in pos_mate):
                     #print "Dodaje", an[key], name
                     position.append(an[key])
                 else: pass
@@ -73,7 +75,9 @@ def calc_reads(sam, an, n, genes, b_nr, ind):
             pos = find_mate[name].get_reference_positions()
             position = []
             for key in an:
-                if key - n in pos and key + n in pos:
+                if n == 0:
+                    if key in pos: position.append(an[key])
+                elif key - n in pos and key + n in pos:
                     #print "Dodaje", an[key], name
                     position.append(an[key])
                 else: pass
@@ -104,6 +108,10 @@ if __name__ == '__main__':
     args = optparser.parse_args()
     if len(sys.argv) ==1:
         print optparser.print_help()
+        sys.exit(1)
+
+    if args.Overlap < 0:
+        print "Number of nucleotides can not be less than 0"
         sys.exit(1)
     
     #print opts.Annot

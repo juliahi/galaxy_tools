@@ -53,8 +53,8 @@
 
       <when value="."> 
           <repeat name="treated_bams" title="Input bam files" min="0" default="0">
-              <param name="tbam_filep" label="Input bam file - plus reads" format="bam" type="data" data_ref="bam_file"  />
-              <param name="tbam_filem" label="Input bam file - minus reads" format="bam" type="data" data_ref="bam_file" />
+              <param name="tbam_filep" label="Input bam file - plus reads, (H)" format="bam" type="data" data_ref="bam_file"  />
+              <param name="tbam_filem" label="Input bam file - minus reads, (L)" format="bam" type="data" data_ref="bam_file" />
               <param name="fname" label="Track name" type="text"/>
           </repeat>
      </when>
@@ -87,9 +87,15 @@
 
 Count policistronic reads in mitochondrial genome.
 
-Requires annotation in format: 
+Requires tabular file with places of cuts with columns:
+  1. position in mitochondrial genome
+  2. Name/id
+  3. Strand 
 
-seq_id chromosome strand start end exon_starts exon_ends human_readable_gene_name
+<!-- seq_id chromosome strand start end exon_starts exon_ends human_readable_gene_name
+-->
+
+-----
 
 Author: Irina
   </help>

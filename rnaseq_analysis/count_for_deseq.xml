@@ -1,4 +1,4 @@
-<tool id="count_for_deseq" name="Count reads" version="2.1.3">
+<tool id="count_for_deseq" name="Count reads" version="2.1.4">
 <requirements>
     <requirement type="python-module">pysam</requirement>
 </requirements>
@@ -118,12 +118,12 @@
     <param format="tabular" name="annotation" type="data" optional="false" label="Genome or region annotation"/>
     <conditional name="block">
         <param name="counting" type="select" label="Count hits on:">
-            <option value="exons" selected="true">Exons</option>
-            <option value="genes">Genes</option>
-            <option value="transcripts">Transcripts</option>    
+            <option value="exons">Exons (separatelly)</option>
+            <option value="genes" selected="true">Genes (hits overlaping any transcript of that gene)</option>
+            <option value="transcripts">Transcripts (hits overlaping any exon)</option>    
         </param>
             <when value="genes">
-                <param name="introns" type="boolean" truevalue="-i" falsevalue="" help="count reads mapped ONLY to introns" />
+                <param name="introns" type="boolean" truevalue="-i" falsevalue="" help="include reads mapped to introns but not exons" />
             </when>
     </conditional>
     
@@ -141,7 +141,13 @@ One can choose to count reads mapped entirely to introns as counts for genes (de
 
 Requires annotation in format: 
 
-seq_id chromosome strand start end exon_starts exon_ends human_readable_gene_name
+    transcript_id	chromosome	strand	start	end	exon_starts	exon_ends	human_readable_gene_name	gene_id (optional)
+
+Coordinates are 0-based, half-inclusive (=endpoint is EXCLUSIVE!).
+
+Returned file is sorted according to start points (for both strands first genes on forward strand, then all on reverse strand). 
+
+-----
 
 Author: Julia
   </help>

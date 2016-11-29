@@ -84,8 +84,10 @@
   </tests>
 
   <help>
-Count reads mapped to windows od specific size. Count both reads from paired-end sequencing as one hit.
-One can choose to count reads mapped entirely to introns as counts for genes (default: count only reads overlaping exons).
+    Count reads mapped to windows of specific size. Count both reads from paired-end sequencing as one hit.
+    
+
+-----
 
 Author: Julia
   </help>

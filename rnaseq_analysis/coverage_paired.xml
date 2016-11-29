@@ -1,9 +1,9 @@
-<tool id="my_coverage2" name="Genome coverage in BedGraph for paired end" version="1.0">
+<tool id="my_coverage2" name="Genome coverage in BedGraph (each strand separately)" version="1.0">
 <requirements>
     <requirement type="python-module">pysam</requirement>
 </requirements>
 
-  <description>Genome Coverage in BedGraph format</description>
+  <description>Genome Coverage in BedGraph format for reads separated by strand </description>
   <command interpreter="bash">  <![CDATA[ coverage_paired.sh  
 -o "${output1.file_name}" "${output2.file_name}" 
 -i 
@@ -38,7 +38,7 @@
                 <param name="file_value" label="normalize" format="txt" type="data" />      
             </when>
            <when value="number"> 
-                <param name="number_value" label="Value to normalize by"  type="integer" value="1" min="1"  />
+                <param name="number_value" label="Value to normalize by"  type="float" value="1" min="0.01"  />
             </when>
              
         </conditional>
@@ -55,8 +55,13 @@
   </tests>
 
   <help>
-Create BedGraph of genome coverage from list of BAM files.
+    Create BedGraph of genome coverages for each strand from list of pairs of BAM files. 
+    Reads from each pair of files can be normalized by number of reads in both files, 
+    user-provided number, or number read from file (which might contain e.g. number of reads 
+    before filtering). If taking number from file, file cannot contain anything else 
+    but single number (might be non-integer). 
 
+----- 
 
 Author: Julia
   </help>

@@ -6,7 +6,7 @@
   <command interpreter="python"> 
         #if $params.method == "gsea"
             run_ranked_enrichment.py    GSEA            -p $params.perms -n $params.minset -c $params.corrpower 
-        #elif $params.method == "rpc"
+	#elif $params.method == "rpc"
             run_ranked_enrichment.py    parent-child    -s "$params.side" -m $params.rmethod 
             #if $params.rank
                 -r
@@ -24,7 +24,7 @@
             #if $params.corrections
                 -c $params.corrections  
             #end if
-        #end if
+	#end if
         
 
             -i ${input.file_name} -a ${assoc.file_name} 
@@ -33,10 +33,7 @@
 </command>
  <inputs>
       <param name="input" label="Gene table or list" format="txt" type="data" />
-      <!-- change to format="gaf" after adding GAF type --> 
-      <param name="assoc" label="Association (GAF file)" format="tabular" type="data" />
-      
-      
+      <param name="assoc" label="Association (GAF file)" format="gaf" type="data" />
       
       <param name="go_graph" label="GO annotation (OBO file)" format="obo" type="data" />
 
@@ -45,7 +42,7 @@
           <option value="tt">Term for term</option>
           <option value="pc">Parent-child</option>
           <option value="gsea">GSEA (uses ranking)</option>
-          <option value="rpc">Ranked Parent-child (uses ranking)</option>
+          <option value="rpc" selected="true">Ranked Parent-child (uses ranking)</option>
         </param>
         
         <when value="gsea">
@@ -55,7 +52,7 @@
                 <option value="1000">1000</option>
                 <option value="10000">10000</option>
           </param>
-          <param name="minset" label="Minimal intersection between set of genes in rank and in studied set" type="integer" value="1" min="1" max="100" />
+          <param name="minset" label="Minimal intersection between set of genes in rank and in studied set" type="integer" value="15" min="1" max="100" />
           <param name="corrpower" label="How strong correlation will affect enrichment" type="float" value="1" min="0" max="1" />
         </when>
 
@@ -69,11 +66,11 @@
                 <option value="bonferroni">Bonferroni</option>
                 <option value="bh_fdr">Benjamini-Hochberg FDR</option>
           </param>
-          <param name="rank" label="only the rank should be used as population" type="boolean" value="false" />
+          <param name="rank" label="only the rank should be used as population" type="boolean" falsevalue="false" truevalue="true" checked="yes"  />
           <param name="rmethod" label="method used to compute probabilities" type="select" multiple="false" required="true" >
                 <option value="union" selected="True">parent_child_union (default)</option>
                 <option value="intersection">parent_child_intersection</option>
-                <option value="term">Term for term</option>
+                <!--<option value="term">Term for term</option>-->
           </param>
         </when>
 
@@ -119,16 +116,35 @@ in provided genes, or enriched at some point of gene ranking.
 -----
 
 
-**Set methods**
+**Gene set methods**
 
         * **Term-for-term**
 
-                todo ...
+                This method tests gene enrichment in each term separately (independingly of its relation to other terms in ontology).
+    
+                Parameters:
+                
+                + *multiple hypothesis testing correction*: 
+                        - *Bonferroni* 
+        
+                        - *Benjamini-Hochberg FDR* 
+
 
         * **Parent-Child**
 
-                todo ..
-
+                This method tests gene enrichment in a term comparing to set of parents of this terms.
+    
+                Parameters:
+                
+                + *multiple hypothesis testing correction*: 
+                            - *Bonferroni* 
+        
+                            - *Benjamini-Hochberg FDR* 
+                        
+                + *method used to compute probabilities*: 
+                            - *union* - gene set associated with parents of term `t` is set of all genes associated with any of the parents of term `t`
+        
+                            - *intersection* - gene set associated with parents of term `t` is set of all genes associated with all of the parents of term `t`
 
 
 **Ranking methods**
@@ -140,13 +156,16 @@ in provided genes, or enriched at some point of gene ranking.
 
                 Parameters:
 
-                - *Number of permutations* - # of permutations of gene ranking generated to estimate statistical significance of gene set enrichment. 
-                  More permutations give better precision of p-value but can result in higher runtime. 
+                + *Number of permutations* -
+                    # of permutations of gene ranking generated to estimate statistical significance of gene set enrichment. 
+                    More permutations give better precision of p-value but can result in higher runtime. 
 
-                - *Minimal intersection* - minimal number of genes common to the set and rank to take the set into account
-        
-                - *Correlation `p`* - weight (used in exponent) of correlation score (that is the value used to rank genes) when computing enrichment score. 
-                  `p=0` reduces enrichment score to Kolmogorov-Smirnov statistic. `p=1` is recomended and takes into account value forming ranking. 
+                + *Minimal intersection* - 
+                    minimal number of genes common to the set and rank to take the set into account
+            
+                + *Correlation `p`* - 
+                    weight (used in exponent) of correlation score (that is the value used to rank genes) when computing enrichment score. 
+                    `p=0` reduces enrichment score to Kolmogorov-Smirnov statistic. `p=1` is recomended and takes into account value forming ranking. 
 
 
         * **Ranked Parent-Child**
@@ -155,23 +174,22 @@ in provided genes, or enriched at some point of gene ranking.
                 with parent-child method on gene set generated by `k` initial elements of ranking, for some `k<=n`.
 
                 Parameters:
-        
-                + *Side* - from which side (highest or lowest or both values of ranking) to start computation. This parameter determine whether 
-                  gene sets are generated by initial elements from the top or bottom or both sides of ranking.
+            
+                + *Side* - 
+                    from which side (highest or lowest or both values of ranking) to start computation. This parameter determine whether 
+                    gene sets are generated by initial elements from the top or bottom or both sides of ranking.
 
-                + *multiple hypothesis testing corrections* - which corrections of p-values to be added to the result (as separate columns)
+                + *multiple hypothesis testing corrections* - 
+                    which corrections of p-values to be added to the result (as separate columns)
 
-                + *only the rank should be used as population* - If set to `Yes` only
-                  genes present in the ranking are considered as gene set (other genes in annotation file are discarded).
+                + *only the rank should be used as population* - 
+                    If set to `Yes` only
+                    genes present in the ranking are considered as gene set (other genes in annotation file are discarded).
 
                 + *method used to compute probabilities*: 
-
-                        - *union* - gene set associated with parents of term `t` is set of all genes associated with any of the parents of term `t`
-        
-                        - *intersection* - gene set associated with parents of term `t` is set of all genes associated with all of the parents of term `t`
-
-                        - *term-for-term* - each term is analysed independently of its context in ontology.
-
+                     - *union* - gene set associated with parents of term `t` is set of all genes associated with any of the parents of term `t`
+            
+                     - *intersection* - gene set associated with parents of term `t` is set of all genes associated with all of the parents of term `t`
 
 -----
 
@@ -219,16 +237,21 @@ Gene Ontology returns HTML file with several columns:
         
         - -name
 
+	- -(only for non-ranking methods) No. genes in term
+
+	- -(only for non-ranking methods) No. genes from list
+
         - -p-value
 
         - -(optional) p-values after multiple hypothesis corrections
 
 Example::
 
-        ID              name                                                            p-value                 FDR correction  Bonferroni correction
-        GO:0003700      transcription factor activity, sequence-specific DNA binding    0.000271074085594       0.188938637659  0.188938637659
-        GO:0001071      nucleic acid binding transcription factor activity              0.000271074085594       0.188938637659  0.188938637659
-        GO:0006357      regulation of transcription from RNA polymerase II promoter     0.000318367651929       0.188938637659  0.221902253394
+	#Enrichments found using parent_child_intersection method.
+	ID		name			No. genes in term	No. genes from list	p-value			FDR correction		Bonferroni correction
+	GO:0005737	cytoplasm		11011			72			0.000112659418604	0.00698488395347	0.00698488395347
+	GO:0007155	cell adhesion		606			9			0.00579391522139	0.179611371863		0.359222743726
+	GO:0007165	signal transduction	1689			14			0.063198962127		1.0			1.0
 
 -----
 
@@ -246,7 +269,8 @@ Wrapper: Julia Herman-Iżycka
   <!-- <citations>
     <citation type="bibtex"></citation>
   </citations>-->
-
 </tool>
+
+
 
 
