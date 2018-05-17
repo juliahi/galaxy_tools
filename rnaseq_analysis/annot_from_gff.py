@@ -6,23 +6,26 @@ import sys;
 import re;
 
 
+def use_regexp(element, s):
+    expr = element+"([\s=:]\"?[\w\.]+\"?)";
+    transid=re.findall(expr, s);
+    
+    if len(transid) == 0: 
+        return ''
+    return transid[-1].strip("=\" :") 
 
 def printbedline(estart,eend,field,nline):
     try:
         # use regular expression to get transcript_id, gene_id and expression level
-        geneid=re.findall(r'gene_id \"([\w\.]+)\"',field[8])
-        genename=re.findall(r'gene_name \"([\w\.\-\\/]+)\"',field[8])
-        transid=re.findall(r'transcript_id \"([\w\.]+)\"',field[8])
+        geneid=use_regexp('gene_id',field[8])
+        genename=use_regexp('gene_name',field[8])
+        transid=use_regexp('transcript_id',field[8])
         
-        if len(geneid)==0:
-            print('Warning: no gene_id field ',file=sys.stderr);
-        else:
-            geneid=geneid[0];
-        if len(transid)==0:
-            print('Warning: no transcript_id field',file=sys.stderr);
-            transid='Trans_'+str(nline);
-        else:
-            transid=transid[0];
+        #if len(geneid)==0:
+        #    print('Warning: no gene_id field ',file=sys.stderr);
+        #if len(transid)==0:
+        #    print('Warning: no transcript_id field',file=sys.stderr);
+        #    transid='Trans_'+str(nline);
         if transid in allids.keys():
             transid2=transid+'_DUP'+str(allids[transid]);
             allids[transid]=allids[transid]+1;
@@ -44,15 +47,17 @@ def printbedline(estart,eend,field,nline):
         #    elif len(chrom) > 2: chrom='_'.join(chrom.lower().split('.')[::-1])
         #    chrom = 'chr'+chrom
         strand = field[6]
-        
+       
         if genename:
-            name = genename[0]
+            name = genename
         else:
-            name = ''
+            name = use_regexp('gene', field[8])
+        if geneid == '': geneid =use_regexp('GeneID', field[8]) 
         output.write(transid+'\t' + chrom + "\t" + strand + "\t" + str(estart[0]) + "\t" + str(eend[-1]) + "\t" + starts+'\t'+ends + "\t" + name + "\t" + geneid + "\n" );
 
     except ValueError:
         print('Error: non-number fields at line '+str(nline),file=sys.stderr);
+
 
 
 
@@ -75,7 +80,7 @@ if __name__ == "__main__":
     nline=0;
 
     prevfield=[];
-    prevtransid='';
+    prevtransid=None;
     output = open(sys.argv[2], 'w+')
 
     for lines in open(sys.argv[1]):
@@ -90,17 +95,11 @@ if __name__ == "__main__":
         if field[2]!='exon' and field[2] !='transcript':
             continue;
         #remove unlocalized genomic contigs
-        if len(field[0]) > 5:
+        if len(field[0]) > 5 and field[0].startswith('chr'):
             continue;
 
-        transid=re.findall(r'transcript_id \"([\w\.]+)\"',field[8]);
-
-        if len(transid)>0:
-            transid=transid[0];
-        else:
-            transid='';
-
-        if field[2]=='transcript' or (prevtransid != '' and transid!='' and transid != prevtransid):
+        transid=use_regexp('transcript_id',field[8]);
+        if field[2]=='transcript' or (transid!='' and transid != prevtransid):
                 #print('prev:'+prevtransid+', current:'+transid);
                 # A new transcript record, write
                 if len(estart)!=0:
@@ -125,7 +124,7 @@ if __name__ == "__main__":
 
 
     # the last record
-    if len(estart)!=0:
+    if len(estart)!=0 and len(prevfield)>8:
         printbedline(estart,eend,prevfield,nline);
         
     output.close()

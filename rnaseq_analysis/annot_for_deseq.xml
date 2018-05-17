@@ -1,4 +1,4 @@
-<tool id="annot_for_deseq" name="Prepare annotation before DESeq" version="0.1">    
+<tool id="annot_for_deseq" name="Prepare annotation before DESeq" version="0.2">    
   <requirements>
     <!-- <requirement type="python-module"></requirement>-->
   </requirements>

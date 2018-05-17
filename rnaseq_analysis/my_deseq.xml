@@ -1,4 +1,4 @@
-<tool id="my_deseq" name="Run DESeq">
+<tool id="my_deseq" name="Run DESeq" version="0.1.1">
 <requirements>
     <!-- <requirement type="set_environment">R_SCRIPT_PATH</requirement>-->
     <requirement type="package" >R</requirement>
@@ -6,10 +6,18 @@
 </requirements>
 
   <description>Run differential gene/exon usage analysis</description>
-  <command interpreter="Rscript"> run_deseq.R $counts $output $output2 $fittype
+<!--   <command interpreter="Rscript"> run_deseq.R $counts $output $output2 $fittype
 #for $N in $samples
   ${N.istreated} 
 #end for
+</command>  -->
+
+<!--   dirty hack to change R version      -->
+  <command interpreter="~/.Renv/versions/3.4.1/bin/Rscript"> run_deseq.R $counts $output $output2 $fittype
+#for $N in $samples
+  ${N.istreated} 
+#end for
+
 
 </command>
   <inputs>

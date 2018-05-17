@@ -50,7 +50,7 @@ def gen_genes(annotation, counttype, strand):
         end = int(g[4])
         if counttype=="t":
             genes += [Gene(g[0]+'_'+g[7], g[1], g[2], start, end, exons)]
-            names.append(g[0]+"_"+g[7])
+            #names.append(g[0]+"_"+g[7])
             continue
         if prev_chrom != g[1]:
             start_pos += len(gene_ids)
@@ -77,7 +77,7 @@ def gen_genes(annotation, counttype, strand):
             id_count += 1
         
             
-    if counttype == "g" or counttype == "i":
+    if counttype == "g" or counttype == "i" or counttype == "t":
         for gene in genes:
             if counttype == "g":
                 ex = sorted(list(gene.exons))
@@ -189,7 +189,7 @@ def count_genes(genes, counttype, filenames):
         print "%s: Counted %d hits for %d genes (with introns) on strand %s" % (filename, nhits, ngenes, genes[0].strand)
     elif counttype == "t":
         print "%s: Counted %d hits for %d transcripts on strand %s" % (filename, nhits, ngenes, genes[0].strand)
-    elif counttype == "g":
+    elif counttype == "e":
         print "%s: Counted %d hits for %d exons on strand %s" % (filename, nhits, ngenes, genes[0].strand)
     
     return counts
