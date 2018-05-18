@@ -32,12 +32,12 @@ index=3
 
 while [ $index -lt ${#args[@]} ]; do
   case "${args[$index]}" in 
-    "-e") OPTE="-e"
-	    ((index++));; 
-    "-i") OPTI="-i"
-	    ((index++));; 
-    "-t") OPTT="-t"
-	    ((index++));; 
+    "-f")  ((index++))
+	OPTF="-f ${args[$index]}"
+	((index++));; 
+    "-i")  ((index++)) 
+	OPTI="-i ${args[$index]}"
+	((index++));; 
     "-b") 
 	    ((index++))
         while [ $index -lt ${#args[@]} ] && [ ${args[$index]:0:1} != "-" ]; do
@@ -97,16 +97,16 @@ tmp2=$(mktemp)
 #echo untreated: ${NAMESU[@]} ${UNTREATEDP[@]} - ${UNTREATEDM[@]}
 
 if [ $NPROC -gt 1 ] ; then
-        (python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "+" $OPTE $OPTI $OPTT -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1" ) &
+        (python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "+" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1" ) &
 	proc1=$!
 
-	(python ${DIR}/count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTE $OPTI $OPTT -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} ${UNTREATEDM[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp2" ) &
+	(python ${DIR}/count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTF $OPTI -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} ${UNTREATEDM[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp2" ) &
 	proc2=$!
 	wait ${proc1} ${proc2}
 else 
-	(python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "+" $OPTE $OPTI $OPTT -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n 1 -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1" ) 
+	(python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "+" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n 1 -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1" ) 
 	
-	(python ${DIR}/count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTE $OPTI $OPTT -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} ${UNTREATEDM[@]} -n 1 -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp2" ) 
+	(python ${DIR}/count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTF $OPTI -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} ${UNTREATEDM[@]} -n 1 -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp2" ) 
 fi
 
 read ret1 <"$tmp1"
