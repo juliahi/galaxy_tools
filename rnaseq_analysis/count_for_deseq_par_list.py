@@ -41,7 +41,7 @@ class Gene:
     def get_introns(self):
         introns = []
         for ex1, ex2 in zip(self.exons[:-1], self.exons[1:]):
-            introns.append((ex1[1]+1, ex2[0]-1))
+            introns.append((ex1[1], ex2[0]))
         return introns
 
 
@@ -161,12 +161,12 @@ def count_genes(genes, counttype, filenames):
             if gene.chrom not in reads.references:
                 print "Warning: There is no chromosome %s in BAM file reference! " % gene.chrom
             else:
-                for read in reads.fetch(gene.chrom, reg[0], reg[1]+1):
+                for read in reads.fetch(gene.chrom, reg[0], reg[1]):
                     #if read.is_read1 and read.is_proper_pair:
                         #if read.qname not in overlap:
 
                     # reads are 0-based, but use reg[0]-1 to get overlaps with ends of reads
-                    if read.get_overlap(reg[0]-1, reg[1]) > 0:        # CRITICAL BUG FIX!!!
+                    if read.get_overlap(reg[0], reg[1]) > 0:        # CRITICAL BUG FIX!!!
                         overlap.append(read.qname)
         hits=len(set(overlap))
         nhits += hits
@@ -185,6 +185,7 @@ def count_genes(genes, counttype, filenames):
 def count(annotation, filesi, fileo, strand, counttype, nproc):
     if strand == ".": strands = ["+", "-"]
     else: strands = [strand]
+
 
     annotation_list = map(lambda(x): read_annotation(annotation, counttype, x), strands)
 

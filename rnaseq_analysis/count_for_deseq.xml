@@ -62,15 +62,16 @@
   #end for
 #end if
 
--f $block.counting
-#if $block.counting=="genes"
-	#if $block.counting$onlyintrons=="-oi"
+-f ${block.counting}
+#if $block.counting=="genes"	
+	-i ${block.include}
+	<!-- #if $block.counting$onlyintrons=="-oi"
 	-i "introns"
 	#elif $block.counting$introns=="-i"
 	-i "all"
 	#else
 	-i "exons"
-	#end if
+	#end if-->
 #end if
 
 </command>
@@ -125,15 +126,15 @@
             <option value="introns">Gene introns (separatelly)</option>
         </param>
             <when value="genes">   
-		<!-- <param name="include" type="select" label="Only includes reads overlaping:">
+		<param name="include" type="select" label="Only includes reads overlaping:">
             		<option value="exons" selected="true">any exon</option>
             		<option value="introns">any intron</option>
             		<option value="all">exon or intron (region from gene start to end)</option>
-        	</param> -->
-		<param name="introns" type="boolean" truevalue="-i" falsevalue="" help="include reads mapped to introns (but not exons)" />
-		<param name="onlyintrons" type="boolean" truevalue="-oi" falsevalue="" help="include ONLY reads mapped to introns" >
-			<filter>$block.counting$introns==True</filter>
-		</param>
+        	</param> 
+		<!--<param name="introns" type="boolean" truevalue="-i" falsevalue="" label="include reads mapped to introns (but not exons)" />
+		<when value="-i">
+			<param name="onlyintrons" type="boolean" truevalue="-oi" falsevalue="" label="include ONLY reads mapped to introns" />
+		</when>-->
             </when>
     </conditional>
     
