@@ -29,14 +29,15 @@ X=()
 
 index=4
 
+
 while [ $index -lt ${#args[@]} ]; do
   case "${args[$index]}" in 
-    "-e") OPTE="-e"
-	    ((index++));; 
-    "-i") OPTI="-i"
-	    ((index++));; 
-    "-t") OPTT="-t"
-	    ((index++));; 
+    "-f")  ((index++)) 
+	OPTF="-f ${args[$index]}"
+	((index++));; 
+    "-i")  ((index++)) 
+	OPTI="-i ${args[$index]}"
+	((index++));; 
     "-b") 
 	    ((index++))
         while [ $index -lt ${#args[@]} ] && [ ${args[$index]:0:1} != "-" ]; do
@@ -79,7 +80,7 @@ tmp2=$(mktemp)
 #echo treated: "${NAMEST[@]}" ${TREATEDP[@]} - ${TREATEDM[@]}
 #echo untreated: ${NAMESU[@]} ${UNTREATEDP[@]} - ${UNTREATEDM[@]}
 
-python ${DIR}/count_for_deseq_par_list.py $ANNOT -s $STRAND $OPTE $OPTI $OPTT -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n $NPROC -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1"  
+python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "$STRAND" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n $NPROC -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1"  
 read ret1 <"$tmp1"
 
 echo `date -u` "Finished counting reads"
