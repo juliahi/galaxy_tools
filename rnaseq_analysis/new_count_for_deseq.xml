@@ -1,9 +1,9 @@
-<tool id="count_for_deseq" name="Count reads" version="3.0">
+<tool id="new_count_for_deseq" name="Count reads (new version)" version="1.0">
 <requirements>
     <requirement type="python-module">pysam</requirement>
 </requirements>
 
-  <description>Counts paired-end reads mapped to genes or exons on specific strand (before DESeq)</description>
+<description>Counts paired-end reads mapped to genes/introns/exons on specific strand (before DESeq)</description>
   <command interpreter="bash"> 
 
 #if $bams.strand=="."
@@ -126,10 +126,10 @@
             <option value="introns">Gene introns (separatelly)</option>
         </param>
             <when value="genes">   
-		<param name="include" type="select" label="Only includes reads overlaping:">
+		<param name="include" type="select" label="Include only reads overlaping:">
             		<option value="exons" selected="true">any exon</option>
             		<option value="introns">any intron</option>
-            		<option value="all">exon or intron (region from gene start to end)</option>
+            		<option value="all">any exon or intron (region from gene start to end)</option>
         	</param> 
 		<!--<param name="introns" type="boolean" truevalue="-i" falsevalue="" label="include reads mapped to introns (but not exons)" />
 		<when value="-i">
