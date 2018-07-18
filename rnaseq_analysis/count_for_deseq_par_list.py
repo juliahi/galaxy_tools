@@ -43,6 +43,9 @@ def gen_genes(annotation, counttype, strand):
     for line in open(annotation, "r"):
         if line[0] == "#": continue
         g = line.strip().split('\t')
+        if len(g) < 8: 
+            print g
+            continue
         if g[2] != strand: continue
 
         exons = zip(map(int, [x for x in g[5].split(",") if x != '']), map(int, [x for x in g[6].split(",") if x != '']))

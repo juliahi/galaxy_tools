@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USAGE="Usage: $0 annotation output_file proc_num [-e|-i] -b treated_plus treated_minus [t_plus2 t_minus2 ...] -u untreated_plus untreated_minus [...]"
+USAGE="Usage: $0 annotation output_file proc_num -f transcript|genes|exons|introns [-i all|genes|introns] -b treated_plus treated_minus [t_plus2 t_minus2 ...]  "
 
 if [ "$#" == "0" ]; then
 	echo "$USAGE"
@@ -21,10 +21,8 @@ OPTI=""
 OPTT=""
 
 TREATEDP=()
-UNTREATEDP=()
 NAMEST=()
 TREATEDM=()
-UNTREATEDM=()
 NAMESN=()
 X=()
 
@@ -61,29 +59,6 @@ while [ $index -lt ${#args[@]} ]; do
 	    ((index++))
           X=(${X[@]} 1)
         done;;
-    "-u") 
-	    ((index++)) 
-        while [ $index -lt ${#args[@]} ] && [ ${args[$index]:0:1} != "-" ]; do
-          NAME="${args[$index]}"
-	    ((index++)) 
-          UNTREATEDP=(${UNTREATEDP[@]} "${NAME}")
-          IND="${args[$index]}"
-	    ((index++)) 
-          if [ ${IND} != "" ] && [ ! ${NAME}.bai ]; then
-             ln -s "${IND}" "${NAME}.bai"
-          fi 
-          NAME="${args[$index]}"
-	    ((index++)) 
-          UNTREATEDM=(${UNTREATEDM[@]} "${NAME}")
-          IND="${args[$index]}"
-	    ((index++)) 
-          if [ ${IND} != "" ] && [ ! ${NAME}.bai ]; then
-             ln -s "${IND}" "${NAME}.bai"
-          fi 
-          NAMESU=("${NAMESU[@]}" "${args[$index]}")
-	    ((index++)) 
-          X=(${X[@]} 0)
-        done;;
     *) >&2 echo "$USAGE"
        >&2 echo "$index ${args[$index]}"
        exit 1;;
@@ -97,16 +72,16 @@ tmp2=$(mktemp)
 #echo untreated: ${NAMESU[@]} ${UNTREATEDP[@]} - ${UNTREATEDM[@]}
 
 if [ $NPROC -gt 1 ] ; then
-        (python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "+" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1" ) &
+        (python ${DIR}/new_count_for_deseq_par_list.py $ANNOT -s "+" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" ; echo $? >"$tmp1" ) &
 	proc1=$!
 
-	(python ${DIR}/count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTF $OPTI -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} ${UNTREATEDM[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp2" ) &
+	(python ${DIR}/new_count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTF $OPTI -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} -n $(( NPROC / 2 )) -l "${NAMEST[@]}" ; echo $? >"$tmp2" ) &
 	proc2=$!
 	wait ${proc1} ${proc2}
 else 
-	(python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "+" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n 1 -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1" ) 
+	(python ${DIR}/new_count_for_deseq_par_list.py $ANNOT -s "+" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} -n 1 -l "${NAMEST[@]}" ; echo $? >"$tmp1" ) 
 	
-	(python ${DIR}/count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTF $OPTI -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} ${UNTREATEDM[@]} -n 1 -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp2" ) 
+	(python ${DIR}/new_count_for_deseq_par_list.py "$ANNOT" -s "-" $OPTF $OPTI -o "${OUTPUT1}.minus" -b ${TREATEDM[@]} -n 1 -l "${NAMEST[@]}" ; echo $? >"$tmp2" ) 
 fi
 
 read ret1 <"$tmp1"

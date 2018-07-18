@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USAGE="Usage: $0 annotation output_file proc_num strand [-e|-i] -b treated1.bam treated1.bai name1 [...] -u untreated1.bam untreated1.bai name1 [...]"
+USAGE="Usage: $0 annotation output_file proc_num strand -f transcripts|genes|exons|introns [-i all|exons|introns] -b treated1.bam treated1.bai name1 [...] -u untreated1.bam untreated1.bai name1 [...]"
 
 if [ "$#" == "0" ]; then
 	echo "$USAGE"
@@ -80,7 +80,7 @@ tmp2=$(mktemp)
 #echo treated: "${NAMEST[@]}" ${TREATEDP[@]} - ${TREATEDM[@]}
 #echo untreated: ${NAMESU[@]} ${UNTREATEDP[@]} - ${UNTREATEDM[@]}
 
-python ${DIR}/count_for_deseq_par_list.py $ANNOT -s "$STRAND" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n $NPROC -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1"  
+python ${DIR}/new_count_for_deseq_par_list.py $ANNOT -s "$STRAND" $OPTF $OPTI -o "${OUTPUT1}.plus" -b ${TREATEDP[@]} ${UNTREATEDP[@]} -n $NPROC -l "${NAMEST[@]}" "${NAMESU[@]}" ; echo $? >"$tmp1"  
 read ret1 <"$tmp1"
 
 echo `date -u` "Finished counting reads"

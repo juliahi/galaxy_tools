@@ -149,6 +149,12 @@ Returned file is sorted according to start points (for both strands first genes 
 
 -----
 
+IMPORTANT: Bug - counts all reads that span over a particular region, NOT only if some bases are mapped to that region (this is how pysam.fetch works).
+
+For other behaviour switch to Count reads (new).
+
+-----
+
 Author: Julia
   </help>
 
