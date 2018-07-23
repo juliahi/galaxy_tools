@@ -136,6 +136,16 @@ def read_annotation(annotation, counttype, strand):
                 names.append(name)
                 exons.append(Gene(gene.name, gene.chrom, gene.strand, ex[0], ex[1], [ex]))
         return exons, names
+    
+    if counttype[0] == "exonsnoagg":
+        exons = []
+        for gene in genes:
+            gene.exons = list(set(gene.exons))
+            for ex in sorted(list(gene.exons)):
+                name="%s_%s%s:%d-%d"%(gene.name, gene.chrom, gene.strand, ex[0], ex[1])
+                names.append(name)
+                exons.append(Gene(gene.name, gene.chrom, gene.strand, ex[0], ex[1], [ex]))
+        return exons, names
 
     if counttype[0] == "introns":
         introns = []
@@ -237,7 +247,7 @@ def main():
     # group2.add_argument('-t', action="store_true",
     #                help='all (begin-end)')
 
-    parser.add_argument('-f', '--feature', choices=('genes', 'transcripts', 'exons', 'introns'), required=True,
+    parser.add_argument('-f', '--feature', choices=('genes', 'transcripts', 'exons', 'introns', 'exonsnoagg'), required=True,
                         help='Output one value per gene/transcript/exon/intron')
     parser.add_argument('-i', '--include', choices=('all', 'exons', 'introns'), default='exons',
                         help='For genes count only reads mapped to exons/introns/both.  \

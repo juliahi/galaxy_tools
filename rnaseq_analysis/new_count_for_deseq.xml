@@ -123,7 +123,8 @@
         <param name="counting" type="select" label="Count hits for:">
             <option value="genes" selected="true">Genes (all transcripts of that gene aggregated)</option>
             <option value="transcripts">Transcripts</option>    
-            <option value="exons">Gene exons (separatelly)</option>
+            <option value="exonsnoagg">Gene exons (separatelly)</option>
+            <option value="exons">Gene exons (separatelly, aggregated when overlaping)</option>
             <option value="introns">Gene introns (separatelly)</option>
         </param>
             <when value="genes">   
